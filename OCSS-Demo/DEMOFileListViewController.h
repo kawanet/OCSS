@@ -1,5 +1,5 @@
 //
-//  DEMOAppDelegate.h
+//  DEMOFileListViewController.h
 //  OCSS-Demo
 //
 //  Created by Yusuke Kawasaki on 2013/10/01.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DEMOAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface DEMOFileListViewController : UITableViewController
 
 @end
