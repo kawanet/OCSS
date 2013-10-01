@@ -7,12 +7,14 @@
 //
 
 #import "OCHTMLNode.h"
+#import "OCDOMTokenList.h"
 
 @interface OCHTMLElement : OCHTMLNode
 
 @property (nonatomic) NSString* id;
 @property NSString* tagName;
 @property (nonatomic) NSString* className;
+@property (readonly) OCDOMTokenList* classList;
 @property (readonly) NSMutableDictionary *attributes;
 @property (nonatomic) NSString* innerText;
 @property (readonly) NSString* outerHTML;

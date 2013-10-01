@@ -44,6 +44,7 @@
 		1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */; };
 		1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */; };
 		1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323C17FA669200A3A58B /* OCSSRule.m */; };
+		1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,8 @@
 		1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLElement.m; sourceTree = "<group>"; };
 		1DF5323B17FA669100A3A58B /* OCSSRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSSRule.h; sourceTree = "<group>"; };
 		1DF5323C17FA669200A3A58B /* OCSSRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCSSRule.m; sourceTree = "<group>"; };
+		1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCDOMTokenList.m; sourceTree = "<group>"; };
+		1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDOMTokenList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 		1DF531EF17F9D43300A3A58B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */,
+				1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */,
 				1DF5321617F9D43300A3A58B /* OCHTMLDocument.h */,
 				1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */,
 				1DF5323817FA36EC00A3A58B /* OCHTMLElement.h */,
@@ -339,6 +344,7 @@
 				1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */,
 				1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */,
 				1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */,
+				1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

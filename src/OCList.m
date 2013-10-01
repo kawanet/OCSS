@@ -12,9 +12,15 @@
     NSMutableArray *_list;
 }
 
-- (NSMutableArray *) list {
+- (NSArray *) list {
     if (_list) return _list;
     return _list = [NSMutableArray new];
+}
+
+- (instancetype) initWithArray:(NSArray *)array {
+    self = self.init;
+    _list = [NSMutableArray arrayWithArray:array];
+    return self;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len {
@@ -34,7 +40,7 @@
     return bufferIndex;
 }
 
-- (id)objectAtIndexedSubscript: (NSUInteger)index {
+- (id) objectAtIndexedSubscript:(NSUInteger)index {
     return self.list[index];
 }
 

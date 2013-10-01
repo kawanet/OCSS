@@ -29,6 +29,10 @@
     [self setAttribute:@"class" withValue:value];
 }
 
+- (OCDOMTokenList *) classList {
+    return [[OCDOMTokenList alloc] initWithString:self.className];
+}
+
 - (NSMutableDictionary *) attributes {
     if (_attributes) return _attributes;
     return _attributes = [NSMutableDictionary new];

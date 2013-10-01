@@ -30,13 +30,14 @@
     OCHTMLElement *b = [css.document createElement:@"B"];
     a.innerText = @"foo";
     a.id = @"FOO";
-    a.className = @"hoge";
+    a.className = @"hoge pomu";
     [a appendChild:b];
     b.innerText = @"bar";
     b.id = @"BAR";
-    b.className = @"pomu";
+    b.className = @"fuga";
     NSLog(@"%@", a.outerHTML);
     NSLog(@"%@", a.innerText);
+    NSLog(@"%@", a.classList.list);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
