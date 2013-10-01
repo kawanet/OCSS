@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 #import "OCSSDeclaration.h"
 #import "OCSSSelectorList.h"
 #import "OCSSStyleDeclaration.h"
 
-@interface OCSSStyleRule : OCSSBaseRule
+@interface OCSSStyleRule : OCSSRule
 
 @property OCSSStyleDeclaration *declarations;
 @property OCSSSelectorList *selectors;

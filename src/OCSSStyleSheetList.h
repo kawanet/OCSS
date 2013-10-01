@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseList.h"
+#import "OCList.h"
 #import "OCSSStyleSheet.h"
 
-@interface OCSSStyleSheetList : OCSSBaseList
+@interface OCSSStyleSheetList : OCSSBaseCSSList
 
 - (void) addStyleSheet:(OCSSStyleSheet *) styleSheet;
 

@@ -26,8 +26,8 @@
     NSLog(@"count: %i", _list.count);
     
     OCSS *css = [OCSS new];
-    OHTMLElement *a = [css.document createElement:@"A"];
-    OHTMLElement *b = [css.document createElement:@"B"];
+    OCHTMLElement *a = [css.document createElement:@"A"];
+    OCHTMLElement *b = [css.document createElement:@"B"];
     a.innerText = @"foo";
     a.id = @"FOO";
     [a appendChild:b];

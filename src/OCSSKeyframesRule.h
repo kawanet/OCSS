@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 #import "OCSSRuleList.h"
 
-@interface OCSSKeyframesRule : OCSSBaseRule
+@interface OCSSKeyframesRule : OCSSRule
 
 @property NSString *name;
 @property OCSSRuleList *cssRules;

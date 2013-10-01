@@ -9,7 +9,7 @@
 #import "OCSS.h"
 
 @implementation OCSS {
-    OHTMLDocument *_document;
+    OCHTMLDocument *_document;
 }
 
 - (instancetype) initWithContentsOfURL:(NSURL *)url {
@@ -18,9 +18,9 @@
     return self;
 }
 
-- (OHTMLDocument *) document {
+- (OCHTMLDocument *) document {
     if (_document) return _document;
-    return _document = [OHTMLDocument new];
+    return _document = [OCHTMLDocument new];
 }
 
 - (void) addStyleSheetWithContentsOfURL:(NSURL *)url {

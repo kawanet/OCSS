@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseList.h"
+#import "OCList.h"
 #import "OCSSSelector.h"
 
-@interface OCSSSelectorList : OCSSBaseList
+@interface OCSSSelectorList : OCSSBaseCSSList
 
 - (void) addSelector:(OCSSSelector *)selector;
 

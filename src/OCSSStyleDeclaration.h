@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseList.h"
+#import "OCList.h"
 #import "OCSSDeclaration.h"
 
-@interface OCSSStyleDeclaration : OCSSBaseList
+@interface OCSSStyleDeclaration : OCSSBaseCSSList
 
 - (void) addDeclaration:(OCSSDeclaration *)declaration;
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 #import "OCSSStyleDeclaration.h"
 
-@interface OCSSPagesRule : OCSSBaseRule
+@interface OCSSPagesRule : OCSSRule
 
 @property NSString *selectorText;
 @property OCSSStyleDeclaration *style;

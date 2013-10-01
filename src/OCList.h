@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OCSSBaseList : NSObject <NSFastEnumeration>
-
+@interface OCList : NSObject <NSFastEnumeration>
 @property (readonly) NSMutableArray *list;
-@property (readonly) NSString *cssText;
 @property (readonly) NSUInteger length;
-
 - (id)objectAtIndexedSubscript: (NSUInteger)index;
+@end
 
+@interface OCSSBaseCSSList : OCList
+@property (readonly) NSString *cssText;
 @end

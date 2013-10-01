@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 #import "OCSSRuleList.h"
 
-@interface OCSSMediaRule : OCSSBaseRule
+@interface OCSSMediaRule : OCSSRule
 
 @property (readonly) NSString *cssText;
 @property OCSSRuleList *rules;

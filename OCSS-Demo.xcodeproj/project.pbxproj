@@ -21,8 +21,7 @@
 		1DF531AC17F9CFD200A3A58B /* DEMOStyleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531AB17F9CFD200A3A58B /* DEMOStyleListViewController.m */; };
 		1DF531EE17F9D40E00A3A58B /* sample in Resources */ = {isa = PBXBuildFile; fileRef = 1DF531ED17F9D40E00A3A58B /* sample */; };
 		1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F117F9D43300A3A58B /* OCSS.m */; };
-		1DF5321B17F9D43300A3A58B /* OCSSBaseMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F317F9D43300A3A58B /* OCSSBaseMap.m */; };
-		1DF5321C17F9D43300A3A58B /* OCSSBaseRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F517F9D43300A3A58B /* OCSSBaseRule.m */; };
+		1DF5321B17F9D43300A3A58B /* OCMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F317F9D43300A3A58B /* OCMap.m */; };
 		1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */; };
 		1DF5321E17F9D43300A3A58B /* OCSSDeclaration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F917F9D43300A3A58B /* OCSSDeclaration.m */; };
 		1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */; };
@@ -39,11 +38,12 @@
 		1DF5322A17F9D43300A3A58B /* OCSSStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321117F9D43300A3A58B /* OCSSStyleSheet.m */; };
 		1DF5322B17F9D43300A3A58B /* OCSSStyleSheetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321317F9D43300A3A58B /* OCSSStyleSheetList.m */; };
 		1DF5322C17F9D43300A3A58B /* OCSSValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321517F9D43300A3A58B /* OCSSValue.m */; };
-		1DF5322D17F9D43300A3A58B /* OHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321717F9D43300A3A58B /* OHTMLDocument.m */; };
-		1DF5322E17F9D43300A3A58B /* OLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321917F9D43300A3A58B /* OLocation.m */; };
-		1DF5323417F9D59E00A3A58B /* OCSSBaseList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323317F9D59B00A3A58B /* OCSSBaseList.m */; };
-		1DF5323717FA36CD00A3A58B /* OHTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323617FA36CD00A3A58B /* OHTMLNode.m */; };
-		1DF5323A17FA36ED00A3A58B /* OHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323917FA36ED00A3A58B /* OHTMLElement.m */; };
+		1DF5322D17F9D43300A3A58B /* OCHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */; };
+		1DF5322E17F9D43300A3A58B /* OCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321917F9D43300A3A58B /* OCLocation.m */; };
+		1DF5323417F9D59E00A3A58B /* OCList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323317F9D59B00A3A58B /* OCList.m */; };
+		1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */; };
+		1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */; };
+		1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323C17FA669200A3A58B /* OCSSRule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,10 +68,8 @@
 		1DF531ED17F9D40E00A3A58B /* sample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sample; sourceTree = "<group>"; };
 		1DF531F017F9D43300A3A58B /* OCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSS.h; sourceTree = "<group>"; };
 		1DF531F117F9D43300A3A58B /* OCSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSS.m; sourceTree = "<group>"; };
-		1DF531F217F9D43300A3A58B /* OCSSBaseMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSBaseMap.h; sourceTree = "<group>"; };
-		1DF531F317F9D43300A3A58B /* OCSSBaseMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSBaseMap.m; sourceTree = "<group>"; };
-		1DF531F417F9D43300A3A58B /* OCSSBaseRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSBaseRule.h; sourceTree = "<group>"; };
-		1DF531F517F9D43300A3A58B /* OCSSBaseRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSBaseRule.m; sourceTree = "<group>"; };
+		1DF531F217F9D43300A3A58B /* OCMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMap.h; sourceTree = "<group>"; };
+		1DF531F317F9D43300A3A58B /* OCMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMap.m; sourceTree = "<group>"; };
 		1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSCharsetRule.h; sourceTree = "<group>"; };
 		1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSCharsetRule.m; sourceTree = "<group>"; };
 		1DF531F817F9D43300A3A58B /* OCSSDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSDeclaration.h; sourceTree = "<group>"; };
@@ -104,16 +102,18 @@
 		1DF5321317F9D43300A3A58B /* OCSSStyleSheetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSStyleSheetList.m; sourceTree = "<group>"; };
 		1DF5321417F9D43300A3A58B /* OCSSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSValue.h; sourceTree = "<group>"; };
 		1DF5321517F9D43300A3A58B /* OCSSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSValue.m; sourceTree = "<group>"; };
-		1DF5321617F9D43300A3A58B /* OHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHTMLDocument.h; sourceTree = "<group>"; };
-		1DF5321717F9D43300A3A58B /* OHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHTMLDocument.m; sourceTree = "<group>"; };
-		1DF5321817F9D43300A3A58B /* OLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLocation.h; sourceTree = "<group>"; };
-		1DF5321917F9D43300A3A58B /* OLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLocation.m; sourceTree = "<group>"; };
-		1DF5323217F9D59B00A3A58B /* OCSSBaseList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSSBaseList.h; sourceTree = "<group>"; };
-		1DF5323317F9D59B00A3A58B /* OCSSBaseList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCSSBaseList.m; sourceTree = "<group>"; };
-		1DF5323517FA36CD00A3A58B /* OHTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHTMLNode.h; sourceTree = "<group>"; };
-		1DF5323617FA36CD00A3A58B /* OHTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHTMLNode.m; sourceTree = "<group>"; };
-		1DF5323817FA36EC00A3A58B /* OHTMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHTMLElement.h; sourceTree = "<group>"; };
-		1DF5323917FA36ED00A3A58B /* OHTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHTMLElement.m; sourceTree = "<group>"; };
+		1DF5321617F9D43300A3A58B /* OCHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLDocument.h; sourceTree = "<group>"; };
+		1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLDocument.m; sourceTree = "<group>"; };
+		1DF5321817F9D43300A3A58B /* OCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLocation.h; sourceTree = "<group>"; };
+		1DF5321917F9D43300A3A58B /* OCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLocation.m; sourceTree = "<group>"; };
+		1DF5323217F9D59B00A3A58B /* OCList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCList.h; sourceTree = "<group>"; };
+		1DF5323317F9D59B00A3A58B /* OCList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCList.m; sourceTree = "<group>"; };
+		1DF5323517FA36CD00A3A58B /* OCHTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLNode.h; sourceTree = "<group>"; };
+		1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLNode.m; sourceTree = "<group>"; };
+		1DF5323817FA36EC00A3A58B /* OCHTMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLElement.h; sourceTree = "<group>"; };
+		1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLElement.m; sourceTree = "<group>"; };
+		1DF5323B17FA669100A3A58B /* OCSSRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSSRule.h; sourceTree = "<group>"; };
+		1DF5323C17FA669200A3A58B /* OCSSRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCSSRule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,16 +193,16 @@
 			children = (
 				1DF531F017F9D43300A3A58B /* OCSS.h */,
 				1DF531F117F9D43300A3A58B /* OCSS.m */,
-				1DF5323217F9D59B00A3A58B /* OCSSBaseList.h */,
-				1DF5323317F9D59B00A3A58B /* OCSSBaseList.m */,
-				1DF531F217F9D43300A3A58B /* OCSSBaseMap.h */,
-				1DF531F317F9D43300A3A58B /* OCSSBaseMap.m */,
-				1DF531F417F9D43300A3A58B /* OCSSBaseRule.h */,
-				1DF531F517F9D43300A3A58B /* OCSSBaseRule.m */,
+				1DF5323217F9D59B00A3A58B /* OCList.h */,
+				1DF5323317F9D59B00A3A58B /* OCList.m */,
+				1DF531F217F9D43300A3A58B /* OCMap.h */,
+				1DF531F317F9D43300A3A58B /* OCMap.m */,
 				1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */,
 				1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */,
 				1DF531F817F9D43300A3A58B /* OCSSDeclaration.h */,
 				1DF531F917F9D43300A3A58B /* OCSSDeclaration.m */,
+				1DF5323B17FA669100A3A58B /* OCSSRule.h */,
+				1DF5323C17FA669200A3A58B /* OCSSRule.m */,
 				1DF531FA17F9D43300A3A58B /* OCSSImportRule.h */,
 				1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */,
 				1DF531FC17F9D43300A3A58B /* OCSSKeyframesRule.h */,
@@ -231,14 +231,14 @@
 				1DF5321317F9D43300A3A58B /* OCSSStyleSheetList.m */,
 				1DF5321417F9D43300A3A58B /* OCSSValue.h */,
 				1DF5321517F9D43300A3A58B /* OCSSValue.m */,
-				1DF5321617F9D43300A3A58B /* OHTMLDocument.h */,
-				1DF5321717F9D43300A3A58B /* OHTMLDocument.m */,
-				1DF5323517FA36CD00A3A58B /* OHTMLNode.h */,
-				1DF5323617FA36CD00A3A58B /* OHTMLNode.m */,
-				1DF5323817FA36EC00A3A58B /* OHTMLElement.h */,
-				1DF5323917FA36ED00A3A58B /* OHTMLElement.m */,
-				1DF5321817F9D43300A3A58B /* OLocation.h */,
-				1DF5321917F9D43300A3A58B /* OLocation.m */,
+				1DF5321617F9D43300A3A58B /* OCHTMLDocument.h */,
+				1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */,
+				1DF5323517FA36CD00A3A58B /* OCHTMLNode.h */,
+				1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */,
+				1DF5323817FA36EC00A3A58B /* OCHTMLElement.h */,
+				1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */,
+				1DF5321817F9D43300A3A58B /* OCLocation.h */,
+				1DF5321917F9D43300A3A58B /* OCLocation.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -316,8 +316,7 @@
 				1DF531A917F9CEA000A3A58B /* DEMOFileListViewController.m in Sources */,
 				1DF531AC17F9CFD200A3A58B /* DEMOStyleListViewController.m in Sources */,
 				1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */,
-				1DF5321B17F9D43300A3A58B /* OCSSBaseMap.m in Sources */,
-				1DF5321C17F9D43300A3A58B /* OCSSBaseRule.m in Sources */,
+				1DF5321B17F9D43300A3A58B /* OCMap.m in Sources */,
 				1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */,
 				1DF5321E17F9D43300A3A58B /* OCSSDeclaration.m in Sources */,
 				1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */,
@@ -334,11 +333,12 @@
 				1DF5322A17F9D43300A3A58B /* OCSSStyleSheet.m in Sources */,
 				1DF5322B17F9D43300A3A58B /* OCSSStyleSheetList.m in Sources */,
 				1DF5322C17F9D43300A3A58B /* OCSSValue.m in Sources */,
-				1DF5322D17F9D43300A3A58B /* OHTMLDocument.m in Sources */,
-				1DF5322E17F9D43300A3A58B /* OLocation.m in Sources */,
-				1DF5323417F9D59E00A3A58B /* OCSSBaseList.m in Sources */,
-				1DF5323717FA36CD00A3A58B /* OHTMLNode.m in Sources */,
-				1DF5323A17FA36ED00A3A58B /* OHTMLElement.m in Sources */,
+				1DF5322D17F9D43300A3A58B /* OCHTMLDocument.m in Sources */,
+				1DF5322E17F9D43300A3A58B /* OCLocation.m in Sources */,
+				1DF5323417F9D59E00A3A58B /* OCList.m in Sources */,
+				1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */,
+				1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */,
+				1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,20 +6,21 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OHTMLNode.h"
+#import "OCHTMLNode.h"
 
-@interface OHTMLElement : OHTMLNode
+@interface OCHTMLElement : OCHTMLNode
 
 @property (nonatomic) NSString* id;
 @property NSString* tagName;
+@property NSString* className;
 @property (readonly) NSMutableDictionary *attributes;
 @property (nonatomic) NSString* innerText;
 @property (readonly) NSString* outerHTML;
 @property (readonly) NSString* innerHTML;
 
 - (NSString *)getAttribute:(NSString*)name;
-- (OHTMLAttr *)getAttributeNode:(NSString*)name;
-- (void)setAttributeNode:(OHTMLAttr*)newAttr;
+- (OCHTMLAttr *)getAttributeNode:(NSString*)name;
+- (void)setAttributeNode:(OCHTMLAttr*)newAttr;
 - (void)setAttribute:(NSString*)name, ...;
 - (void)setAttribute:(NSString*)name withValue:(NSString*)value;
     

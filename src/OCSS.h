@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "OCSSBaseMap.h"
-#import "OCSSBaseRule.h"
+#import "OCMap.h"
+#import "OCSSRule.h"
 #import "OCSSCharsetRule.h"
 #import "OCSSDeclaration.h"
 #import "OCSSStyleDeclaration.h"
-#import "OHTMLDocument.h"
+#import "OCHTMLDocument.h"
 #import "OCSSKeyframesRule.h"
-#import "OLocation.h"
+#import "OCLocation.h"
 #import "OCSSMedia.h"
 #import "OCSSMediaRule.h"
 #import "OCSSPagesRule.h"
@@ -30,7 +30,7 @@
 
 @interface OCSS : NSObject
 
-@property (readonly) OHTMLDocument *document;
+@property (readonly) OCHTMLDocument *document;
 
 - (instancetype) initWithContentsOfURL:(NSURL *)url;
 - (void) addStyleSheetWithContentsOfURL:(NSURL *)url;

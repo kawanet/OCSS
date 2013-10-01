@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OHTMLElement.h"
-#import "OHTMLDocument.h"
+#import "OCHTMLElement.h"
+#import "OCHTMLDocument.h"
 
-@implementation OHTMLElement {
+@implementation OCHTMLElement {
     NSMutableDictionary *_attributes;
 }
 
@@ -27,15 +27,15 @@
 }
 
 - (NSString *)getAttribute:(NSString*)name {
-    OHTMLAttr *attr = [self getAttributeNode:name];
+    OCHTMLAttr *attr = [self getAttributeNode:name];
     return attr.value;
 }
 
-- (OHTMLAttr*)getAttributeNode:(NSString*)name {
+- (OCHTMLAttr*)getAttributeNode:(NSString*)name {
     return self.attributes[name];
 }
 
-- (void)setAttributeNode:(OHTMLAttr*)newAttr {
+- (void)setAttributeNode:(OCHTMLAttr*)newAttr {
     self.attributes[newAttr.name] = newAttr;
 }
 
@@ -49,11 +49,11 @@
 }
 
 - (void)setAttribute:(NSString*)name withValue:(NSString*)value {
-    OHTMLAttr *node;
+    OCHTMLAttr *node;
     if (self.ownerDocument) {
         node = [self.ownerDocument createAttribute:name];
     } else {
-        node = [OHTMLAttr new];
+        node = [OCHTMLAttr new];
         node.name = name;
     }
     node.value = value;
@@ -64,7 +64,7 @@
     NSString *lower = self.tagName.lowercaseString;
     NSString *inner = self.innerHTML;
     NSMutableArray *array = [NSMutableArray new];
-    for(OHTMLAttr *attr in self.attributes.allValues) {
+    for(OCHTMLAttr *attr in self.attributes.allValues) {
         NSString *pair;
         if (attr.value) {
             pair = [NSString stringWithFormat:@"%@=\"%@\"", attr.name, attr.value];
@@ -83,12 +83,12 @@
 
 - (NSString *)innerHTML {
     NSMutableArray *array = [NSMutableArray new];
-    for(OHTMLNode *node in self.childNodes) {
+    for(OCHTMLNode *node in self.childNodes) {
         NSString *str;
-        if ([node isKindOfClass:[OHTMLElement class]]) {
-            str = ((OHTMLElement *)node).outerHTML;
-        } else if ([node isKindOfClass:[OHTMLTextNode class]]) {
-            str = ((OHTMLTextNode *)node).data;
+        if ([node isKindOfClass:[OCHTMLElement class]]) {
+            str = ((OCHTMLElement *)node).outerHTML;
+        } else if ([node isKindOfClass:[OCHTMLTextNode class]]) {
+            str = ((OCHTMLTextNode *)node).data;
         }
         if (str) [array addObject:str];
     }
@@ -97,12 +97,12 @@
 
 - (NSString *)innerText {
     NSMutableArray *array = [NSMutableArray new];
-    for(OHTMLNode *node in self.childNodes) {
+    for(OCHTMLNode *node in self.childNodes) {
         NSString *str;
-        if ([node isKindOfClass:[OHTMLElement class]]) {
-            str = ((OHTMLElement *)node).innerText;
-        } else if ([node isKindOfClass:[OHTMLTextNode class]]) {
-            str = ((OHTMLTextNode *)node).data;
+        if ([node isKindOfClass:[OCHTMLElement class]]) {
+            str = ((OCHTMLElement *)node).innerText;
+        } else if ([node isKindOfClass:[OCHTMLTextNode class]]) {
+            str = ((OCHTMLTextNode *)node).data;
         }
         if (str) [array addObject:str];
     }
@@ -110,11 +110,11 @@
 }
 
 - (void)setInnerText:(NSString *)text {
-    OHTMLTextNode *node;
+    OCHTMLTextNode *node;
     if (self.ownerDocument) {
         node = [self.ownerDocument createTextNode:text];
     } else {
-        node = [OHTMLTextNode new];
+        node = [OCHTMLTextNode new];
         node.data = text;
     }
     [self.childNodes.list removeAllObjects];

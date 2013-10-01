@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseList.h"
+#import "OCList.h"
 
-@implementation OCSSBaseList {
+@implementation OCList {
     NSMutableArray *_list;
 }
 
@@ -34,6 +34,18 @@
     return bufferIndex;
 }
 
+- (id)objectAtIndexedSubscript: (NSUInteger)index {
+    return self.list[index];
+}
+
+- (NSUInteger) length {
+    return self.list.count;
+}
+
+@end
+
+@implementation OCSSBaseCSSList
+
 - (NSString *)cssText {
     NSMutableArray *array = NSMutableArray.new;
     for(id rule in self.list) {
@@ -46,14 +58,6 @@
         }
     }
     return [array componentsJoinedByString:@""];
-}
-
-- (id)objectAtIndexedSubscript: (NSUInteger)index {
-    return self.list[index];
-}
-
-- (NSUInteger) length {
-    return self.list.count;
 }
 
 @end

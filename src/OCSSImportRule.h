@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 #import "OCSSStyleSheet.h"
 
-@interface OCSSImportRule : OCSSBaseRule
+@interface OCSSImportRule : OCSSRule
 
 @property NSString *href;
 @property OCSSStyleSheet *styleSheet;

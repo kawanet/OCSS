@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseList.h"
+#import "OCList.h"
 
-@class OCSSBaseRule;
+@class OCSSRule;
 
-@interface OCSSRuleList : OCSSBaseList
+@interface OCSSRuleList : OCSSBaseCSSList
 
 - (void) addRule:(id)rule;
 

@@ -1,13 +1,15 @@
 //
-//  CSSBaseRule.m
+//  OCSSRule.h
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import <Foundation/Foundation.h>
 
-@implementation OCSSBaseRule
+@interface OCSSRule : NSObject
+
+@property NSString *type;
 
 @end

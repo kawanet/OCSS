@@ -1,13 +1,15 @@
 //
-//  CSSLocation.m
+//  CSSLocation.h
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/30.
 //  Copyright (c) 2013年 Kawanet. All rights reserved.
 //
 
-#import "OLocation.h"
+#import <Foundation/Foundation.h>
 
-@implementation OLocation
+@interface OCLocation : NSObject
+
+@property NSURL* url;
 
 @end

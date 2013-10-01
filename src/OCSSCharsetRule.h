@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseRule.h"
+#import "OCSSRule.h"
 
-@interface OCSSCharsetRule : OCSSBaseRule
+@interface OCSSCharsetRule : OCSSRule
 
 @property NSString *encoding;
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSBaseMap.h"
+#import "OCMap.h"
 #import "OCSSValue.h"
 
-@interface OCSSDeclaration : OCSSBaseMap
+@interface OCSSDeclaration : OCMap
 
 @property NSString *property;
 @property OCSSValue *value;

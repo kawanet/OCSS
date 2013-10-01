@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OHTMLDocument.h"
+#import "OCHTMLDocument.h"
 
-@implementation OHTMLDocumentFragment
+@implementation OCHTMLDocumentFragment
 @end
 
-@implementation OHTMLDocument {
-    OHTMLElement *_body;
+@implementation OCHTMLDocument {
+    OCHTMLElement *_body;
 }
 
-- (OHTMLElement *)body {
+- (OCHTMLElement *)body {
     if (_body) return _body;
     // TODO: _body = [self getElementByTagName:@"BODY"];
     _body = [self createElement:@"BODY"];
@@ -32,41 +32,41 @@
     [self.styleSheets addStyleSheet:styleSheet];
 }
 
-- (OHTMLElement*)createElement:(NSString*)tagName {
-    OHTMLElement *element = [[OHTMLElement alloc] init];
+- (OCHTMLElement*)createElement:(NSString*)tagName {
+    OCHTMLElement *element = [[OCHTMLElement alloc] init];
     element.ownerDocument = self;
     element.tagName = tagName;
     return element;
 }
 
-- (OHTMLDocumentFragment*)createDocumentFragment {
-    OHTMLDocumentFragment *node = [[OHTMLDocumentFragment alloc] init];
+- (OCHTMLDocumentFragment*)createDocumentFragment {
+    OCHTMLDocumentFragment *node = [[OCHTMLDocumentFragment alloc] init];
     node.ownerDocument = self;
     return node;
 }
 
-- (OHTMLTextNode*)createTextNode:(NSString*)data {
-    OHTMLTextNode *node = [[OHTMLTextNode alloc] init];
-    node.ownerDocument = self;
-    node.data = data;
-    return node;
-}
-
-- (OHTMLCommentNode*)createComment:(NSString*)data {
-    OHTMLCommentNode *node = [[OHTMLCommentNode alloc] init];
+- (OCHTMLTextNode*)createTextNode:(NSString*)data {
+    OCHTMLTextNode *node = [[OCHTMLTextNode alloc] init];
     node.ownerDocument = self;
     node.data = data;
     return node;
 }
 
-- (OHTMLCDATASection*)createCDATASection:(NSString*)data {
-    OHTMLCDATASection *node = [[OHTMLCDATASection alloc] init];
+- (OCHTMLCommentNode*)createComment:(NSString*)data {
+    OCHTMLCommentNode *node = [[OCHTMLCommentNode alloc] init];
+    node.ownerDocument = self;
+    node.data = data;
+    return node;
+}
+
+- (OCHTMLCDATASection*)createCDATASection:(NSString*)data {
+    OCHTMLCDATASection *node = [[OCHTMLCDATASection alloc] init];
     node.ownerDocument = self;
     return node;
 }
 
-- (OHTMLAttr*)createAttribute:(NSString*)name {
-    OHTMLAttr *node = [[OHTMLAttr alloc] init];
+- (OCHTMLAttr*)createAttribute:(NSString*)name {
+    OCHTMLAttr *node = [[OCHTMLAttr alloc] init];
     node.ownerDocument = self;
     node.name = name;
     return node;
