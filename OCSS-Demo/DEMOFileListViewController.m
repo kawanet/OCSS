@@ -24,6 +24,17 @@
     
     _list = @[@"cssreset.css", @"bootstrap.css"];
     NSLog(@"count: %i", _list.count);
+    
+    OCSS *css = [OCSS new];
+    OHTMLElement *a = [css.document createElement:@"A"];
+    OHTMLElement *b = [css.document createElement:@"B"];
+    a.innerText = @"foo";
+    a.id = @"FOO";
+    [a appendChild:b];
+    b.innerText = @"bar";
+    b.id = @"BAR";
+    NSLog(@"%@", a.outerHTML);
+    NSLog(@"%@", a.innerText);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

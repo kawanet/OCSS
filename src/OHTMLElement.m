@@ -13,6 +13,14 @@
     NSMutableDictionary *_attributes;
 }
 
+- (NSString *) id {
+    return [self getAttribute:@"id"];
+}
+
+- (void) setId:(NSString*)value {
+    [self setAttribute:@"id" withValue:value];
+}
+
 - (NSMutableDictionary *) attributes {
     if (_attributes) return _attributes;
     return _attributes = [NSMutableDictionary new];
@@ -31,10 +39,46 @@
     self.attributes[newAttr.name] = newAttr;
 }
 
+- (void)setAttribute:(NSString*)name, ... {
+    va_list arguments;
+    va_start(arguments, name);
+    NSString* value = name;
+    value = va_arg(arguments, typeof(NSString*));
+    va_end(arguments);
+    [self setAttribute:name withValue:value];
+}
+
+- (void)setAttribute:(NSString*)name withValue:(NSString*)value {
+    OHTMLAttr *node;
+    if (self.ownerDocument) {
+        node = [self.ownerDocument createAttribute:name];
+    } else {
+        node = [OHTMLAttr new];
+        node.name = name;
+    }
+    node.value = value;
+    [self setAttributeNode:node];
+}
+
 - (NSString *)outerHTML {
     NSString *lower = self.tagName.lowercaseString;
     NSString *inner = self.innerHTML;
-    return [NSString stringWithFormat:@"<%@>%@</%@>", lower, inner, lower];
+    NSMutableArray *array = [NSMutableArray new];
+    for(OHTMLAttr *attr in self.attributes.allValues) {
+        NSString *pair;
+        if (attr.value) {
+            pair = [NSString stringWithFormat:@"%@=\"%@\"", attr.name, attr.value];
+        } else {
+            pair = attr.name;
+        }
+        [array addObject:pair];
+    }
+    NSString *attr = @"";
+    if (array.count) {
+        attr = [array componentsJoinedByString:@" "];
+        attr = [@" " stringByAppendingString:attr];
+    }
+    return [NSString stringWithFormat:@"<%@%@>%@</%@>", lower, attr, inner, lower];
 }
 
 - (NSString *)innerHTML {
