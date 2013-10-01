@@ -12,7 +12,14 @@
 
 - (instancetype) initWithString:(NSString*)source {
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    NSArray *array = [source componentsSeparatedByCharactersInSet:set];
+    NSArray *split = [source componentsSeparatedByCharactersInSet:set];
+    
+    // skip empty field
+    NSMutableArray *array = [NSMutableArray new];
+    for(NSString *str in split) {
+        if (str.length) [array addObject:str];
+    }
+    
     self = [self initWithArray:array];
     return self;
 }
