@@ -34,7 +34,7 @@
     
     OCSSRuleList *rules = [self rules];
     
-    NSLog(@"parseForStyleSheet: %i / %i\n%@", _cursor, _length, [_source substringFromIndex:_cursor]);
+    // NSLog(@"parseForStyleSheet: %i / %i\n%@", _cursor, _length, [_source substringFromIndex:_cursor]);
     
     stylesheet.cssRules = rules;
 }
@@ -160,7 +160,6 @@
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^/\\*.*?\\*/\\s*" options:NSRegularExpressionDotMatchesLineSeparators error:&error];
     NSString *str = [self match:regex];
-    if (str) // NSLog(@"%@", str);
     if (str) [self comments]; // loop
     return nil;
 }
@@ -170,11 +169,18 @@
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([^\\{\\}]+)" options:0 error:&error];
     NSString *matched = [self match:regex];
-    matched = [self trim:matched];
+
     OCSSSelectorList *selectors = OCSSSelectorList.new;
-    OCSSSelector *selector = OCSSSelector.new;
-    selector.selector = matched;
-    [selectors addSelector:selector];
+
+    NSString *str1;
+    for(str1 in [matched componentsSeparatedByString:@","]) {
+        str1 = [self trim:str1];
+        if (!str1.length) continue;
+        OCSSSelector *selector = OCSSSelector.new;
+        selector.selector = str1;
+        [selectors addSelector:selector];
+    }
+    
     return selectors;
 }
 

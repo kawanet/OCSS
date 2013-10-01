@@ -1,5 +1,5 @@
 //
-//  CSS.h
+//  OCSS.h
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/30.
@@ -34,5 +34,6 @@
 
 - (instancetype) initWithContentsOfURL:(NSURL *)url;
 - (void) addStyleSheetWithContentsOfURL:(NSURL *)url;
+- (OCSSStyleDeclaration *) getComputedStyleForSelector:(NSString *)selector;
 
 @end

@@ -25,7 +25,11 @@
     _list = @[@"cssreset.css", @"bootstrap.css"];
     NSLog(@"count: %i", _list.count);
     
-    OCSS *css = [OCSS new];
+    // OCSS *css = [OCSS new];
+    NSURL *url = NSBundle.mainBundle.bundleURL;
+    url = [url URLByAppendingPathComponent:@"sample/cssreset.css"];
+
+    OCSS *css = [[OCSS alloc] initWithContentsOfURL:url];
     OCHTMLElement *a = [css.document createElement:@"A"];
     OCHTMLElement *b = [css.document createElement:@"B"];
     a.innerText = @"foo";
@@ -38,6 +42,9 @@
     NSLog(@"%@", a.outerHTML);
     NSLog(@"%@", a.innerText);
     NSLog(@"%@", a.classList.list);
+    
+    OCSSStyleDeclaration *style = [css getComputedStyleForSelector:@"h5"];
+    // NSLog(@"%@", ((OCSSStyleSheet*)css.document.styleSheets[0]).cssText);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
