@@ -11,11 +11,7 @@
 @implementation OCSSSelectorList
 
 - (void) addSelector:(OCSSSelector *)selector {
-    if (self.list) {
-        self.list = [self.list arrayByAddingObject:selector];
-    } else {
-        self.list = [NSArray arrayWithObject:selector];
-    }
+    [self.list addObject:selector];
 }
 
 @end

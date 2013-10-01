@@ -11,11 +11,7 @@
 @implementation OCSSStyleSheetList
 
 - (void) addStyleSheet:(OCSSStyleSheet *) styleSheet {
-    if (self.list) {
-        self.list = [self.list arrayByAddingObject:styleSheet];
-    } else {
-        self.list = [NSArray arrayWithObject:styleSheet];
-    }
+    [self.list addObject:styleSheet];
 }
 
 @end

@@ -11,7 +11,7 @@
 @implementation OCSSKeyframesRule
 
 - (NSString *)cssText {
-    NSString *text = [NSString stringWithFormat:@"@keyframes %@ {\n%@}\n", self.name, self.rules.cssText];
+    NSString *text = [NSString stringWithFormat:@"@keyframes %@ {\n%@}\n", self.name, self.cssRules.cssText];
     return text;
 }
 

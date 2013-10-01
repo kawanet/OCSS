@@ -13,7 +13,7 @@
 
 @interface OCSSStyleSheet : OCSSBaseMap
 
-@property OCSSRuleList *rules;
+@property OCSSRuleList *cssRules;
 @property (weak) OHTMLDocument *parentDocument;
 @property NSURL* href;
 @property (readonly) NSString *cssText;

@@ -8,7 +8,14 @@
 
 #import "OCSSBaseList.h"
 
-@implementation OCSSBaseList
+@implementation OCSSBaseList {
+    NSMutableArray *_list;
+}
+
+- (NSMutableArray *) list {
+    if (_list) return _list;
+    return _list = [NSMutableArray new];
+}
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len {
     NSUInteger bufferIndex = 0;
@@ -43,6 +50,10 @@
 
 - (id)objectAtIndexedSubscript: (NSUInteger)index {
     return self.list[index];
+}
+
+- (NSUInteger) length {
+    return self.list.count;
 }
 
 @end

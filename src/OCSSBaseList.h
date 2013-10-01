@@ -10,8 +10,9 @@
 
 @interface OCSSBaseList : NSObject <NSFastEnumeration>
 
-@property NSArray *list;
+@property (readonly) NSMutableArray *list;
 @property (readonly) NSString *cssText;
+@property (readonly) NSUInteger length;
 
 - (id)objectAtIndexedSubscript: (NSUInteger)index;
 

@@ -11,10 +11,7 @@
 @implementation OCSSStyleDeclaration
 
 - (void) addDeclaration:(OCSSDeclaration *)declaration {
-    if (!self.list) {
-        self.list = NSArray.new;
-    }
-    self.list = [self.list arrayByAddingObject:declaration];
+    [self.list addObject:declaration];
 }
 
 @end

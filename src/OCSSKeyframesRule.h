@@ -12,6 +12,6 @@
 @interface OCSSKeyframesRule : OCSSBaseRule
 
 @property NSString *name;
-@property OCSSRuleList *rules;
+@property OCSSRuleList *cssRules;
 
 @end

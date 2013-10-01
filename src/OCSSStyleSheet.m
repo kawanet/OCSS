@@ -19,7 +19,7 @@
 }
 
 - (NSString *)cssText {
-    return self.rules.cssText;
+    return self.cssRules.cssText;
 }
 
 @end

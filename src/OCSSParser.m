@@ -32,7 +32,7 @@
     [self whitespace];
     
     OCSSRuleList *rules = [self rules];
-    stylesheet.rules = rules;
+    stylesheet.cssRules = rules;
 }
 
 - (OCSSMediaRule*) atmedia {
@@ -94,7 +94,7 @@
     
     OCSSKeyframesRule *keyframes = OCSSKeyframesRule.new;
     keyframes.name = astr;
-    keyframes.rules = rules;
+    keyframes.cssRules = rules;
     return keyframes;
 }
 

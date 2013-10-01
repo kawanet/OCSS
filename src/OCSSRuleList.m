@@ -13,11 +13,7 @@
 @implementation OCSSRuleList
 
 - (void) addRule:(id)rule {
-    if (self.list) {
-        self.list = [self.list arrayByAddingObject:rule];
-    } else {
-        self.list = [NSArray arrayWithObject:rule];
-    }
+    [self.list addObject:rule];
 }
 
 @end

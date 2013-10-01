@@ -20,7 +20,7 @@
 
 - (OHTMLDocument *) document {
     if (_document) return _document;
-    return _document = OHTMLDocument.new;
+    return _document = [OHTMLDocument new];
 }
 
 - (void) addStyleSheetWithContentsOfURL:(NSURL *)url {

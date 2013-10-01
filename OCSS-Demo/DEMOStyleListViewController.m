@@ -28,7 +28,7 @@
     NSMutableArray *array = NSMutableArray.new;
     
     for(OCSSStyleSheet *styleSheet in css.document.styleSheets) {
-        for(OCSSStyleRule *rule in styleSheet.rules) {
+        for(OCSSStyleRule *rule in styleSheet.cssRules) {
             if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
             [array addObject:rule];
         }
