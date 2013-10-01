@@ -11,6 +11,7 @@
 
 @implementation OCHTMLElement {
     NSMutableDictionary *_attributes;
+    OCDOMTokenList *_classList;
 }
 
 - (NSString *) id {
@@ -23,14 +24,18 @@
 
 - (NSString *) className {
     return [self getAttribute:@"class"];
+    // return [self.classList toString];
 }
 
 - (void) setClassName:(NSString*)value {
     [self setAttribute:@"class" withValue:value];
+    // _classList = [[OCDOMTokenList alloc] initWithString:self.className];
 }
 
 - (OCDOMTokenList *) classList {
     return [[OCDOMTokenList alloc] initWithString:self.className];
+    // if (_classList) return _classList;
+    // return [[OCDOMTokenList alloc] init];
 }
 
 - (NSMutableDictionary *) attributes {
@@ -44,11 +49,13 @@
 }
 
 - (OCHTMLAttr*)getAttributeNode:(NSString*)name {
+    name = name.lowercaseString;
     return self.attributes[name];
 }
 
 - (void)setAttributeNode:(OCHTMLAttr*)newAttr {
-    self.attributes[newAttr.name] = newAttr;
+    NSString *name = newAttr.name.lowercaseString;
+    self.attributes[name] = newAttr;
 }
 
 - (void)setAttribute:(NSString*)name, ... {

@@ -16,6 +16,7 @@
 #import "OCSSImportRule.h"
 #import "OCSSPagesRule.h"
 #import "OCSSKeyframesRule.h"
+#import "OCSSFontFaceRule.h"
 
 @implementation OCSSParser {
     NSString *_source;
@@ -32,6 +33,9 @@
     [self whitespace];
     
     OCSSRuleList *rules = [self rules];
+    
+    NSLog(@"parseForStyleSheet: %i / %i\n%@", _cursor, _length, [_source substringFromIndex:_cursor]);
+    
     stylesheet.cssRules = rules;
 }
 
@@ -107,6 +111,12 @@
     return pages;
 }
 
+- (OCSSFontFaceRule*) atfontface {
+    OCSSFontFaceRule *atrule = OCSSFontFaceRule.new;
+    atrule.style = [self declarations];
+    return atrule;
+}
+
 - (NSString *) atargument {
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([^\\;\\{]+)" options:0 error:&error];
@@ -138,6 +148,9 @@
     } else if([astr isEqualToString:@"@page"]) {
         OCSSPagesRule *pages = [self atpages];
         if (pages) return pages;
+    } else if([astr isEqualToString:@"@font-face"]) {
+        OCSSFontFaceRule *fontface = [self atfontface];
+        if (fontface) return fontface;
     }
     
     return nil;
@@ -270,12 +283,15 @@
     while((decl = [self declaration])) {
         found = YES;
         [decls addDeclaration:decl];
+        [self comments];
     }
     if (!found) return nil;
     
+    [self comments];
     if (![self close]) {
         // NSLog(@"missing '}'");
     }
+    [self comments];
     
     return decls;
 }

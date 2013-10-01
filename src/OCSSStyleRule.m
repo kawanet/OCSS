@@ -34,6 +34,10 @@
 - (NSString *) selectorText {
     NSMutableArray *array = NSMutableArray.new;
     for(OCSSSelector *selector in self.selectors) {
+        if (!selector.selector) {
+            NSLog(@"!!! %@ !!!", self.declarations.cssText);
+        }
+        if (!selector.selector) continue;
         [array addObject:selector.selector];
     }
     NSString *text = [array componentsJoinedByString:@", "];

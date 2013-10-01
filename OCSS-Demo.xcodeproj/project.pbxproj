@@ -45,6 +45,7 @@
 		1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */; };
 		1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323C17FA669200A3A58B /* OCSSRule.m */; };
 		1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */; };
+		1DF5324617FA90E900A3A58B /* OCSSFontFaceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		1DF5323C17FA669200A3A58B /* OCSSRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCSSRule.m; sourceTree = "<group>"; };
 		1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCDOMTokenList.m; sourceTree = "<group>"; };
 		1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDOMTokenList.h; sourceTree = "<group>"; };
+		1DF5324417FA90E500A3A58B /* OCSSFontFaceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSFontFaceRule.h; sourceTree = "<group>"; };
+		1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSFontFaceRule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +221,8 @@
 				1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */,
 				1DF531FC17F9D43300A3A58B /* OCSSKeyframesRule.h */,
 				1DF531FD17F9D43300A3A58B /* OCSSKeyframesRule.m */,
+				1DF5324417FA90E500A3A58B /* OCSSFontFaceRule.h */,
+				1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */,
 				1DF531FE17F9D43300A3A58B /* OCSSMedia.h */,
 				1DF531FF17F9D43300A3A58B /* OCSSMedia.m */,
 				1DF5320017F9D43300A3A58B /* OCSSMediaRule.h */,
@@ -345,6 +350,7 @@
 				1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */,
 				1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */,
 				1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */,
+				1DF5324617FA90E900A3A58B /* OCSSFontFaceRule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

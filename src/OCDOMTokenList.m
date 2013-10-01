@@ -31,4 +31,8 @@
     return NO;
 }
 
+- (NSString *) toString {
+    return [self.list componentsJoinedByString:@" "];
+}
+
 @end

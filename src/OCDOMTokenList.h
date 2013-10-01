@@ -12,5 +12,6 @@
 
 - (instancetype) initWithString:(NSString*)source;
 - (BOOL) contains:(NSString*)token;
+- (NSString *) toString;
 
 @end
