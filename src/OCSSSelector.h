@@ -1,5 +1,5 @@
 //
-//  AISelector.h
+//  OCSSSelector.h
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -7,9 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCHTMLelement.h"
+
+@interface OCSSSpecificity : NSObject
+@property NSUInteger specificityStyle;
+@property NSUInteger specificityID;
+@property NSUInteger specificityClassName;
+@property NSUInteger specificityTagName;
+@end
 
 @interface OCSSSelector : NSObject
-
 @property NSString *selector;
-
+@property (readonly) NSArray *parts;
+- (BOOL) isSelectedForElement:(OCHTMLElement*)element;
 @end

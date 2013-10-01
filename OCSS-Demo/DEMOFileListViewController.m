@@ -27,7 +27,8 @@
     
     // OCSS *css = [OCSS new];
     NSURL *url = NSBundle.mainBundle.bundleURL;
-    url = [url URLByAppendingPathComponent:@"sample/cssreset.css"];
+    url = [url URLByAppendingPathComponent:@"sample"];
+    url = [url URLByAppendingPathComponent:_list[0]];
 
     OCSS *css = [[OCSS alloc] initWithContentsOfURL:url];
     OCHTMLElement *a = [css.document createElement:@"A"];
@@ -44,7 +45,7 @@
     NSLog(@"%@", a.classList.list);
     
     OCSSStyleDeclaration *style = [css getComputedStyleForSelector:@"h5"];
-    // NSLog(@"%@", ((OCSSStyleSheet*)css.document.styleSheets[0]).cssText);
+    NSLog(@"cssText: %@", style.cssText);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
