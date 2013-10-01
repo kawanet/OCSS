@@ -12,7 +12,7 @@
 
 @property (nonatomic) NSString* id;
 @property NSString* tagName;
-@property NSString* className;
+@property (nonatomic) NSString* className;
 @property (readonly) NSMutableDictionary *attributes;
 @property (nonatomic) NSString* innerText;
 @property (readonly) NSString* outerHTML;

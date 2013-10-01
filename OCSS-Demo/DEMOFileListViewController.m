@@ -30,9 +30,11 @@
     OCHTMLElement *b = [css.document createElement:@"B"];
     a.innerText = @"foo";
     a.id = @"FOO";
+    a.className = @"hoge";
     [a appendChild:b];
     b.innerText = @"bar";
     b.id = @"BAR";
+    b.className = @"pomu";
     NSLog(@"%@", a.outerHTML);
     NSLog(@"%@", a.innerText);
 }

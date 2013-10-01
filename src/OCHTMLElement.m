@@ -21,6 +21,14 @@
     [self setAttribute:@"id" withValue:value];
 }
 
+- (NSString *) className {
+    return [self getAttribute:@"class"];
+}
+
+- (void) setClassName:(NSString*)value {
+    [self setAttribute:@"class" withValue:value];
+}
+
 - (NSMutableDictionary *) attributes {
     if (_attributes) return _attributes;
     return _attributes = [NSMutableDictionary new];
