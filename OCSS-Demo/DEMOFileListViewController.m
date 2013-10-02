@@ -16,6 +16,7 @@
 
 @implementation DEMOFileListViewController {
     NSArray *_list;
+    NSIndexPath *_currentPath;
 }
 
 - (void)viewDidLoad
@@ -69,17 +70,25 @@
                                             otherButtonTitles:@"OK", nil];
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alertView show];
-    UITextField *textField = [alertView textFieldAtIndex:0];
-    textField.text = @"http://";
+    // UITextField *textField = [alertView textFieldAtIndex:0];
+    // textField.text = @"http://";
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
         UITextField *textField = [alertView textFieldAtIndex:0];
         if (textField.text.length > 7) {
+            _currentPath = [NSIndexPath indexPathForRow:_list.count inSection:0];
             _list = [_list arrayByAddingObject:textField.text];
             [self.tableView reloadData];
         }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (_currentPath) {
+        [self tableView:self.tableView didSelectRowAtIndexPath:_currentPath];
+        _currentPath = nil;
     }
 }
 
