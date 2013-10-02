@@ -13,6 +13,7 @@
 @implementation OCSSStyleDeclaration
 
 - (void) addDeclaration:(OCXDeclaration *)declaration {
+    declaration.parentStyleDeclaration = self;
     [self.list addObject:declaration];
 }
 
@@ -20,6 +21,7 @@
     NSString *name = ((NSString *)key).lowercaseString;
     OCXDeclaration *hit;
     for(OCXDeclaration *decl in self.list) {
+        // return last definition
         if ([name isEqualToString:decl.property]) hit = decl;
     }
     return hit.value.cssText;

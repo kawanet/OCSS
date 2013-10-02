@@ -25,7 +25,7 @@
         return NSOrderedAscending;
     } else {
         return NSOrderedSame;
-    }  
+    }
 }
 
 @end
@@ -93,7 +93,7 @@
     if (!self.styleSheets) {
         self.styleSheets = [OCStyleSheetList new];
     }
-
+    
     [self.styleSheets addStyleSheet:styleSheet];
 }
 
@@ -195,12 +195,14 @@
     
     OCSSStyleDeclaration *style = [OCSSStyleDeclaration new];
     if (!array.count) return style;
-
+    
     NSArray *sorted = [array sortedArrayUsingSelector:@selector(compareSpecificity:) ];
     
     for(OCStyleHit *hit in sorted) {
         for(OCXDeclaration *decl in hit.declarations) {
+            OCSSStyleDeclaration *parent = decl.parentStyleDeclaration;
             [style addDeclaration:decl];
+            decl.parentStyleDeclaration = parent; // restore
         }
     }
     

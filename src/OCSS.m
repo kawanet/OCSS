@@ -27,6 +27,7 @@
     NSString *source = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     
     OCSSStyleSheet *styleSheet = [[OCSSStyleSheet alloc] initWithString:source];
+    styleSheet.href = url.absoluteString;
     
     [self.document addStyleSheet:styleSheet];
 }

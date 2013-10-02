@@ -11,11 +11,13 @@
 @class OCHTMLDocument;
 @class OCMediaList;
 @class OCSSRuleList;
+@class OCSSStyleSheet;
 
 @interface OCStyleSheet : NSObject
 
-@property NSURL* href;
+@property NSString* href;
 @property OCMediaList* media;
+@property (weak) OCSSStyleSheet *parentStyleSheet;
 
 @end
 
@@ -35,7 +37,7 @@
 
 @interface OCSSStyleSheet : OCStyleSheet
 
-@property OCSSRuleList *cssRules;
+@property (nonatomic) OCSSRuleList *cssRules;
 @property (readonly) NSString *cssText;
 
 - (instancetype) initWithString:(NSString *)source;

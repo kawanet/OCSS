@@ -47,18 +47,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"styleListView"];
+    DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMOStyleListViewController"];
     
     NSString *path = _list[indexPath.row];
-    NSLog(@"%@", path);
     NSURL *url = NSBundle.mainBundle.bundleURL;
     url = [url URLByAppendingPathComponent:@"sample/"];
     url = [NSURL URLWithString:path relativeToURL:url];
-    NSLog(@"%@", url.absoluteString);
-    NSLog(@"%i", [vc isKindOfClass:[DEMOStyleListViewController class]]);
     
     vc.url = url;
-    
+
     [self.navigationController pushViewController:vc animated:YES];
 }
 

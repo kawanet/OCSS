@@ -13,7 +13,19 @@
 @implementation OCStyleSheet
 @end
 
-@implementation OCSSStyleSheet
+@implementation OCSSStyleSheet {
+    OCSSRuleList *_cssRules;
+}
+
+- (OCSSRuleList *)cssRules {
+    if (_cssRules) return _cssRules;
+    return _cssRules = [OCSSRuleList new];
+}
+
+- (void) cssRules:(OCSSRuleList *)cssRules {
+    cssRules.parentStyleSheet = self;
+    _cssRules = cssRules;
+}
 
 - (instancetype) initWithString:(NSString *)source {
     self = self.init;

@@ -12,6 +12,5 @@
 @interface DEMOStyleListViewController : UITableViewController
 
 @property NSURL* url;
-@property OCSS* css;
 
 @end

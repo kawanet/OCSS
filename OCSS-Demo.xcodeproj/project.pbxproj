@@ -10,6 +10,7 @@
 		1D5EE76217FBE89300F15BAA /* OCSSPrimitiveValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE76117FBE89300F15BAA /* OCSSPrimitiveValue.m */; };
 		1D5EE76517FBEF8400F15BAA /* OCMediaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE76417FBEF8400F15BAA /* OCMediaList.m */; };
 		1D5EE76717FBF69C00F15BAA /* OCSSStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE76617FBF69C00F15BAA /* OCSSStyleSheet.m */; };
+		1D5EE76B17FC59F900F15BAA /* DEMODeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE76A17FC59F900F15BAA /* DEMODeclarationViewController.m */; };
 		1DF5318517F9CB2D00A3A58B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5318417F9CB2D00A3A58B /* UIKit.framework */; };
 		1DF5318717F9CB2D00A3A58B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5318617F9CB2D00A3A58B /* Foundation.framework */; };
 		1DF5318917F9CB2D00A3A58B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5318817F9CB2D00A3A58B /* CoreGraphics.framework */; };
@@ -56,6 +57,8 @@
 		1D5EE76417FBEF8400F15BAA /* OCMediaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMediaList.m; sourceTree = "<group>"; };
 		1D5EE76617FBF69C00F15BAA /* OCSSStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSStyleSheet.m; sourceTree = "<group>"; };
 		1D5EE76817FC1C1300F15BAA /* OCX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCX.h; sourceTree = "<group>"; };
+		1D5EE76917FC59F900F15BAA /* DEMODeclarationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMODeclarationViewController.h; sourceTree = "<group>"; };
+		1D5EE76A17FC59F900F15BAA /* DEMODeclarationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMODeclarationViewController.m; sourceTree = "<group>"; };
 		1DF5318117F9CB2D00A3A58B /* OCSS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCSS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5318417F9CB2D00A3A58B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1DF5318617F9CB2D00A3A58B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -174,10 +177,12 @@
 				1DF5319317F9CB2D00A3A58B /* DEMOAppDelegate.h */,
 				1DF5319417F9CB2D00A3A58B /* DEMOAppDelegate.m */,
 				1DF5319C17F9CB2D00A3A58B /* MainStoryboard.storyboard */,
-				1DF531AA17F9CFD200A3A58B /* DEMOStyleListViewController.h */,
-				1DF531AB17F9CFD200A3A58B /* DEMOStyleListViewController.m */,
 				1DF531A717F9CEA000A3A58B /* DEMOFileListViewController.h */,
 				1DF531A817F9CEA000A3A58B /* DEMOFileListViewController.m */,
+				1DF531AA17F9CFD200A3A58B /* DEMOStyleListViewController.h */,
+				1DF531AB17F9CFD200A3A58B /* DEMOStyleListViewController.m */,
+				1D5EE76917FC59F900F15BAA /* DEMODeclarationViewController.h */,
+				1D5EE76A17FC59F900F15BAA /* DEMODeclarationViewController.m */,
 				1DF531ED17F9D40E00A3A58B /* sample */,
 				1DF5318B17F9CB2D00A3A58B /* Supporting Files */,
 			);
@@ -359,6 +364,7 @@
 				1D5EE76217FBE89300F15BAA /* OCSSPrimitiveValue.m in Sources */,
 				1D5EE76517FBEF8400F15BAA /* OCMediaList.m in Sources */,
 				1D5EE76717FBF69C00F15BAA /* OCSSStyleSheet.m in Sources */,
+				1D5EE76B17FC59F900F15BAA /* DEMODeclarationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

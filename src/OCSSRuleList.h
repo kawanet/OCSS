@@ -9,11 +9,12 @@
 #import "OCXList.h"
 
 @class OCSSRule;
+@class OCSSStyleSheet;
 
 @interface OCSSRuleList : OCXListCSS
-
-- (void) addRule:(id)rule;
-
+@property (weak) OCSSRule *parentRule;
+@property (weak) OCSSStyleSheet *parentStyleSheet;
+- (void) addRule:(OCSSRule*)rule;
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html

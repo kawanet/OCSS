@@ -7,6 +7,7 @@
 //
 
 #import "DEMOStyleListViewController.h"
+#import "DEMODeclarationViewController.h"
 
 @interface DEMOStyleListViewController ()
 
@@ -14,26 +15,35 @@
 
 @implementation DEMOStyleListViewController {
     NSArray *_list;
+    OCSS *_css;
 }
+
+static NSMutableDictionary *_cache;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     NSString *path = self.url.absoluteURL.lastPathComponent;
     self.navigationItem.title = path;
-
-    OCSS* css = [[OCSS alloc] initWithContentsOfURL:self.url];
-
+    
+    if (!_cache) _cache = NSMutableDictionary.new;
+    _css = _cache[self.url.absoluteString];
+    if (!_css) {
+        _css = [[OCSS alloc] initWithContentsOfURL:self.url];
+        _cache[self.url.absoluteString] = _css;
+    }
+    
     NSMutableArray *array = NSMutableArray.new;
     
-    for(OCSSStyleSheet *styleSheet in css.document.styleSheets) {
+    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
         for(OCSSStyleRule *rule in styleSheet.cssRules) {
             if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
             [array addObject:rule];
         }
     }
-    _list = array;  
+    
+    _list = array;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -43,7 +53,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count: %i", _list.count);
     return _list.count;
 }
 
@@ -55,10 +64,21 @@
     OCSSStyleRule *rule = _list[indexPath.row];
     cell.textLabel.text = rule.selectorText;
     cell.detailTextLabel.text = rule.style.cssText;
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
+    
+    vc.css = _css;
+    OCSSStyleRule *rule = _list[indexPath.row];
+    vc.selector = rule.selectorText;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "OCSSRuleList.h"
+#import "OCSS.h"
 
 @implementation OCSSRuleList
 
-- (void) addRule:(id)rule {
+- (void) addRule:(OCSSRule *)rule {
+    rule.parentStyleSheet = self.parentStyleSheet;
+    rule.parentRule = self.parentRule;
     [self.list addObject:rule];
 }
 

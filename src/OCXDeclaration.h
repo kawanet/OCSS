@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class OCSSPrimitiveValue;
+@class OCSSStyleDeclaration;
 
 @interface OCXDeclaration : NSObject
 
 @property (nonatomic) NSString *property;
 @property OCSSPrimitiveValue *value;
 @property (readonly) NSString *cssText;
+@property (weak) OCSSStyleDeclaration *parentStyleDeclaration;
 
 @end

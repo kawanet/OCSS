@@ -275,7 +275,7 @@
     
     [self comments];
     OCXDeclaration *decl;
-    OCSSStyleDeclaration *decls = OCSSStyleDeclaration.new;
+    OCSSStyleDeclaration *decls = [OCSSStyleDeclaration new];
     
     BOOL found = NO;
     while((decl = [self declaration])) {

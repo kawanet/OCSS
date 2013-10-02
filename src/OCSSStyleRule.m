@@ -10,7 +10,19 @@
 #import "OCSS.h"
 #import "OCX.h"
 
-@implementation OCSSStyleRule
+@implementation OCSSStyleRule {
+    OCSSStyleDeclaration *_style;
+}
+
+- (OCSSStyleDeclaration *)style {
+    if (_style) return _style;
+    return _style = [OCSSStyleDeclaration new];
+}
+
+- (void) setStyle:(OCSSStyleDeclaration *)style {
+    style.parentRule = self;
+    _style = style;
+}
 
 - (OCXDeclaration *) declarationForProperty:(NSString *)property {
     OCXDeclaration *match;

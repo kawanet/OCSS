@@ -8,10 +8,12 @@
 
 #import "OCXList.h"
 
+@class OCSSRule;
 @class OCXDeclaration;
 
 @interface OCSSStyleDeclaration : OCXListCSS
 
+@property (weak) OCSSRule *parentRule;
 - (void) addDeclaration:(OCXDeclaration *)declaration;
 - (id) objectForKeyedSubscript:(id)key;
 
