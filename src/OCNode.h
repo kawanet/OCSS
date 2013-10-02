@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OCXList.h"
-@class OCHTMLDocument;
+@class OCDocument;
 
 @interface OCNodeList : OCXList
 @end
@@ -25,7 +25,7 @@
 @interface OCNode : NSObject
 @property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;
-@property (weak) OCHTMLDocument *ownerDocument;
+@property (weak) OCDocument *ownerDocument;
 - (OCNode *) appendChild:(OCNode*)newChild;
 @end
 

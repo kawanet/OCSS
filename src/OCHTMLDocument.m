@@ -7,29 +7,20 @@
 //
 
 #import "OCHTMLDocument.h"
+#import "OCSSStyleRule.h"
 
-@implementation OCHTMLDocumentFragment
+@interface OCStyleHit : NSObject
+@property OCXSelector *selector;
+@property OCSSStyleDeclaration *declarations;
 @end
 
-@implementation OCHTMLDocument {
-    OCHTMLElement *_body;
-}
+@implementation OCStyleHit
+@end
 
-- (OCHTMLElement *)body {
-    if (_body) return _body;
-    // TODO: _body = [self getElementByTagName:@"BODY"];
-    _body = [self createElement:@"BODY"];
-    [self appendChild:_body];
-    return _body;
-}
+@implementation OCDocumentFragment
+@end
 
-- (void) addStyleSheet:(OCSSStyleSheet*)styleSheet {
-    if (!self.styleSheets) {
-        self.styleSheets = [OCStyleSheetList new];
-    }
-
-    [self.styleSheets addStyleSheet:styleSheet];
-}
+@implementation OCDocument
 
 - (OCHTMLElement*)createElement:(NSString*)tagName {
     OCHTMLElement *element = [[OCHTMLElement alloc] init];
@@ -38,8 +29,8 @@
     return element;
 }
 
-- (OCHTMLDocumentFragment*)createDocumentFragment {
-    OCHTMLDocumentFragment *node = [[OCHTMLDocumentFragment alloc] init];
+- (OCDocumentFragment*)createDocumentFragment {
+    OCDocumentFragment *node = [[OCDocumentFragment alloc] init];
     node.ownerDocument = self;
     return node;
 }
@@ -69,6 +60,60 @@
     node.ownerDocument = self;
     node.name = name;
     return node;
+}
+
+@end
+
+@implementation OCHTMLDocument {
+    OCHTMLElement *_body;
+}
+
+- (OCHTMLElement *)body {
+    if (_body) return _body;
+    // TODO: _body = [self getElementByTagName:@"BODY"];
+    _body = [self createElement:@"BODY"];
+    [self appendChild:_body];
+    return _body;
+}
+
+- (void) addStyleSheet:(OCSSStyleSheet*)styleSheet {
+    if (!self.styleSheets) {
+        self.styleSheets = [OCStyleSheetList new];
+    }
+
+    [self.styleSheets addStyleSheet:styleSheet];
+}
+
+- (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element {
+    NSMutableArray *array = NSMutableArray.new;
+    
+    for(OCSSStyleSheet *styleSheet in self.styleSheets) {
+        for(OCSSStyleRule *rule in styleSheet.cssRules) {
+            if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
+            // NSLog(@"%@", rule.selectorText);
+            for(OCXSelector *selector in rule.selectors) {
+                if (![selector isSelectedForElement:element]) continue;
+                OCStyleHit *hit = [OCStyleHit new];
+                hit.selector = selector;
+                hit.declarations = rule.style;
+                [array addObject:hit];
+                // NSLog(@"%@", rule.cssText);
+            }
+        }
+    }
+    
+    OCSSStyleDeclaration *style = [OCSSStyleDeclaration new];
+    if (!array.count) return style;
+    
+    for(OCStyleHit *hit in array) {
+        for(OCXDeclaration *decl in hit.declarations) {
+            [style addDeclaration:decl];
+        }
+    }
+    
+    // NSLog(@"%@", style.cssText);
+    
+    return style;
 }
 
 @end

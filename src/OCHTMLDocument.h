@@ -11,25 +11,18 @@
 #import "OCSSStyleSheet.h"
 #import "OCStyleSheetList.h"
 #import "OCLocation.h"
+#import "OCSSStyleDeclaration.h"
 
-@interface OCHTMLDocumentFragment : OCNode
+@interface OCDocumentFragment : OCNode
 @end
 
-@interface OCHTMLDocument : OCNode
-
-@property OCStyleSheetList *styleSheets;
-@property OCLocation *location;
-@property (readonly) OCHTMLElement *body;
-
-- (void) addStyleSheet:(OCSSStyleSheet *)styleSheet;
-
+@interface OCDocument : OCNode
 - (OCHTMLElement*)createElement:(NSString*)tagName;
-- (OCHTMLDocumentFragment*)createDocumentFragment;
+- (OCDocumentFragment*)createDocumentFragment;
 - (OCText*)createTextNode:(NSString*)data;
 - (OCComment*)createComment:(NSString*)data;
 - (OCCDATASection*)createCDATASection:(NSString*)data;
 - (OCAttr*)createAttribute:(NSString*)name;
-
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Core/idl-definitions.html
@@ -55,6 +48,14 @@
  Element                getElementById(in DOMString elementId);
  };
  */
+
+@interface OCHTMLDocument : OCDocument
+@property OCStyleSheetList *styleSheets;
+@property OCLocation *location;
+@property (readonly) OCHTMLElement *body;
+- (void) addStyleSheet:(OCSSStyleSheet *)styleSheet;
+- (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element;
+@end
 
 // http://www.w3.org/TR/DOM-Level-2-HTML/idl-definitions.html
 
