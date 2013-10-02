@@ -23,33 +23,6 @@
     [super viewDidLoad];
     
     _list = @[@"cssreset.css", @"bootstrap.css"];
-    NSLog(@"count: %i", _list.count);
-    
-    // OCSS *css = [OCSS new];
-    NSURL *url = NSBundle.mainBundle.bundleURL;
-    url = [url URLByAppendingPathComponent:@"sample"];
-    url = [url URLByAppendingPathComponent:_list[0]];
-
-    OCSS *css = [[OCSS alloc] initWithContentsOfURL:url];
-    
-    OCSSStyleSheet *styleSheet = css.document.styleSheets[0];
-    NSLog(@"cssText: %@", styleSheet.cssText);
-    
-    OCHTMLElement *a = [css.document createElement:@"A"];
-    OCHTMLElement *b = [css.document createElement:@"B"];
-    a.innerText = @"foo";
-    a.id = @"FOO";
-    a.className = @"hoge pomu";
-    [a appendChild:b];
-    b.innerText = @"bar";
-    b.id = @"BAR";
-    b.className = @"fuga";
-    NSLog(@"%@", a.outerHTML);
-    NSLog(@"%@", a.innerText);
-
-    OCSSStyleDeclaration *style = [css getComputedStyleForSelector:@"h5"];
-    NSLog(@"cssText: %@", style.cssText);
-    NSLog(@"font-size: %@", style[@"font-size"]);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -59,7 +32,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count: %i", _list.count);
     return _list.count;
 }
 

@@ -1,5 +1,5 @@
 //
-//  OCSSSelector.h
+//  OCXSelector.h
 //  OCSS
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -10,15 +10,9 @@
 
 @class OCHTMLElement;
 
-@interface OCXSpecificity : NSObject
-@property NSUInteger specificityStyle;
-@property NSUInteger specificityID;
-@property NSUInteger specificityClassName;
-@property NSUInteger specificityTagName;
-@end
-
 @interface OCXSelector : NSObject
 @property NSString *selector;
 @property (readonly) NSArray *parts;
+@property (readonly) NSUInteger specificity;
 - (BOOL) isSelectedForElement:(OCHTMLElement*)element;
 @end

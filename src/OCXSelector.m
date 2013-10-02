@@ -1,5 +1,5 @@
 //
-//  OCSSSelector.m
+//  OCXSelector.m
 //  OCSS
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -10,8 +10,51 @@
 #import "OCSS.h"
 #import "OCX.h"
 
+enum {
+    OCXSelectorSpecificityStyle   = 1000000000,
+    OCXSelectorSpecificityID      =   10000000,
+    OCXSelectorSpecificityAttr    =     100000,
+    OCXSelectorSpecificityTagName =       1000,
+};
+
 @implementation OCXSelector{
     NSArray *_parts;
+    NSUInteger _specificity;
+}
+
+- (NSUInteger) specificity {
+    if (_specificity) return _specificity;
+    
+    NSUInteger score = 0;
+    for(OCXSelectorPart *part in self.parts) {
+        switch (part.type) {
+            case OCSSSelectorUniversal:           // '*'  *
+            case OCSSSelectorDescendant:          // ' '  E F
+                // skip
+                break;
+                
+            case OCSSSelectorType:                // 'E'  E
+            case OCSSSelectorChild:               // '>'  E > F
+            case OCSSSelectorAdjacent:            // '+'  E + F
+                score += OCXSelectorSpecificityTagName;
+                break;
+
+            case OCSSSelectorPseudoClass:         // ':'  :pseudo
+            case OCSSSelectorAttributeExists:     // '['  [foo]
+            case OCSSSelectorAttributeIsEqual:    // '='  [foo="warning"]
+            case OCSSSelectorAttributeIncludes:   // '~'  [foo~="warning"]
+            case OCSSSelectorAttributeBeginWith:  // '|'  [lang|="en"]
+            case OCSSSelectorClass:               // '.'  .class
+                score += OCXSelectorSpecificityAttr;
+                break;
+
+            case OCSSSelectorID:                  // '#'  #id
+                score += OCXSelectorSpecificityID;
+                break;
+        }
+    }
+    
+    return _specificity = score;
 }
 
 - (NSArray *)parts {

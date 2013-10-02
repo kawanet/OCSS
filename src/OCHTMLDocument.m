@@ -13,9 +13,21 @@
 @interface OCStyleHit : NSObject
 @property OCXSelector *selector;
 @property OCSSStyleDeclaration *declarations;
+@property NSUInteger specificity;
 @end
 
 @implementation OCStyleHit
+
+- (NSComparisonResult) compareSpecificity:(OCStyleHit*)hit {
+    if (self.specificity > hit.specificity) {
+        return NSOrderedDescending;
+    } else if (self.specificity < hit.specificity) {
+        return NSOrderedAscending;
+    } else {
+        return NSOrderedSame;
+    }  
+}
+
 @end
 
 @implementation OCDocumentFragment
@@ -156,7 +168,7 @@
         }
     }
     
-    NSLog(@"getComputedStyleForSelector: %@", root.outerHTML);
+    // NSLog(@"getComputedStyleForSelector: %@", root.outerHTML);
     
     return node;
 }
@@ -164,31 +176,33 @@
 - (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element {
     NSMutableArray *array = NSMutableArray.new;
     
+    NSUInteger counter = 0;
     for(OCSSStyleSheet *styleSheet in self.styleSheets) {
         for(OCSSStyleRule *rule in styleSheet.cssRules) {
             if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
-            // NSLog(@"%@", rule.selectorText);
             for(OCXSelector *selector in rule.selectors) {
                 if (![selector isSelectedForElement:element]) continue;
                 OCStyleHit *hit = [OCStyleHit new];
                 hit.selector = selector;
+                hit.specificity = selector.specificity + counter;
+                counter ++;
                 hit.declarations = rule.style;
                 [array addObject:hit];
-                // NSLog(@"%@", rule.cssText);
+                // NSLog(@"hit: %@", rule.cssText);
             }
         }
     }
     
     OCSSStyleDeclaration *style = [OCSSStyleDeclaration new];
     if (!array.count) return style;
+
+    NSArray *sorted = [array sortedArrayUsingSelector:@selector(compareSpecificity:) ];
     
-    for(OCStyleHit *hit in array) {
+    for(OCStyleHit *hit in sorted) {
         for(OCXDeclaration *decl in hit.declarations) {
             [style addDeclaration:decl];
         }
     }
-    
-    // NSLog(@"%@", style.cssText);
     
     return style;
 }
