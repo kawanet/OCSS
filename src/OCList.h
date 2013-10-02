@@ -17,4 +17,5 @@
 
 @interface OCListCSS : OCList
 @property (readonly) NSString *cssText;
+@property (readonly) NSString *delimiter;
 @end

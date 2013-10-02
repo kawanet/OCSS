@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSStyleSheetList.h"
+#import "OCStyleSheetList.h"
 
-@implementation OCSSStyleSheetList
+@implementation OCStyleSheetList
 
 - (void) addStyleSheet:(OCSSStyleSheet *) styleSheet {
     [self.list addObject:styleSheet];

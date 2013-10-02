@@ -7,7 +7,7 @@
 //
 
 #import "OCSSRule.h"
-#import "OCSSDeclaration.h"
+#import "OCDeclaration.h"
 #import "OCSSSelectorList.h"
 #import "OCSSStyleDeclaration.h"
 
@@ -15,9 +15,15 @@
 
 @property OCSSStyleDeclaration *declarations;
 @property OCSSSelectorList *selectors;
-@property (readonly) NSString *cssText;
 @property (readonly) NSString *selectorText;
 
-- (OCSSDeclaration *) declarationForProperty:(NSString *)property;
+- (OCDeclaration *) declarationForProperty:(NSString *)property;
 
 @end
+
+/*
+ interface CSSStyleRule : CSSRule {
+ attribute DOMString                        selectorText; // raises(dom::DOMException) on setting
+ readonly attribute CSSStyleDeclaration     style;
+ };
+ */

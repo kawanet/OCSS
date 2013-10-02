@@ -10,4 +10,31 @@
 
 @implementation OCSSRule
 
+- (NSString *)cssText {
+    return nil; // not implemented
+}
+
+@end
+
+/*
+ interface CSSRule {
+ 
+ // RuleType
+ const unsigned short      UNKNOWN_RULE                   = 0;
+ const unsigned short      STYLE_RULE                     = 1;
+ const unsigned short      CHARSET_RULE                   = 2;
+ const unsigned short      IMPORT_RULE                    = 3;
+ const unsigned short      MEDIA_RULE                     = 4;
+ const unsigned short      FONT_FACE_RULE                 = 5;
+ const unsigned short      PAGE_RULE                      = 6;
+ 
+ readonly attribute unsigned short  type;
+ attribute DOMString                cssText; // raises(dom::DOMException) on setting
+ readonly attribute CSSStyleSheet   parentStyleSheet;
+ readonly attribute CSSRule         parentRule;
+ };
+ */
+
+@implementation OCSSUnknownRule
+
 @end

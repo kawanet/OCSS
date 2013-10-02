@@ -1,5 +1,5 @@
 //
-//  CSSDeclarationList.m
+//  OCSSStyleDeclaration.m
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/30.
@@ -10,17 +10,21 @@
 
 @implementation OCSSStyleDeclaration
 
-- (void) addDeclaration:(OCSSDeclaration *)declaration {
+- (void) addDeclaration:(OCDeclaration *)declaration {
     [self.list addObject:declaration];
 }
 
 - (id)objectForKeyedSubscript:(id)key {
     NSString *name = ((NSString *)key).lowercaseString;
-    OCSSDeclaration *hit;
-    for(OCSSDeclaration *decl in self.list) {
+    OCDeclaration *hit;
+    for(OCDeclaration *decl in self.list) {
         if ([name isEqualToString:decl.property]) hit = decl;
     }
-    return hit.value.value;
+    return hit.value.cssText;
+}
+
+- (NSString *) delimiter {
+    return @" ";
 }
 
 @end

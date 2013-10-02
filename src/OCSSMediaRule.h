@@ -8,11 +8,20 @@
 
 #import "OCSSRule.h"
 #import "OCSSRuleList.h"
+#import "OCMediaList.h"
 
 @interface OCSSMediaRule : OCSSRule
 
-@property (readonly) NSString *cssText;
-@property OCSSRuleList *rules;
-@property NSString *media;
+@property OCSSRuleList *cssRules;
+@property OCMediaList *media;
 
 @end
+
+/*
+ interface CSSMediaRule : CSSRule {
+ readonly attribute stylesheets::MediaList  media;
+ readonly attribute CSSRuleList             cssRules;
+ unsigned long                              insertRule(in DOMString rule, in unsigned long index) raises(dom::DOMException);
+ void                                       deleteRule(in unsigned long index) raises(dom::DOMException);
+ };
+*/

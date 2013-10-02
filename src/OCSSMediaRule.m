@@ -12,7 +12,7 @@
 @implementation OCSSMediaRule
 
 - (NSString *)cssText {
-    NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@}\n", self.media, self.rules.cssText];
+    NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@}\n", self.media, self.cssRules.cssText];
     return text;
 }
 

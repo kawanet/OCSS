@@ -9,8 +9,15 @@
 #import "OCList.h"
 #import "OCSSStyleSheet.h"
 
-@interface OCSSStyleSheetList : OCListCSS
+@interface OCStyleSheetList : OCListCSS
 
 - (void) addStyleSheet:(OCSSStyleSheet *) styleSheet;
 
 @end
+
+/*
+ interface StyleSheetList {
+ readonly attribute unsigned long   length;
+ StyleSheet                         item(in unsigned long index);
+ };
+ */

@@ -139,7 +139,7 @@
     if (!array.count) return style;
     
     for(OCStyleHit *hit in array) {
-        for(OCSSDeclaration *decl in hit.declarations) {
+        for(OCDeclaration *decl in hit.declarations) {
             [style addDeclaration:decl];            
         }
     }

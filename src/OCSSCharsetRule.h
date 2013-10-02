@@ -13,3 +13,9 @@
 @property NSString *encoding;
 
 @end
+
+/*
+ interface CSSCharsetRule : CSSRule {
+ attribute DOMString        encoding; // raises(dom::DOMException) on setting
+ };
+*/

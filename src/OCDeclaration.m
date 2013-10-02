@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSDeclaration.h"
+#import "OCDeclaration.h"
 
-@implementation OCSSDeclaration
+@implementation OCDeclaration
 
 - (NSString *) property {
     return _property;
@@ -19,7 +19,7 @@
 }
 
 - (NSString *) cssText {
-    return [NSString stringWithFormat:@"%@: %@;", self.property, self.value.value];
+    return [NSString stringWithFormat:@"%@: %@;", self.property, self.value.cssText];
 }
 
 @end

@@ -10,8 +10,20 @@
 
 @interface OCSSValue : NSObject
 
-@property NSString *value;
-
-- (instancetype) initWithString:(NSString *)value;
+@property NSString *cssText;
 
 @end
+
+/*
+ interface CSSValue {
+ 
+ // UnitTypes
+ const unsigned short      CSS_INHERIT                    = 0;
+ const unsigned short      CSS_PRIMITIVE_VALUE            = 1;
+ const unsigned short      CSS_VALUE_LIST                 = 2;
+ const unsigned short      CSS_CUSTOM                     = 3;
+ 
+ attribute DOMString                cssText; // raises(dom::DOMException) on setting
+ readonly attribute unsigned short  cssValueType;
+ };
+ */

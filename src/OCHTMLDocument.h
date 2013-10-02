@@ -9,7 +9,7 @@
 #import "OCHTMLNode.h"
 #import "OCHTMLElement.h"
 #import "OCSSStyleSheet.h"
-#import "OCSSStyleSheetList.h"
+#import "OCStyleSheetList.h"
 #import "OCLocation.h"
 
 @interface OCHTMLDocumentFragment : OCHTMLNode
@@ -17,7 +17,7 @@
 
 @interface OCHTMLDocument : OCHTMLNode
 
-@property OCSSStyleSheetList *styleSheets;
+@property OCStyleSheetList *styleSheets;
 @property OCLocation *location;
 @property (readonly) OCHTMLElement *body;
 

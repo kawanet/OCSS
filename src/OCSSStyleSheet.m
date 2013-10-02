@@ -9,6 +9,9 @@
 #import "OCSSStyleSheet.h"
 #import "OCSSParser.h"
 
+@implementation OCStyleSheet
+@end
+
 @implementation OCSSStyleSheet
 
 - (instancetype) initWithString:(NSString *)source {

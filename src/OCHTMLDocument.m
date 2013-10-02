@@ -25,7 +25,7 @@
 
 - (void) addStyleSheet:(OCSSStyleSheet*)styleSheet {
     if (!self.styleSheets) {
-        self.styleSheets = OCSSStyleSheetList.new;
+        self.styleSheets = [OCStyleSheetList new];
     }
     styleSheet.parentDocument = self;
 

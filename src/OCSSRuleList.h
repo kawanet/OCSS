@@ -15,3 +15,10 @@
 - (void) addRule:(id)rule;
 
 @end
+
+/*
+ interface CSSRuleList {
+ readonly attribute unsigned long    length;
+ CSSRule            item(in unsigned long index);
+ };
+ */

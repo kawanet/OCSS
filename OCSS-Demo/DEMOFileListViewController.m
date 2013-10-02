@@ -31,6 +31,10 @@
     url = [url URLByAppendingPathComponent:_list[0]];
 
     OCSS *css = [[OCSS alloc] initWithContentsOfURL:url];
+    
+    OCSSStyleSheet *styleSheet = css.document.styleSheets[0];
+    NSLog(@"cssText: %@", styleSheet.cssText);
+    
     OCHTMLElement *a = [css.document createElement:@"A"];
     OCHTMLElement *b = [css.document createElement:@"B"];
     a.innerText = @"foo";
@@ -42,8 +46,7 @@
     b.className = @"fuga";
     NSLog(@"%@", a.outerHTML);
     NSLog(@"%@", a.innerText);
-    NSLog(@"%@", a.classList.list);
-    
+
     OCSSStyleDeclaration *style = [css getComputedStyleForSelector:@"h5"];
     NSLog(@"cssText: %@", style.cssText);
     NSLog(@"font-size: %@", style[@"font-size"]);

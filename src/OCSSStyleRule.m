@@ -11,9 +11,9 @@
 
 @implementation OCSSStyleRule
 
-- (OCSSDeclaration *) declarationForProperty:(NSString *)property {
-    OCSSDeclaration *match;
-    for(OCSSDeclaration *decl in self.declarations) {
+- (OCDeclaration *) declarationForProperty:(NSString *)property {
+    OCDeclaration *match;
+    for(OCDeclaration *decl in self.declarations) {
         if ([decl.property isEqualToString:property]) {
             match = decl;
         }
@@ -24,7 +24,7 @@
 - (NSString *) cssText {
     NSString *selector = self.selectorText;
     NSMutableArray *array = NSMutableArray.new;
-    for(OCSSDeclaration *decl in self.declarations) {
+    for(OCDeclaration *decl in self.declarations) {
         [array addObject:decl.cssText];
     }
     NSString *rules = [array componentsJoinedByString:@" "];

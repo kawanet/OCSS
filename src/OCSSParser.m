@@ -54,8 +54,8 @@
     }
     
     OCSSMediaRule *media = OCSSMediaRule.new;
-    media.media = [self trim:astr];
-    media.rules = rules;
+    media.media.mediaText = [self trim:astr];
+    media.cssRules = rules;
     return media;
 }
 
@@ -233,7 +233,7 @@
     return matched;
 }
 
-- (OCSSDeclaration *) declaration {
+- (OCDeclaration *) declaration {
     // NSLog(@"declaration: %i", _cursor);
     NSError *error;
     NSRegularExpression *regex;
@@ -265,9 +265,9 @@
     }
     
     // NSLog(@"%@: %@;", pstr, vstr);
-    OCSSDeclaration *decl = OCSSDeclaration.new;
-    OCSSValue *value = OCSSValue.new;
-    value.value = vstr;
+    OCDeclaration *decl = [OCDeclaration new];
+    OCSSPrimitiveValue *value = [OCSSPrimitiveValue new];
+    value.cssText = vstr;
     decl.property = pstr;
     decl.value = value;
     
@@ -282,7 +282,7 @@
     }
     
     [self comments];
-    OCSSDeclaration *decl;
+    OCDeclaration *decl;
     OCSSStyleDeclaration *decls = OCSSStyleDeclaration.new;
     
     BOOL found = NO;

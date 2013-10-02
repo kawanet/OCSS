@@ -63,7 +63,11 @@
             [array addObject:text];
         }
     }
-    return [array componentsJoinedByString:@""];
+    return [array componentsJoinedByString:self.delimiter];
+}
+
+- (NSString *) delimiter {
+    return @"";
 }
 
 @end

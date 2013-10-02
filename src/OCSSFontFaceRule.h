@@ -12,6 +12,11 @@
 @interface OCSSFontFaceRule : OCSSRule
 
 @property OCSSStyleDeclaration *style;
-- (NSString *)cssText;
 
 @end
+
+/*
+ interface CSSFontFaceRule : CSSRule {
+ readonly attribute CSSStyleDeclaration  style;
+ };
+ */

@@ -10,10 +10,4 @@
 
 @implementation OCSSValue
 
-- (instancetype) initWithString:(NSString *)value {
-    self = self.init;
-    self.value = value;
-    return self;
-}
-
 @end

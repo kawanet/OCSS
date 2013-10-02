@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCSSValue.h"
+#import "OCSSPrimitiveValue.h"
 
-@interface OCSSDeclaration : NSObject
+@interface OCDeclaration : NSObject
 
 @property (nonatomic) NSString *property;
-@property OCSSValue *value;
+@property OCSSPrimitiveValue *value;
 @property (readonly) NSString *cssText;
 
 @end

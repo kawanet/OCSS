@@ -10,7 +10,7 @@
 
 #import "OCSSRule.h"
 #import "OCSSCharsetRule.h"
-#import "OCSSDeclaration.h"
+#import "OCDeclaration.h"
 #import "OCSSStyleDeclaration.h"
 #import "OCHTMLDocument.h"
 #import "OCSSKeyframesRule.h"
@@ -24,7 +24,7 @@
 #import "OCSSSelectorList.h"
 #import "OCSSStyleRule.h"
 #import "OCSSStyleSheet.h"
-#import "OCSSStyleSheetList.h"
+#import "OCStyleSheetList.h"
 #import "OCSSValue.h"
 
 @interface OCSS : NSObject

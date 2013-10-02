@@ -15,3 +15,10 @@
 @property OCSSStyleDeclaration *style;
 
 @end
+
+/*
+ interface CSSPageRule : CSSRule {
+ attribute DOMString                        selectorText; // raises(dom::DOMException) on setting
+ readonly attribute CSSStyleDeclaration     style;
+ };
+ */
