@@ -9,11 +9,18 @@
 #import "OCSSMediaRule.h"
 #import "OCSS.h"
 
-@implementation OCSSMediaRule
+@implementation OCSSMediaRule {
+    OCMediaList *_media;
+}
 
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@}\n", self.media, self.cssRules.cssText];
     return text;
+}
+
+- (OCMediaList *)media {
+    if (_media) return _media;
+    return _media = [OCMediaList new];
 }
 
 @end

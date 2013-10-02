@@ -14,7 +14,7 @@
 @interface OCSSMediaRule : OCSSRule
 
 @property OCSSRuleList *cssRules;
-@property OCMediaList *media;
+@property (readonly) OCMediaList *media;
 
 @end
 

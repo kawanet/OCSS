@@ -10,30 +10,22 @@
 #import "DEMODeclarationViewController.h"
 
 @interface DEMOStyleListViewSection : NSObject
-@property OCSS *css;
-@property (readonly) NSArray *rows;
+@property NSString *title;
+@property (readonly) NSMutableArray *rows;
 @end
 
 @implementation DEMOStyleListViewSection {
-    NSArray *_rows;
+    NSMutableArray *_rows;
 }
 
-- (NSArray *) rows {
+- (NSMutableArray *) rows {
     if (_rows) return _rows;
-    
-    NSMutableArray *rows = [NSMutableArray new];
-    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
-        for(OCSSStyleRule *rule in styleSheet.cssRules) {
-            if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
-            [rows addObject:rule];
-        }
-    }
-    return _rows = [NSArray arrayWithArray:rows];
+    return _rows = [NSMutableArray new];
 }
 @end
 
 @implementation DEMOStyleListViewController {
-    NSArray *_list;
+    NSArray *_sections;
     OCSS *_css;
 }
 
@@ -44,7 +36,7 @@ static NSMutableDictionary *_cache;
     [super viewDidLoad];
     
     NSString *path = self.url.absoluteURL.lastPathComponent;
-    self.navigationItem.title = path;
+    self.navigationItem.title = @"Rules";
     
     if (!_cache) _cache = NSMutableDictionary.new;
     _css = _cache[self.url.absoluteString];
@@ -53,24 +45,49 @@ static NSMutableDictionary *_cache;
         _cache[self.url.absoluteString] = _css;
     }
     
+    DEMOStyleListViewSection *sect;
     NSMutableArray *array = NSMutableArray.new;
     
-    DEMOStyleListViewSection *sect = [DEMOStyleListViewSection new];
-    sect.css = _css;
+    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
+        for(OCSSRule *rule in styleSheet.cssRules) {
+            if ([rule isKindOfClass:[OCSSStyleRule class]]) {
+                if (!sect) {
+                    sect = [DEMOStyleListViewSection new];
+                    sect.title = path;
+                    [array addObject:sect];
+                }
+                [sect.rows addObject:rule];
+            } else if ([rule isKindOfClass:[OCSSMediaRule class]]) {
+                OCSSMediaRule *mediaRule = (OCSSMediaRule*) rule;
+                sect = [DEMOStyleListViewSection new];
+                sect.title = [NSString stringWithFormat:@"@media %@", mediaRule.media.mediaText];
+                [array addObject:sect];
+                for(OCSSRule *childRule in mediaRule.cssRules) {
+                    if ([childRule isKindOfClass:[OCSSStyleRule class]]) {
+                        [sect.rows addObject:childRule];
+                    }
+                }
+                sect = nil;
+            }
+        }
+    }
     
-    [array addObject:sect];
-    
-    _list = array;
+    _sections = array;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    DEMOStyleListViewSection *sect = _sections[section];
+    return sect.title;
+};
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _list.count;
+    return _sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DEMOStyleListViewSection *sect = _list[section];
+    DEMOStyleListViewSection *sect = _sections[section];
     return sect.rows.count;
 }
 
@@ -79,7 +96,7 @@ static NSMutableDictionary *_cache;
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    DEMOStyleListViewSection *sect = _list[indexPath.section];
+    DEMOStyleListViewSection *sect = _sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
     cell.textLabel.text = rule.selectorText;
     cell.detailTextLabel.text = rule.style.cssText;
@@ -91,9 +108,9 @@ static NSMutableDictionary *_cache;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DEMOStyleListViewSection *sect = _list[indexPath.section];
+    DEMOStyleListViewSection *sect = _sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
-
+    
     DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
     vc.css = _css;
     vc.selector = rule.selectorText;
