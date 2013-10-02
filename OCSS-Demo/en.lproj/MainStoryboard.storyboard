@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--File List View Controller - Files-->
+        <!--File List View Controller - StyleSheets-->
         <scene sceneID="H6h-Kb-Zmx">
             <objects>
                 <tableViewController storyboardIdentifier="DEMOFileListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="47Y-w6-I6a" customClass="DEMOFileListViewController" sceneMemberID="viewController">
@@ -24,7 +24,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Files" id="aNd-aU-500"/>
+                    <navigationItem key="navigationItem" title="StyleSheets" id="aNd-aU-500">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="G0K-eO-T6j">
+                            <connections>
+                                <action selector="onClickAddButton:" destination="47Y-w6-I6a" id="1VS-lf-Th6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5o-VW-zoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,6 +141,9 @@
         </class>
         <class className="DEMOFileListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DEMOFileListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onClickAddButton:"/>
+            </relationships>
         </class>
         <class className="DEMOStyleListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DEMOStyleListViewController.h"/>

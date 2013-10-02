@@ -22,7 +22,9 @@
 {
     [super viewDidLoad];
     
-    _list = @[@"cssreset.css", @"bootstrap.css"];
+    if (!_list) {
+        _list = @[@"cssreset.css", @"bootstrap.css"];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -57,6 +59,28 @@
     vc.url = url;
 
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onClickAddButton:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Enter StyleSheet URL"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"OK", nil];
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alertView show];
+    UITextField *textField = [alertView textFieldAtIndex:0];
+    textField.text = @"http://";
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        if (textField.text.length > 7) {
+            _list = [_list arrayByAddingObject:textField.text];
+            [self.tableView reloadData];
+        }
+    }
 }
 
 @end
