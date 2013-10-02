@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCMap.h"
+#import <Foundation/Foundation.h>
 #import "OCSSRuleList.h"
 
 @class OCHTMLDocument;
 
-@interface OCSSStyleSheet : OCMap
+@interface OCSSStyleSheet : NSObject
 
 @property OCSSRuleList *cssRules;
 @property (weak) OCHTMLDocument *parentDocument;

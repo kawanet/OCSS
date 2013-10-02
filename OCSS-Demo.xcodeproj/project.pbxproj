@@ -21,7 +21,6 @@
 		1DF531AC17F9CFD200A3A58B /* DEMOStyleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531AB17F9CFD200A3A58B /* DEMOStyleListViewController.m */; };
 		1DF531EE17F9D40E00A3A58B /* sample in Resources */ = {isa = PBXBuildFile; fileRef = 1DF531ED17F9D40E00A3A58B /* sample */; };
 		1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F117F9D43300A3A58B /* OCSS.m */; };
-		1DF5321B17F9D43300A3A58B /* OCMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F317F9D43300A3A58B /* OCMap.m */; };
 		1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */; };
 		1DF5321E17F9D43300A3A58B /* OCSSDeclaration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F917F9D43300A3A58B /* OCSSDeclaration.m */; };
 		1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */; };
@@ -71,8 +70,6 @@
 		1DF531ED17F9D40E00A3A58B /* sample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sample; sourceTree = "<group>"; };
 		1DF531F017F9D43300A3A58B /* OCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSS.h; sourceTree = "<group>"; };
 		1DF531F117F9D43300A3A58B /* OCSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSS.m; sourceTree = "<group>"; };
-		1DF531F217F9D43300A3A58B /* OCMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMap.h; sourceTree = "<group>"; };
-		1DF531F317F9D43300A3A58B /* OCMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMap.m; sourceTree = "<group>"; };
 		1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSCharsetRule.h; sourceTree = "<group>"; };
 		1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSCharsetRule.m; sourceTree = "<group>"; };
 		1DF531F817F9D43300A3A58B /* OCSSDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSDeclaration.h; sourceTree = "<group>"; };
@@ -212,8 +209,6 @@
 				1DF5323317F9D59B00A3A58B /* OCList.m */,
 				1DF5321817F9D43300A3A58B /* OCLocation.h */,
 				1DF5321917F9D43300A3A58B /* OCLocation.m */,
-				1DF531F217F9D43300A3A58B /* OCMap.h */,
-				1DF531F317F9D43300A3A58B /* OCMap.m */,
 				1DF531F017F9D43300A3A58B /* OCSS.h */,
 				1DF531F117F9D43300A3A58B /* OCSS.m */,
 				1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */,
@@ -331,7 +326,6 @@
 				1DF531A917F9CEA000A3A58B /* DEMOFileListViewController.m in Sources */,
 				1DF531AC17F9CFD200A3A58B /* DEMOStyleListViewController.m in Sources */,
 				1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */,
-				1DF5321B17F9D43300A3A58B /* OCMap.m in Sources */,
 				1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */,
 				1DF5321E17F9D43300A3A58B /* OCSSDeclaration.m in Sources */,
 				1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */,
