@@ -8,16 +8,16 @@
 
 #import "OCNode.h"
 
-@implementation OCHTMLNodeList
+@implementation OCNodeList
 @end
 
 @implementation OCNode {
-    OCHTMLNodeList *_childNodes;
+    OCNodeList *_childNodes;
 }
 
-- (OCHTMLNodeList *) childNodes {
+- (OCNodeList *) childNodes {
     if (_childNodes) return _childNodes;
-    return _childNodes = [OCHTMLNodeList new];
+    return _childNodes = [OCNodeList new];
 }
 
 - (OCNode *) appendChild:(OCNode*)newChild {

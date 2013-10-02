@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCList.h"
+#import "OCXList.h"
 @class OCHTMLDocument;
 
-@interface OCHTMLNodeList : OCList
+@interface OCNodeList : OCXList
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Core/idl-definitions.html
@@ -24,7 +24,7 @@
 
 @interface OCNode : NSObject
 @property (weak) OCNode *parentNode;
-@property (readonly) OCHTMLNodeList *childNodes;
+@property (readonly) OCNodeList *childNodes;
 @property (weak) OCHTMLDocument *ownerDocument;
 - (OCNode *) appendChild:(OCNode*)newChild;
 @end

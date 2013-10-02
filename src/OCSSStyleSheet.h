@@ -36,7 +36,6 @@
 @interface OCSSStyleSheet : OCStyleSheet
 
 @property OCSSRuleList *cssRules;
-@property (weak) OCHTMLDocument *parentDocument;
 @property (readonly) NSString *cssText;
 
 - (instancetype) initWithString:(NSString *)source;

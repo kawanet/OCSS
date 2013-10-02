@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCList.h"
+#import "OCXList.h"
 #import "OCXSelector.h"
 
-@interface OCXSelectorList : OCListCSS
+@interface OCXSelectorList : OCXListCSS
 
 - (void) addSelector:(OCXSelector *)selector;
 

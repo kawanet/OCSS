@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCList.h"
+#import "OCXList.h"
 
-@interface OCDOMTokenList : OCList
+@interface OCDOMTokenList : OCXList
 
 - (instancetype) initWithString:(NSString*)source;
 - (BOOL) contains:(NSString*)token;

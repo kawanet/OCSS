@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCList.h"
+#import "OCXList.h"
 #import "OCXDeclaration.h"
 
-@interface OCSSStyleDeclaration : OCListCSS
+@interface OCSSStyleDeclaration : OCXListCSS
 
 - (void) addDeclaration:(OCXDeclaration *)declaration;
 - (id) objectForKeyedSubscript:(id)key;

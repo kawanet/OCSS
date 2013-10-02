@@ -27,7 +27,6 @@
     if (!self.styleSheets) {
         self.styleSheets = [OCStyleSheetList new];
     }
-    styleSheet.parentDocument = self;
 
     [self.styleSheets addStyleSheet:styleSheet];
 }

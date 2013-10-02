@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OCList : NSObject <NSFastEnumeration>
+@interface OCXList : NSObject <NSFastEnumeration>
 @property (readonly) NSMutableArray *list;
 @property (readonly) NSUInteger length;
 - (id) objectAtIndexedSubscript:(NSUInteger)index;
 - (instancetype) initWithArray:(NSArray *)array;
 @end
 
-@interface OCListCSS : OCList
+@interface OCXListCSS : OCXList
 @property (readonly) NSString *cssText;
 @property (readonly) NSString *delimiter;
 @end

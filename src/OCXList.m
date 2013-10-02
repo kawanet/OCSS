@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCList.h"
+#import "OCXList.h"
 
-@implementation OCList {
+@implementation OCXList {
     NSMutableArray *_list;
 }
 
@@ -50,7 +50,7 @@
 
 @end
 
-@implementation OCListCSS
+@implementation OCXListCSS
 
 - (NSString *)cssText {
     NSMutableArray *array = NSMutableArray.new;
