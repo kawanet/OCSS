@@ -10,13 +10,24 @@
 #import "OCSS.h"
 #import "OCXDeclaration.h"
 
-@interface DEMODeclarationViewController ()
+@interface DEMODeclarationViewSection : NSObject
+@property OCSS *css;
+@property NSString *selector;
+@property (readonly) OCSSStyleDeclaration *style;
+@end
 
+@implementation DEMODeclarationViewSection {
+    OCSSStyleDeclaration *_style;
+}
+
+- (OCSSStyleDeclaration *) style {
+    if (_style) return _style;
+    return _style = [self.css getComputedStyleForSelector:self.selector];
+}
 @end
 
 @implementation DEMODeclarationViewController {
-    NSMutableArray *_table;
-    NSMutableArray *_selectors;
+    NSMutableArray *_sections;
 }
 
 - (void)viewDidLoad
@@ -26,29 +37,30 @@
     self.navigationItem.title = @"Computed Style";
     
     NSArray *array0 = [self.selector componentsSeparatedByString:@","];
-    _table = NSMutableArray.new;
-    _selectors = NSMutableArray.new;
+    _sections = NSMutableArray.new;
     
     for(NSString *selector in array0) {
-        OCSSStyleDeclaration *style = [self.css getComputedStyleForSelector:selector];
-        [_selectors addObject:selector];
-        [_table addObject:style];
+        DEMODeclarationViewSection *sect = [DEMODeclarationViewSection new];
+        sect.css = self.css;
+        sect.selector = selector;
+        [_sections addObject:sect];
     }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return _selectors[section];
+    DEMODeclarationViewSection *sect = _sections[section];
+    return sect.selector;
 };
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _table.count;
+    return _sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    OCSSStyleDeclaration *style = _table[section];
-    return style.length;
+    DEMODeclarationViewSection *sect = _sections[section];
+    return sect.style.length;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,8 +68,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    OCSSStyleDeclaration *style = _table[indexPath.section];
-    OCXDeclaration *decl = style[indexPath.row];
+    DEMODeclarationViewSection *sect = _sections[indexPath.section];
+    OCXDeclaration *decl = sect.style[indexPath.row];
     OCSSStyleRule *rule = (OCSSStyleRule*)decl.parentStyleDeclaration.parentRule;
     
     cell.textLabel.text = decl.cssText;
