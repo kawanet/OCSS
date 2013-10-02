@@ -41,7 +41,7 @@
         [array addObject:decl.cssText];
     }
     NSString *rules = [array componentsJoinedByString:@" "];
-    return [NSString stringWithFormat:@"%@ { %@ }\n", selector, rules];
+    return [NSString stringWithFormat:@"%@ { %@ }", selector, rules];
 }
 
 - (NSString *) selectorText {

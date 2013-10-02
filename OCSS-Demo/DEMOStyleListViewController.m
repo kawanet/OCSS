@@ -35,7 +35,6 @@ static NSMutableDictionary *_cache;
 {
     [super viewDidLoad];
     
-    NSString *path = self.url.absoluteURL.lastPathComponent;
     self.navigationItem.title = @"Rules";
     
     if (!_cache) _cache = NSMutableDictionary.new;
@@ -49,11 +48,13 @@ static NSMutableDictionary *_cache;
     NSMutableArray *array = NSMutableArray.new;
     
     for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
+        NSLog(@"%@\n%@", styleSheet.href, styleSheet.cssText);
         for(OCSSRule *rule in styleSheet.cssRules) {
             if ([rule isKindOfClass:[OCSSStyleRule class]]) {
                 if (!sect) {
                     sect = [DEMOStyleListViewSection new];
-                    sect.title = path;
+                    NSURL *url = [NSURL URLWithString:styleSheet.href];
+                    sect.title = url.lastPathComponent;
                     [array addObject:sect];
                 }
                 [sect.rows addObject:rule];

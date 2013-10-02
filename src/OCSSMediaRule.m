@@ -14,7 +14,7 @@
 }
 
 - (NSString *)cssText {
-    NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@}\n", self.media, self.cssRules.cssText];
+    NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@\n}\n", self.media.mediaText, self.cssRules.cssText];
     return text;
 }
 

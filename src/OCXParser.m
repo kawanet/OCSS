@@ -46,7 +46,6 @@
     }
     
     OCSSMediaRule *media = OCSSMediaRule.new;
-    NSLog(@"media: [%@]", astr);
     media.media.mediaText = [self trim:astr];
     media.cssRules = rules;
     return media;

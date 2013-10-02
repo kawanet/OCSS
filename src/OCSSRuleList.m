@@ -17,4 +17,8 @@
     [self.list addObject:rule];
 }
 
+- (NSString *) delimiter {
+    return @"\n";
+}
+
 @end
