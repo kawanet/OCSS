@@ -13,16 +13,16 @@
 @interface DEMODeclarationViewSection : NSObject
 @property OCSS *css;
 @property NSString *selector;
-@property (readonly) OCSSStyleDeclaration *style;
+@property (readonly) OCSSStyleDeclaration *rows;
 @end
 
 @implementation DEMODeclarationViewSection {
-    OCSSStyleDeclaration *_style;
+    OCSSStyleDeclaration *_rows;
 }
 
-- (OCSSStyleDeclaration *) style {
-    if (_style) return _style;
-    return _style = [self.css getComputedStyleForSelector:self.selector];
+- (OCSSStyleDeclaration *) rows {
+    if (_rows) return _rows;
+    return _rows = [self.css getComputedStyleForSelector:self.selector];
 }
 @end
 
@@ -60,7 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     DEMODeclarationViewSection *sect = _sections[section];
-    return sect.style.length;
+    return sect.rows.length;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +69,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     DEMODeclarationViewSection *sect = _sections[indexPath.section];
-    OCXDeclaration *decl = sect.style[indexPath.row];
+    OCXDeclaration *decl = sect.rows[indexPath.row];
     OCSSStyleRule *rule = (OCSSStyleRule*)decl.parentStyleDeclaration.parentRule;
     
     cell.textLabel.text = decl.cssText;

@@ -9,8 +9,27 @@
 #import "DEMOStyleListViewController.h"
 #import "DEMODeclarationViewController.h"
 
-@interface DEMOStyleListViewController ()
+@interface DEMOStyleListViewSection : NSObject
+@property OCSS *css;
+@property (readonly) NSArray *rows;
+@end
 
+@implementation DEMOStyleListViewSection {
+    NSArray *_rows;
+}
+
+- (NSArray *) rows {
+    if (_rows) return _rows;
+    
+    NSMutableArray *rows = [NSMutableArray new];
+    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
+        for(OCSSStyleRule *rule in styleSheet.cssRules) {
+            if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
+            [rows addObject:rule];
+        }
+    }
+    return _rows = [NSArray arrayWithArray:rows];
+}
 @end
 
 @implementation DEMOStyleListViewController {
@@ -36,24 +55,23 @@ static NSMutableDictionary *_cache;
     
     NSMutableArray *array = NSMutableArray.new;
     
-    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
-        for(OCSSStyleRule *rule in styleSheet.cssRules) {
-            if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
-            [array addObject:rule];
-        }
-    }
+    DEMOStyleListViewSection *sect = [DEMOStyleListViewSection new];
+    sect.css = _css;
+    
+    [array addObject:sect];
     
     _list = array;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return _list.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _list.count;
+    DEMOStyleListViewSection *sect = _list[section];
+    return sect.rows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +79,8 @@ static NSMutableDictionary *_cache;
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    OCSSStyleRule *rule = _list[indexPath.row];
+    DEMOStyleListViewSection *sect = _list[indexPath.section];
+    OCSSStyleRule *rule = sect.rows[indexPath.row];
     cell.textLabel.text = rule.selectorText;
     cell.detailTextLabel.text = rule.style.cssText;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -72,10 +91,11 @@ static NSMutableDictionary *_cache;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DEMOStyleListViewSection *sect = _list[indexPath.section];
+    OCSSStyleRule *rule = sect.rows[indexPath.row];
+
     DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
-    
     vc.css = _css;
-    OCSSStyleRule *rule = _list[indexPath.row];
     vc.selector = rule.selectorText;
     
     [self.navigationController pushViewController:vc animated:YES];
