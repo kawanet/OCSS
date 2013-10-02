@@ -9,7 +9,7 @@
 #import "OCList.h"
 #import "OCSSDeclaration.h"
 
-@interface OCSSStyleDeclaration : OCSSBaseCSSList
+@interface OCSSStyleDeclaration : OCListCSS
 
 - (void) addDeclaration:(OCSSDeclaration *)declaration;
 

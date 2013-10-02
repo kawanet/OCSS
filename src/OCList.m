@@ -50,7 +50,7 @@
 
 @end
 
-@implementation OCSSBaseCSSList
+@implementation OCListCSS
 
 - (NSString *)cssText {
     NSMutableArray *array = NSMutableArray.new;

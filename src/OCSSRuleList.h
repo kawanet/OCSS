@@ -10,7 +10,7 @@
 
 @class OCSSRule;
 
-@interface OCSSRuleList : OCSSBaseCSSList
+@interface OCSSRuleList : OCListCSS
 
 - (void) addRule:(id)rule;
 

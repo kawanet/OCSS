@@ -9,7 +9,7 @@
 #import "OCList.h"
 #import "OCSSStyleSheet.h"
 
-@interface OCSSStyleSheetList : OCSSBaseCSSList
+@interface OCSSStyleSheetList : OCListCSS
 
 - (void) addStyleSheet:(OCSSStyleSheet *) styleSheet;
 

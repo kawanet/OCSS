@@ -15,6 +15,6 @@
 - (instancetype) initWithArray:(NSArray *)array;
 @end
 
-@interface OCSSBaseCSSList : OCList
+@interface OCListCSS : OCList
 @property (readonly) NSString *cssText;
 @end

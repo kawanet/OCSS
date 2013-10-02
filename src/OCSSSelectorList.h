@@ -9,7 +9,7 @@
 #import "OCList.h"
 #import "OCSSSelector.h"
 
-@interface OCSSSelectorList : OCSSBaseCSSList
+@interface OCSSSelectorList : OCListCSS
 
 - (void) addSelector:(OCSSSelector *)selector;
 
