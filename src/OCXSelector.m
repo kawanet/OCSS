@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSSelector.h"
-#import "OCSSSelectorPart.h"
+#import "OCXSelector.h"
+#import "OCXSelectorPart.h"
 
-@implementation OCSSSelector{
+@implementation OCXSelector{
     NSArray *_parts;
 }
 
@@ -28,7 +28,7 @@
     __weak NSString *source = self.selector;
     [regex enumerateMatchesInString:self.selector options:0 range:range usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
         NSString *hitstr = [source substringWithRange:match.range];
-        OCSSSelectorPart *part = [OCSSSelectorPart new];
+        OCXSelectorPart *part = [OCXSelectorPart new];
 
         if ([match rangeAtIndex:1].length) {
             part.type = OCSSSelectorChild;
@@ -103,7 +103,7 @@
     NSArray *parts = [self parts];
     BOOL hit = NO;
     for(int i=parts.count-1; i>=0; i--) {
-        OCSSSelectorPart *part = parts[i];
+        OCXSelectorPart *part = parts[i];
         switch (part.type) {
             case OCSSSelectorUniversal:           // '*'  *
                 hit = YES;

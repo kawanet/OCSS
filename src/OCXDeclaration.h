@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OCSSPrimitiveValue.h"
 
-@interface OCDeclaration : NSObject
+@interface OCXDeclaration : NSObject
 
 @property (nonatomic) NSString *property;
 @property OCSSPrimitiveValue *value;

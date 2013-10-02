@@ -1,5 +1,5 @@
 //
-//  AIRule.h
+//  OCSSStyleRule.h
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -7,19 +7,21 @@
 //
 
 #import "OCSSRule.h"
-#import "OCDeclaration.h"
-#import "OCSSSelectorList.h"
+#import "OCXDeclaration.h"
+#import "OCXSelectorList.h"
 #import "OCSSStyleDeclaration.h"
 
 @interface OCSSStyleRule : OCSSRule
 
-@property OCSSStyleDeclaration *declarations;
-@property OCSSSelectorList *selectors;
+@property OCSSStyleDeclaration *style;
+@property OCXSelectorList *selectors;
 @property (readonly) NSString *selectorText;
 
-- (OCDeclaration *) declarationForProperty:(NSString *)property;
+- (OCXDeclaration *) declarationForProperty:(NSString *)property;
 
 @end
+
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
 
 /*
  interface CSSStyleRule : CSSRule {

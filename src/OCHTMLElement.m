@@ -9,10 +9,55 @@
 #import "OCHTMLElement.h"
 #import "OCHTMLDocument.h"
 
-@implementation OCHTMLElement {
+@implementation OCElement {
     NSMutableDictionary *_attributes;
     OCDOMTokenList *_classList;
 }
+
+- (NSMutableDictionary *) attributes {
+    if (_attributes) return _attributes;
+    return _attributes = [NSMutableDictionary new];
+}
+
+- (NSString *)getAttribute:(NSString*)name {
+    OCAttr *attr = [self getAttributeNode:name];
+    return attr.value;
+}
+
+- (OCAttr*)getAttributeNode:(NSString*)name {
+    name = name.lowercaseString;
+    return self.attributes[name];
+}
+
+- (void)setAttributeNode:(OCAttr*)newAttr {
+    NSString *name = newAttr.name.lowercaseString;
+    self.attributes[name] = newAttr;
+}
+
+- (void)setAttribute:(NSString*)name, ... {
+    va_list arguments;
+    va_start(arguments, name);
+    NSString* value = name;
+    value = va_arg(arguments, typeof(NSString*));
+    va_end(arguments);
+    [self setAttribute:name withValue:value];
+}
+
+- (void)setAttribute:(NSString*)name withValue:(NSString*)value {
+    OCAttr *node;
+    if (self.ownerDocument) {
+        node = [self.ownerDocument createAttribute:name];
+    } else {
+        node = [OCAttr new];
+        node.name = name;
+    }
+    node.value = value;
+    [self setAttributeNode:node];
+}
+
+@end
+
+@implementation OCHTMLElement
 
 - (NSString *) id {
     return [self getAttribute:@"id"];
@@ -38,52 +83,11 @@
     // return [[OCDOMTokenList alloc] init];
 }
 
-- (NSMutableDictionary *) attributes {
-    if (_attributes) return _attributes;
-    return _attributes = [NSMutableDictionary new];
-}
-
-- (NSString *)getAttribute:(NSString*)name {
-    OCHTMLAttr *attr = [self getAttributeNode:name];
-    return attr.value;
-}
-
-- (OCHTMLAttr*)getAttributeNode:(NSString*)name {
-    name = name.lowercaseString;
-    return self.attributes[name];
-}
-
-- (void)setAttributeNode:(OCHTMLAttr*)newAttr {
-    NSString *name = newAttr.name.lowercaseString;
-    self.attributes[name] = newAttr;
-}
-
-- (void)setAttribute:(NSString*)name, ... {
-    va_list arguments;
-    va_start(arguments, name);
-    NSString* value = name;
-    value = va_arg(arguments, typeof(NSString*));
-    va_end(arguments);
-    [self setAttribute:name withValue:value];
-}
-
-- (void)setAttribute:(NSString*)name withValue:(NSString*)value {
-    OCHTMLAttr *node;
-    if (self.ownerDocument) {
-        node = [self.ownerDocument createAttribute:name];
-    } else {
-        node = [OCHTMLAttr new];
-        node.name = name;
-    }
-    node.value = value;
-    [self setAttributeNode:node];
-}
-
 - (NSString *)outerHTML {
     NSString *lower = self.tagName.lowercaseString;
     NSString *inner = self.innerHTML;
     NSMutableArray *array = [NSMutableArray new];
-    for(OCHTMLAttr *attr in self.attributes.allValues) {
+    for(OCAttr *attr in self.attributes.allValues) {
         NSString *pair;
         if (attr.value) {
             pair = [NSString stringWithFormat:@"%@=\"%@\"", attr.name, attr.value];
@@ -102,12 +106,12 @@
 
 - (NSString *)innerHTML {
     NSMutableArray *array = [NSMutableArray new];
-    for(OCHTMLNode *node in self.childNodes) {
+    for(OCNode *node in self.childNodes) {
         NSString *str;
         if ([node isKindOfClass:[OCHTMLElement class]]) {
             str = ((OCHTMLElement *)node).outerHTML;
-        } else if ([node isKindOfClass:[OCHTMLTextNode class]]) {
-            str = ((OCHTMLTextNode *)node).data;
+        } else if ([node isKindOfClass:[OCText class]]) {
+            str = ((OCText *)node).data;
         }
         if (str) [array addObject:str];
     }
@@ -116,12 +120,12 @@
 
 - (NSString *)innerText {
     NSMutableArray *array = [NSMutableArray new];
-    for(OCHTMLNode *node in self.childNodes) {
+    for(OCNode *node in self.childNodes) {
         NSString *str;
         if ([node isKindOfClass:[OCHTMLElement class]]) {
             str = ((OCHTMLElement *)node).innerText;
-        } else if ([node isKindOfClass:[OCHTMLTextNode class]]) {
-            str = ((OCHTMLTextNode *)node).data;
+        } else if ([node isKindOfClass:[OCText class]]) {
+            str = ((OCText *)node).data;
         }
         if (str) [array addObject:str];
     }
@@ -129,11 +133,11 @@
 }
 
 - (void)setInnerText:(NSString *)text {
-    OCHTMLTextNode *node;
+    OCText *node;
     if (self.ownerDocument) {
         node = [self.ownerDocument createTextNode:text];
     } else {
-        node = [OCHTMLTextNode new];
+        node = [OCText new];
         node.data = text;
     }
     [self.childNodes.list removeAllObjects];

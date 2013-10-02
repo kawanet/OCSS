@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSSelectorList.h"
+#import "OCXSelectorList.h"
 
-@implementation OCSSSelectorList
+@implementation OCXSelectorList
 
-- (void) addSelector:(OCSSSelector *)selector {
+- (void) addSelector:(OCXSelector *)selector {
     [self.list addObject:selector];
 }
 

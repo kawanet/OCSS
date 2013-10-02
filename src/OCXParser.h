@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OCSSStyleSheet.h"
 
-@interface OCSSParser : NSObject
+@interface OCXParser : NSObject
 
 - (void) parseForStyleSheet:(OCSSStyleSheet *)stylesheet withString:(NSString*)source;
 

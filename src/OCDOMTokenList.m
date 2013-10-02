@@ -31,7 +31,7 @@
     return NO;
 }
 
-- (NSString *) toString {
+- (NSString *) stringifier {
     return [self.list componentsJoinedByString:@" "];
 }
 

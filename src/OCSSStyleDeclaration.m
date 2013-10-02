@@ -10,14 +10,14 @@
 
 @implementation OCSSStyleDeclaration
 
-- (void) addDeclaration:(OCDeclaration *)declaration {
+- (void) addDeclaration:(OCXDeclaration *)declaration {
     [self.list addObject:declaration];
 }
 
 - (id)objectForKeyedSubscript:(id)key {
     NSString *name = ((NSString *)key).lowercaseString;
-    OCDeclaration *hit;
-    for(OCDeclaration *decl in self.list) {
+    OCXDeclaration *hit;
+    for(OCXDeclaration *decl in self.list) {
         if ([name isEqualToString:decl.property]) hit = decl;
     }
     return hit.value.cssText;

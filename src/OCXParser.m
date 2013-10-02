@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSParser.h"
+#import "OCXParser.h"
 #import "OCSSStyleRule.h"
 #import "OCSSMediaRule.h"
-#import "OCSSSelector.h"
-#import "OCSSSelectorList.h"
+#import "OCXSelector.h"
+#import "OCXSelectorList.h"
 #import "OCSSRuleList.h"
 #import "OCSSCharsetRule.h"
 #import "OCSSImportRule.h"
@@ -18,7 +18,7 @@
 #import "OCSSKeyframesRule.h"
 #import "OCSSFontFaceRule.h"
 
-@implementation OCSSParser {
+@implementation OCXParser {
     NSString *_source;
     NSInteger _cursor;
     NSInteger _length;
@@ -164,19 +164,19 @@
     return nil;
 }
 
-- (OCSSSelectorList*) selector {
+- (OCXSelectorList*) selector {
     // NSLog(@"selector: %i", _cursor);
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([^\\{\\}]+)" options:0 error:&error];
     NSString *matched = [self match:regex];
 
-    OCSSSelectorList *selectors = OCSSSelectorList.new;
+    OCXSelectorList *selectors = [OCXSelectorList new];
 
     NSString *str1;
     for(str1 in [matched componentsSeparatedByString:@","]) {
         str1 = [self trim:str1];
         if (!str1.length) continue;
-        OCSSSelector *selector = OCSSSelector.new;
+        OCXSelector *selector = [OCXSelector new];
         selector.selector = str1;
         [selectors addSelector:selector];
     }
@@ -188,7 +188,7 @@
     // NSLog(@"rule: %i", _cursor);
     
     // selector
-    OCSSSelectorList *selectors = [self selector];
+    OCXSelectorList *selectors = [self selector];
     if (!selectors) return nil;
     [self comments];
     
@@ -197,7 +197,7 @@
     
     OCSSStyleRule *rule = OCSSStyleRule.new;
     rule.selectors = selectors;
-    rule.declarations = declarations;
+    rule.style = declarations;
     return rule;
 }
 
@@ -233,7 +233,7 @@
     return matched;
 }
 
-- (OCDeclaration *) declaration {
+- (OCXDeclaration *) declaration {
     // NSLog(@"declaration: %i", _cursor);
     NSError *error;
     NSRegularExpression *regex;
@@ -265,7 +265,7 @@
     }
     
     // NSLog(@"%@: %@;", pstr, vstr);
-    OCDeclaration *decl = [OCDeclaration new];
+    OCXDeclaration *decl = [OCXDeclaration new];
     OCSSPrimitiveValue *value = [OCSSPrimitiveValue new];
     value.cssText = vstr;
     decl.property = pstr;
@@ -282,7 +282,7 @@
     }
     
     [self comments];
-    OCDeclaration *decl;
+    OCXDeclaration *decl;
     OCSSStyleDeclaration *decls = OCSSStyleDeclaration.new;
     
     BOOL found = NO;

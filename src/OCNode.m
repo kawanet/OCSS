@@ -1,17 +1,17 @@
 //
-//  OHTMLNode.m
+//  OCNode.m
 //  OCSS-Demo
 //
 //  Created by Yusuke Kawasaki on 2013/10/01.
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCHTMLNode.h"
+#import "OCNode.h"
 
 @implementation OCHTMLNodeList
 @end
 
-@implementation OCHTMLNode {
+@implementation OCNode {
     OCHTMLNodeList *_childNodes;
 }
 
@@ -20,24 +20,24 @@
     return _childNodes = [OCHTMLNodeList new];
 }
 
-- (OCHTMLNode *) appendChild:(OCHTMLNode*)newChild {
+- (OCNode *) appendChild:(OCNode*)newChild {
     [self.childNodes.list addObject:newChild];
     return newChild;
 }
 
 @end
 
-@implementation OCHTMLCharacterData
+@implementation OCCharacterData
 @end
 
-@implementation OCHTMLTextNode
+@implementation OCText
 @end
 
-@implementation OCHTMLCDATASection
+@implementation OCCDATASection
 @end
 
-@implementation OCHTMLCommentNode
+@implementation OCComment
 @end
 
-@implementation OCHTMLAttr
+@implementation OCAttr
 @end

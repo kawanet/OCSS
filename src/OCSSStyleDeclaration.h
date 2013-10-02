@@ -7,14 +7,16 @@
 //
 
 #import "OCList.h"
-#import "OCDeclaration.h"
+#import "OCXDeclaration.h"
 
 @interface OCSSStyleDeclaration : OCListCSS
 
-- (void) addDeclaration:(OCDeclaration *)declaration;
+- (void) addDeclaration:(OCXDeclaration *)declaration;
 - (id) objectForKeyedSubscript:(id)key;
 
 @end
+
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
 
 /*
  interface CSSStyleDeclaration {

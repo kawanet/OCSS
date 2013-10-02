@@ -1,5 +1,5 @@
 //
-//  AIRule.m
+//  OCSSStyleRule.m
 //  AttributedImages
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -7,13 +7,13 @@
 //
 
 #import "OCSSStyleRule.h"
-#import "OCSSSelector.h"
+#import "OCXSelector.h"
 
 @implementation OCSSStyleRule
 
-- (OCDeclaration *) declarationForProperty:(NSString *)property {
-    OCDeclaration *match;
-    for(OCDeclaration *decl in self.declarations) {
+- (OCXDeclaration *) declarationForProperty:(NSString *)property {
+    OCXDeclaration *match;
+    for(OCXDeclaration *decl in self.style) {
         if ([decl.property isEqualToString:property]) {
             match = decl;
         }
@@ -24,7 +24,7 @@
 - (NSString *) cssText {
     NSString *selector = self.selectorText;
     NSMutableArray *array = NSMutableArray.new;
-    for(OCDeclaration *decl in self.declarations) {
+    for(OCXDeclaration *decl in self.style) {
         [array addObject:decl.cssText];
     }
     NSString *rules = [array componentsJoinedByString:@" "];
@@ -33,10 +33,7 @@
 
 - (NSString *) selectorText {
     NSMutableArray *array = NSMutableArray.new;
-    for(OCSSSelector *selector in self.selectors) {
-        if (!selector.selector) {
-            NSLog(@"!!! %@ !!!", self.declarations.cssText);
-        }
+    for(OCXSelector *selector in self.selectors) {
         if (!selector.selector) continue;
         [array addObject:selector.selector];
     }

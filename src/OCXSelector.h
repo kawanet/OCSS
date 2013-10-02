@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "OCHTMLelement.h"
 
-@interface OCSSSpecificity : NSObject
+@interface OCXSpecificity : NSObject
 @property NSUInteger specificityStyle;
 @property NSUInteger specificityID;
 @property NSUInteger specificityClassName;
 @property NSUInteger specificityTagName;
 @end
 
-@interface OCSSSelector : NSObject
+@interface OCXSelector : NSObject
 @property NSString *selector;
 @property (readonly) NSArray *parts;
 - (BOOL) isSelectedForElement:(OCHTMLElement*)element;

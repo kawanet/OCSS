@@ -25,7 +25,7 @@ enum {
     OCSSSelectorID                  = '#', // #id
 };
 
-@interface OCSSSelectorPart : NSObject
+@interface OCXSelectorPart : NSObject
 @property NSUInteger type;
 @property NSString *text;
 @property NSString *arg;

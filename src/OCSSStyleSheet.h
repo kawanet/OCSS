@@ -19,6 +19,8 @@
 
 @end
 
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
+
 /*
  interface StyleSheet {
  readonly attribute DOMString       type;

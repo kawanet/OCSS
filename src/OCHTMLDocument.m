@@ -45,28 +45,28 @@
     return node;
 }
 
-- (OCHTMLTextNode*)createTextNode:(NSString*)data {
-    OCHTMLTextNode *node = [[OCHTMLTextNode alloc] init];
+- (OCText*)createTextNode:(NSString*)data {
+    OCText *node = [[OCText alloc] init];
     node.ownerDocument = self;
     node.data = data;
     return node;
 }
 
-- (OCHTMLCommentNode*)createComment:(NSString*)data {
-    OCHTMLCommentNode *node = [[OCHTMLCommentNode alloc] init];
+- (OCComment*)createComment:(NSString*)data {
+    OCComment *node = [[OCComment alloc] init];
     node.ownerDocument = self;
     node.data = data;
     return node;
 }
 
-- (OCHTMLCDATASection*)createCDATASection:(NSString*)data {
-    OCHTMLCDATASection *node = [[OCHTMLCDATASection alloc] init];
+- (OCCDATASection*)createCDATASection:(NSString*)data {
+    OCCDATASection *node = [[OCCDATASection alloc] init];
     node.ownerDocument = self;
     return node;
 }
 
-- (OCHTMLAttr*)createAttribute:(NSString*)name {
-    OCHTMLAttr *node = [[OCHTMLAttr alloc] init];
+- (OCAttr*)createAttribute:(NSString*)name {
+    OCAttr *node = [[OCAttr alloc] init];
     node.ownerDocument = self;
     node.name = name;
     return node;

@@ -25,16 +25,16 @@
 		1DF531EE17F9D40E00A3A58B /* sample in Resources */ = {isa = PBXBuildFile; fileRef = 1DF531ED17F9D40E00A3A58B /* sample */; };
 		1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F117F9D43300A3A58B /* OCSS.m */; };
 		1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */; };
-		1DF5321E17F9D43300A3A58B /* OCDeclaration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F917F9D43300A3A58B /* OCDeclaration.m */; };
+		1DF5321E17F9D43300A3A58B /* OCXDeclaration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531F917F9D43300A3A58B /* OCXDeclaration.m */; };
 		1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */; };
 		1DF5322017F9D43300A3A58B /* OCSSKeyframesRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531FD17F9D43300A3A58B /* OCSSKeyframesRule.m */; };
 		1DF5322117F9D43300A3A58B /* OCSSMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF531FF17F9D43300A3A58B /* OCSSMedia.m */; };
 		1DF5322217F9D43300A3A58B /* OCSSMediaRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320117F9D43300A3A58B /* OCSSMediaRule.m */; };
 		1DF5322317F9D43300A3A58B /* OCSSPagesRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320317F9D43300A3A58B /* OCSSPagesRule.m */; };
-		1DF5322417F9D43300A3A58B /* OCSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320517F9D43300A3A58B /* OCSSParser.m */; };
+		1DF5322417F9D43300A3A58B /* OCXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320517F9D43300A3A58B /* OCXParser.m */; };
 		1DF5322517F9D43300A3A58B /* OCSSRuleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320717F9D43300A3A58B /* OCSSRuleList.m */; };
-		1DF5322617F9D43300A3A58B /* OCSSSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320917F9D43300A3A58B /* OCSSSelector.m */; };
-		1DF5322717F9D43300A3A58B /* OCSSSelectorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320B17F9D43300A3A58B /* OCSSSelectorList.m */; };
+		1DF5322617F9D43300A3A58B /* OCXSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320917F9D43300A3A58B /* OCXSelector.m */; };
+		1DF5322717F9D43300A3A58B /* OCXSelectorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320B17F9D43300A3A58B /* OCXSelectorList.m */; };
 		1DF5322817F9D43300A3A58B /* OCSSStyleDeclaration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320D17F9D43300A3A58B /* OCSSStyleDeclaration.m */; };
 		1DF5322917F9D43300A3A58B /* OCSSStyleRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5320F17F9D43300A3A58B /* OCSSStyleRule.m */; };
 		1DF5322B17F9D43300A3A58B /* OCStyleSheetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321317F9D43300A3A58B /* OCStyleSheetList.m */; };
@@ -42,12 +42,12 @@
 		1DF5322D17F9D43300A3A58B /* OCHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */; };
 		1DF5322E17F9D43300A3A58B /* OCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5321917F9D43300A3A58B /* OCLocation.m */; };
 		1DF5323417F9D59E00A3A58B /* OCList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323317F9D59B00A3A58B /* OCList.m */; };
-		1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */; };
+		1DF5323717FA36CD00A3A58B /* OCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323617FA36CD00A3A58B /* OCNode.m */; };
 		1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */; };
 		1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5323C17FA669200A3A58B /* OCSSRule.m */; };
 		1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */; };
 		1DF5324617FA90E900A3A58B /* OCSSFontFaceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */; };
-		1DF5324917FB12BC00A3A58B /* OCSSSelectorPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324817FB12BA00A3A58B /* OCSSSelectorPart.m */; };
+		1DF5324917FB12BC00A3A58B /* OCXSelectorPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF5324817FB12BA00A3A58B /* OCXSelectorPart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +79,8 @@
 		1DF531F117F9D43300A3A58B /* OCSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSS.m; sourceTree = "<group>"; };
 		1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSCharsetRule.h; sourceTree = "<group>"; };
 		1DF531F717F9D43300A3A58B /* OCSSCharsetRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSCharsetRule.m; sourceTree = "<group>"; };
-		1DF531F817F9D43300A3A58B /* OCDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDeclaration.h; sourceTree = "<group>"; };
-		1DF531F917F9D43300A3A58B /* OCDeclaration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDeclaration.m; sourceTree = "<group>"; };
+		1DF531F817F9D43300A3A58B /* OCXDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXDeclaration.h; sourceTree = "<group>"; };
+		1DF531F917F9D43300A3A58B /* OCXDeclaration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXDeclaration.m; sourceTree = "<group>"; };
 		1DF531FA17F9D43300A3A58B /* OCSSImportRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSImportRule.h; sourceTree = "<group>"; };
 		1DF531FB17F9D43300A3A58B /* OCSSImportRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSImportRule.m; sourceTree = "<group>"; };
 		1DF531FC17F9D43300A3A58B /* OCSSKeyframesRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSKeyframesRule.h; sourceTree = "<group>"; };
@@ -91,14 +91,14 @@
 		1DF5320117F9D43300A3A58B /* OCSSMediaRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSMediaRule.m; sourceTree = "<group>"; };
 		1DF5320217F9D43300A3A58B /* OCSSPagesRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSPagesRule.h; sourceTree = "<group>"; };
 		1DF5320317F9D43300A3A58B /* OCSSPagesRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSPagesRule.m; sourceTree = "<group>"; };
-		1DF5320417F9D43300A3A58B /* OCSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSParser.h; sourceTree = "<group>"; };
-		1DF5320517F9D43300A3A58B /* OCSSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSParser.m; sourceTree = "<group>"; };
+		1DF5320417F9D43300A3A58B /* OCXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXParser.h; sourceTree = "<group>"; };
+		1DF5320517F9D43300A3A58B /* OCXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXParser.m; sourceTree = "<group>"; };
 		1DF5320617F9D43300A3A58B /* OCSSRuleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSRuleList.h; sourceTree = "<group>"; };
 		1DF5320717F9D43300A3A58B /* OCSSRuleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSRuleList.m; sourceTree = "<group>"; };
-		1DF5320817F9D43300A3A58B /* OCSSSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSSelector.h; sourceTree = "<group>"; };
-		1DF5320917F9D43300A3A58B /* OCSSSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSSelector.m; sourceTree = "<group>"; };
-		1DF5320A17F9D43300A3A58B /* OCSSSelectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSSelectorList.h; sourceTree = "<group>"; };
-		1DF5320B17F9D43300A3A58B /* OCSSSelectorList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSSelectorList.m; sourceTree = "<group>"; };
+		1DF5320817F9D43300A3A58B /* OCXSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelector.h; sourceTree = "<group>"; };
+		1DF5320917F9D43300A3A58B /* OCXSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelector.m; sourceTree = "<group>"; };
+		1DF5320A17F9D43300A3A58B /* OCXSelectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelectorList.h; sourceTree = "<group>"; };
+		1DF5320B17F9D43300A3A58B /* OCXSelectorList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelectorList.m; sourceTree = "<group>"; };
 		1DF5320C17F9D43300A3A58B /* OCSSStyleDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSStyleDeclaration.h; sourceTree = "<group>"; };
 		1DF5320D17F9D43300A3A58B /* OCSSStyleDeclaration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSStyleDeclaration.m; sourceTree = "<group>"; };
 		1DF5320E17F9D43300A3A58B /* OCSSStyleRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSStyleRule.h; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		1DF5321917F9D43300A3A58B /* OCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLocation.m; sourceTree = "<group>"; };
 		1DF5323217F9D59B00A3A58B /* OCList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCList.h; sourceTree = "<group>"; };
 		1DF5323317F9D59B00A3A58B /* OCList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCList.m; sourceTree = "<group>"; };
-		1DF5323517FA36CD00A3A58B /* OCHTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLNode.h; sourceTree = "<group>"; };
-		1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLNode.m; sourceTree = "<group>"; };
+		1DF5323517FA36CD00A3A58B /* OCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCNode.h; sourceTree = "<group>"; };
+		1DF5323617FA36CD00A3A58B /* OCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCNode.m; sourceTree = "<group>"; };
 		1DF5323817FA36EC00A3A58B /* OCHTMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLElement.h; sourceTree = "<group>"; };
 		1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLElement.m; sourceTree = "<group>"; };
 		1DF5323B17FA669100A3A58B /* OCSSRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSSRule.h; sourceTree = "<group>"; };
@@ -124,8 +124,8 @@
 		1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDOMTokenList.h; sourceTree = "<group>"; };
 		1DF5324417FA90E500A3A58B /* OCSSFontFaceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSFontFaceRule.h; sourceTree = "<group>"; };
 		1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSFontFaceRule.m; sourceTree = "<group>"; };
-		1DF5324717FB12B700A3A58B /* OCSSSelectorPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSSelectorPart.h; sourceTree = "<group>"; };
-		1DF5324817FB12BA00A3A58B /* OCSSSelectorPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSSelectorPart.m; sourceTree = "<group>"; };
+		1DF5324717FB12B700A3A58B /* OCXSelectorPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelectorPart.h; sourceTree = "<group>"; };
+		1DF5324817FB12BA00A3A58B /* OCXSelectorPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelectorPart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,22 +203,20 @@
 		1DF531EF17F9D43300A3A58B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1DF531F817F9D43300A3A58B /* OCDeclaration.h */,
-				1DF531F917F9D43300A3A58B /* OCDeclaration.m */,
 				1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */,
 				1DF5324117FA72E300A3A58B /* OCDOMTokenList.m */,
 				1DF5321617F9D43300A3A58B /* OCHTMLDocument.h */,
 				1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */,
 				1DF5323817FA36EC00A3A58B /* OCHTMLElement.h */,
 				1DF5323917FA36ED00A3A58B /* OCHTMLElement.m */,
-				1DF5323517FA36CD00A3A58B /* OCHTMLNode.h */,
-				1DF5323617FA36CD00A3A58B /* OCHTMLNode.m */,
 				1DF5323217F9D59B00A3A58B /* OCList.h */,
 				1DF5323317F9D59B00A3A58B /* OCList.m */,
 				1DF5321817F9D43300A3A58B /* OCLocation.h */,
 				1DF5321917F9D43300A3A58B /* OCLocation.m */,
 				1D5EE76317FBEF8400F15BAA /* OCMediaList.h */,
 				1D5EE76417FBEF8400F15BAA /* OCMediaList.m */,
+				1DF5323517FA36CD00A3A58B /* OCNode.h */,
+				1DF5323617FA36CD00A3A58B /* OCNode.m */,
 				1DF531F017F9D43300A3A58B /* OCSS.h */,
 				1DF531F117F9D43300A3A58B /* OCSS.m */,
 				1DF531F617F9D43300A3A58B /* OCSSCharsetRule.h */,
@@ -235,30 +233,32 @@
 				1DF5320117F9D43300A3A58B /* OCSSMediaRule.m */,
 				1DF5320217F9D43300A3A58B /* OCSSPagesRule.h */,
 				1DF5320317F9D43300A3A58B /* OCSSPagesRule.m */,
-				1DF5320417F9D43300A3A58B /* OCSSParser.h */,
-				1DF5320517F9D43300A3A58B /* OCSSParser.m */,
 				1D5EE76017FBE89300F15BAA /* OCSSPrimitiveValue.h */,
 				1D5EE76117FBE89300F15BAA /* OCSSPrimitiveValue.m */,
 				1DF5323B17FA669100A3A58B /* OCSSRule.h */,
 				1DF5323C17FA669200A3A58B /* OCSSRule.m */,
 				1DF5320617F9D43300A3A58B /* OCSSRuleList.h */,
 				1DF5320717F9D43300A3A58B /* OCSSRuleList.m */,
-				1DF5320817F9D43300A3A58B /* OCSSSelector.h */,
-				1DF5320917F9D43300A3A58B /* OCSSSelector.m */,
-				1DF5320A17F9D43300A3A58B /* OCSSSelectorList.h */,
-				1DF5320B17F9D43300A3A58B /* OCSSSelectorList.m */,
-				1DF5324717FB12B700A3A58B /* OCSSSelectorPart.h */,
-				1DF5324817FB12BA00A3A58B /* OCSSSelectorPart.m */,
 				1DF5320C17F9D43300A3A58B /* OCSSStyleDeclaration.h */,
 				1DF5320D17F9D43300A3A58B /* OCSSStyleDeclaration.m */,
 				1DF5320E17F9D43300A3A58B /* OCSSStyleRule.h */,
 				1DF5320F17F9D43300A3A58B /* OCSSStyleRule.m */,
-				1DF5321417F9D43300A3A58B /* OCSSValue.h */,
-				1DF5321517F9D43300A3A58B /* OCSSValue.m */,
 				1DF5321017F9D43300A3A58B /* OCSSStyleSheet.h */,
 				1D5EE76617FBF69C00F15BAA /* OCSSStyleSheet.m */,
+				1DF5321417F9D43300A3A58B /* OCSSValue.h */,
+				1DF5321517F9D43300A3A58B /* OCSSValue.m */,
 				1DF5321217F9D43300A3A58B /* OCStyleSheetList.h */,
 				1DF5321317F9D43300A3A58B /* OCStyleSheetList.m */,
+				1DF531F817F9D43300A3A58B /* OCXDeclaration.h */,
+				1DF531F917F9D43300A3A58B /* OCXDeclaration.m */,
+				1DF5320417F9D43300A3A58B /* OCXParser.h */,
+				1DF5320517F9D43300A3A58B /* OCXParser.m */,
+				1DF5320817F9D43300A3A58B /* OCXSelector.h */,
+				1DF5320917F9D43300A3A58B /* OCXSelector.m */,
+				1DF5320A17F9D43300A3A58B /* OCXSelectorList.h */,
+				1DF5320B17F9D43300A3A58B /* OCXSelectorList.m */,
+				1DF5324717FB12B700A3A58B /* OCXSelectorPart.h */,
+				1DF5324817FB12BA00A3A58B /* OCXSelectorPart.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -337,16 +337,16 @@
 				1DF531AC17F9CFD200A3A58B /* DEMOStyleListViewController.m in Sources */,
 				1DF5321A17F9D43300A3A58B /* OCSS.m in Sources */,
 				1DF5321D17F9D43300A3A58B /* OCSSCharsetRule.m in Sources */,
-				1DF5321E17F9D43300A3A58B /* OCDeclaration.m in Sources */,
+				1DF5321E17F9D43300A3A58B /* OCXDeclaration.m in Sources */,
 				1DF5321F17F9D43300A3A58B /* OCSSImportRule.m in Sources */,
 				1DF5322017F9D43300A3A58B /* OCSSKeyframesRule.m in Sources */,
 				1DF5322117F9D43300A3A58B /* OCSSMedia.m in Sources */,
 				1DF5322217F9D43300A3A58B /* OCSSMediaRule.m in Sources */,
 				1DF5322317F9D43300A3A58B /* OCSSPagesRule.m in Sources */,
-				1DF5322417F9D43300A3A58B /* OCSSParser.m in Sources */,
+				1DF5322417F9D43300A3A58B /* OCXParser.m in Sources */,
 				1DF5322517F9D43300A3A58B /* OCSSRuleList.m in Sources */,
-				1DF5322617F9D43300A3A58B /* OCSSSelector.m in Sources */,
-				1DF5322717F9D43300A3A58B /* OCSSSelectorList.m in Sources */,
+				1DF5322617F9D43300A3A58B /* OCXSelector.m in Sources */,
+				1DF5322717F9D43300A3A58B /* OCXSelectorList.m in Sources */,
 				1DF5322817F9D43300A3A58B /* OCSSStyleDeclaration.m in Sources */,
 				1DF5322917F9D43300A3A58B /* OCSSStyleRule.m in Sources */,
 				1DF5322B17F9D43300A3A58B /* OCStyleSheetList.m in Sources */,
@@ -354,12 +354,12 @@
 				1DF5322D17F9D43300A3A58B /* OCHTMLDocument.m in Sources */,
 				1DF5322E17F9D43300A3A58B /* OCLocation.m in Sources */,
 				1DF5323417F9D59E00A3A58B /* OCList.m in Sources */,
-				1DF5323717FA36CD00A3A58B /* OCHTMLNode.m in Sources */,
+				1DF5323717FA36CD00A3A58B /* OCNode.m in Sources */,
 				1DF5323A17FA36ED00A3A58B /* OCHTMLElement.m in Sources */,
 				1DF5323D17FA675500A3A58B /* OCSSRule.m in Sources */,
 				1DF5324317FA72F700A3A58B /* OCDOMTokenList.m in Sources */,
 				1DF5324617FA90E900A3A58B /* OCSSFontFaceRule.m in Sources */,
-				1DF5324917FB12BC00A3A58B /* OCSSSelectorPart.m in Sources */,
+				1DF5324917FB12BC00A3A58B /* OCXSelectorPart.m in Sources */,
 				1D5EE76217FBE89300F15BAA /* OCSSPrimitiveValue.m in Sources */,
 				1D5EE76517FBEF8400F15BAA /* OCMediaList.m in Sources */,
 				1D5EE76717FBF69C00F15BAA /* OCSSStyleSheet.m in Sources */,

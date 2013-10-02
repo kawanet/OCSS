@@ -6,24 +6,59 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCHTMLNode.h"
+#import "OCNode.h"
 #import "OCDOMTokenList.h"
 
-@interface OCHTMLElement : OCHTMLNode
-
-@property (nonatomic) NSString* id;
+@interface OCElement : OCNode
 @property NSString* tagName;
+@property (readonly) NSMutableDictionary *attributes;
+- (NSString *)getAttribute:(NSString*)name;
+- (OCAttr *)getAttributeNode:(NSString*)name;
+- (void)setAttributeNode:(OCAttr*)newAttr;
+- (void)setAttribute:(NSString*)name, ...;
+- (void)setAttribute:(NSString*)name withValue:(NSString*)value;
+@end
+
+// http://www.w3.org/TR/DOM-Level-2-Core/idl-definitions.html
+
+/*
+ interface Element : Node {
+ readonly attribute DOMString        tagName;
+ DOMString          getAttribute(in DOMString name);
+ void               setAttribute(in DOMString name, in  DOMString value) raises (DOMException);
+ void               removeAttribute(in DOMString name) raises (DOMException);
+ Attr               getAttributeNode(in DOMString name);
+ Attr               setAttributeNode(in Attr newAttr) raises (DOMException);
+ Attr               removeAttributeNode(in Attr oldAttr) raises (DOMException);
+ NodeList           getElementsByTagName(in DOMString name);
+ DOMString          getAttributeNS(in DOMString namespaceURI, in  DOMString localName);
+ void               setAttributeNS(in DOMString namespaceURI, in  DOMString qualifiedName, in  DOMString value) raises (DOMException);
+ void               removeAttributeNS(in DOMString namespaceURI, in  DOMString localName) raises (DOMException);
+ Attr               getAttributeNodeNS(in DOMString namespaceURI, in  DOMString localName);
+ Attr               setAttributeNodeNS(in Attr newAttr) raises (DOMException);
+ NodeList           getElementsByTagNameNS(in DOMString namespaceURI, in  DOMString localName);
+ boolean            hasAttribute(in DOMString name);
+ boolean            hasAttributeNS(in DOMString namespaceURI, in  DOMString localName);
+ };
+ */
+
+@interface OCHTMLElement : OCElement
+@property (nonatomic) NSString* id;
 @property (nonatomic) NSString* className;
 @property (readonly) OCDOMTokenList* classList;
-@property (readonly) NSMutableDictionary *attributes;
 @property (nonatomic) NSString* innerText;
 @property (readonly) NSString* outerHTML;
 @property (readonly) NSString* innerHTML;
-
-- (NSString *)getAttribute:(NSString*)name;
-- (OCHTMLAttr *)getAttributeNode:(NSString*)name;
-- (void)setAttributeNode:(OCHTMLAttr*)newAttr;
-- (void)setAttribute:(NSString*)name, ...;
-- (void)setAttribute:(NSString*)name withValue:(NSString*)value;
-    
 @end
+
+// http://www.w3.org/TR/DOM-Level-2-HTML/idl-definitions.html
+
+/*
+ interface HTMLElement : Element {
+ attribute DOMString       id;
+ attribute DOMString       title;
+ attribute DOMString       lang;
+ attribute DOMString       dir;
+ attribute DOMString       className;
+ };
+*/

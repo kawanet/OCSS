@@ -7,10 +7,10 @@
 //
 
 #import "OCSS.h"
-#import "OCSSSelectorPart.h"
+#import "OCXSelectorPart.h"
 
 @interface OCStyleHit : NSObject
-@property OCSSSelector *selector;
+@property OCXSelector *selector;
 @property OCSSStyleDeclaration *declarations;
 @end
 
@@ -42,7 +42,7 @@
 
 - (OCSSStyleDeclaration *) getComputedStyleForSelector:(NSString *)selector {
     
-    OCSSSelector *sel = [OCSSSelector new];
+    OCXSelector *sel = [OCXSelector new];
     sel.selector = selector;
     
     OCHTMLElement *node;
@@ -50,7 +50,7 @@
     OCHTMLElement *root;
     NSString *old;
     
-    for(OCSSSelectorPart *part in sel.parts) {
+    for(OCXSelectorPart *part in sel.parts) {
         // NSLog(@"[%c] '%@' '%@'", part.type, part.text, part.arg);
         
         switch (part.type) {
@@ -123,12 +123,11 @@
         for(OCSSStyleRule *rule in styleSheet.cssRules) {
             if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
             // NSLog(@"%@", rule.selectorText);
-            for(OCSSSelector *selector in rule.selectors) {
+            for(OCXSelector *selector in rule.selectors) {
                 if (![selector isSelectedForElement:element]) continue;
-                OCSSStyleDeclaration *decls = rule.declarations;
                 OCStyleHit *hit = [OCStyleHit new];
                 hit.selector = selector;
-                hit.declarations = decls;
+                hit.declarations = rule.style;
                 [array addObject:hit];
                 // NSLog(@"%@", rule.cssText);
             }
@@ -139,7 +138,7 @@
     if (!array.count) return style;
     
     for(OCStyleHit *hit in array) {
-        for(OCDeclaration *decl in hit.declarations) {
+        for(OCXDeclaration *decl in hit.declarations) {
             [style addDeclaration:decl];            
         }
     }

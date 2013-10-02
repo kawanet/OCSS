@@ -16,9 +16,11 @@
 
 @end
 
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
+
 /*
  interface CSSRuleList {
- readonly attribute unsigned long    length;
- CSSRule            item(in unsigned long index);
+ readonly attribute unsigned long   length;
+ CSSRule                            item(in unsigned long index);
  };
  */

@@ -14,6 +14,8 @@
 
 @end
 
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
+
 /*
  interface CSSCharsetRule : CSSRule {
  attribute DOMString        encoding; // raises(dom::DOMException) on setting

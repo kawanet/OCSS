@@ -54,7 +54,7 @@
     
     OCSSStyleRule *rule = _list[indexPath.row];
     cell.textLabel.text = rule.selectorText;
-    cell.detailTextLabel.text = rule.declarations.cssText;
+    cell.detailTextLabel.text = rule.style.cssText;
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

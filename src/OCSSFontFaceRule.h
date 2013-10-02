@@ -15,6 +15,8 @@
 
 @end
 
+// http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html
+
 /*
  interface CSSFontFaceRule : CSSRule {
  readonly attribute CSSStyleDeclaration  style;

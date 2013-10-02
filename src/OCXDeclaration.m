@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCDeclaration.h"
+#import "OCXDeclaration.h"
 
-@implementation OCDeclaration
+@implementation OCXDeclaration
 
 - (NSString *) property {
     return _property;

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCSSSelectorPart.h"
+#import "OCXSelectorPart.h"
 
-@implementation OCSSSelectorPart
+@implementation OCXSelectorPart
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "OCSSStyleSheet.h"
-#import "OCSSParser.h"
+#import "OCXParser.h"
 
 @implementation OCStyleSheet
 @end
@@ -16,7 +16,7 @@
 
 - (instancetype) initWithString:(NSString *)source {
     self = self.init;
-    OCSSParser *parser = OCSSParser.new;
+    OCXParser *parser = [OCXParser new];
     [parser parseForStyleSheet:self withString:source];
     return self;
 }
