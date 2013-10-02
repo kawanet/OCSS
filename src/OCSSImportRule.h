@@ -7,8 +7,9 @@
 //
 
 #import "OCSSRule.h"
-#import "OCSSStyleSheet.h"
-#import "OCMediaList.h"
+
+@class OCMediaList;
+@class OCSSStyleSheet;
 
 @interface OCSSImportRule : OCSSRule
 

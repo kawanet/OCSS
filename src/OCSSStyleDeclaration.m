@@ -7,6 +7,8 @@
 //
 
 #import "OCSSStyleDeclaration.h"
+#import "OCSS.h"
+#import "OCX.h"
 
 @implementation OCSSStyleDeclaration
 

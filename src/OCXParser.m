@@ -7,16 +7,8 @@
 //
 
 #import "OCXParser.h"
-#import "OCSSStyleRule.h"
-#import "OCSSMediaRule.h"
-#import "OCXSelector.h"
-#import "OCXSelectorList.h"
-#import "OCSSRuleList.h"
-#import "OCSSCharsetRule.h"
-#import "OCSSImportRule.h"
-#import "OCSSPagesRule.h"
-#import "OCSSKeyframesRule.h"
-#import "OCSSFontFaceRule.h"
+#import "OCSS.h"
+#import "OCX.h"
 
 @implementation OCXParser {
     NSString *_source;

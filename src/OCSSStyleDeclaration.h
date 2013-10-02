@@ -7,7 +7,8 @@
 //
 
 #import "OCXList.h"
-#import "OCXDeclaration.h"
+
+@class OCXDeclaration;
 
 @interface OCSSStyleDeclaration : OCXListCSS
 

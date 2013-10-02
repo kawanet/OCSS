@@ -7,6 +7,7 @@
 //
 
 #import "OCSSKeyframesRule.h"
+#import "OCSS.h"
 
 @implementation OCSSKeyframesRule
 

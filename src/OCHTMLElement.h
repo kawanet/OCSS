@@ -7,7 +7,8 @@
 //
 
 #import "OCNode.h"
-#import "OCDOMTokenList.h"
+
+@class OCDOMTokenList;
 
 @interface OCElement : OCNode
 @property NSString* tagName;

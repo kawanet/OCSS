@@ -7,7 +7,8 @@
 //
 
 #import "OCSSStyleRule.h"
-#import "OCXSelector.h"
+#import "OCSS.h"
+#import "OCX.h"
 
 @implementation OCSSStyleRule
 

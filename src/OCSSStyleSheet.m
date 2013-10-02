@@ -7,7 +7,8 @@
 //
 
 #import "OCSSStyleSheet.h"
-#import "OCXParser.h"
+#import "OCSS.h"
+#import "OCX.h"
 
 @implementation OCStyleSheet
 @end

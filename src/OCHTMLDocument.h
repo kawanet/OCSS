@@ -7,11 +7,13 @@
 //
 
 #import "OCNode.h"
-#import "OCHTMLElement.h"
-#import "OCSSStyleSheet.h"
-#import "OCStyleSheetList.h"
-#import "OCLocation.h"
-#import "OCSSStyleDeclaration.h"
+
+@class OCHTMLElement;
+@class OCStyleSheet;
+@class OCSSStyleDeclaration;
+@class OCLocation;
+@class OCStyleSheetList;
+@class OCSSStyleSheet;
 
 @interface OCDocumentFragment : OCNode
 @end
@@ -54,6 +56,7 @@
 @property OCLocation *location;
 @property (readonly) OCHTMLElement *body;
 - (void) addStyleSheet:(OCSSStyleSheet *)styleSheet;
+- (OCHTMLElement *) createElementWithSelector:(NSString*)selector;
 - (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element;
 @end
 

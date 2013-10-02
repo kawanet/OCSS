@@ -7,7 +7,7 @@
 //
 
 #import "OCSSMediaRule.h"
-#import "OCSSRuleList.h"
+#import "OCSS.h"
 
 @implementation OCSSMediaRule
 

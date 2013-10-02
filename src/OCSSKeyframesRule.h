@@ -7,7 +7,8 @@
 //
 
 #import "OCSSRule.h"
-#import "OCSSRuleList.h"
+
+@class OCSSRuleList;
 
 @interface OCSSKeyframesRule : OCSSRule
 

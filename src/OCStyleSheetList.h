@@ -7,7 +7,8 @@
 //
 
 #import "OCXList.h"
-#import "OCSSStyleSheet.h"
+
+@class OCSSStyleSheet;
 
 @interface OCStyleSheetList : OCXListCSS
 

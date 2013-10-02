@@ -55,6 +55,7 @@
 		1D5EE76317FBEF8400F15BAA /* OCMediaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMediaList.h; sourceTree = "<group>"; };
 		1D5EE76417FBEF8400F15BAA /* OCMediaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMediaList.m; sourceTree = "<group>"; };
 		1D5EE76617FBF69C00F15BAA /* OCSSStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSStyleSheet.m; sourceTree = "<group>"; };
+		1D5EE76817FC1C1300F15BAA /* OCX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCX.h; sourceTree = "<group>"; };
 		1DF5318117F9CB2D00A3A58B /* OCSS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCSS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5318417F9CB2D00A3A58B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1DF5318617F9CB2D00A3A58B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -242,6 +243,7 @@
 				1DF5321517F9D43300A3A58B /* OCSSValue.m */,
 				1DF5321217F9D43300A3A58B /* OCStyleSheetList.h */,
 				1DF5321317F9D43300A3A58B /* OCStyleSheetList.m */,
+				1D5EE76817FC1C1300F15BAA /* OCX.h */,
 				1DF531F817F9D43300A3A58B /* OCXDeclaration.h */,
 				1DF531F917F9D43300A3A58B /* OCXDeclaration.m */,
 				1DF5323217F9D59B00A3A58B /* OCXList.h */,

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "OCXList.h"
+
 @class OCDocument;
 
 @interface OCNodeList : OCXList

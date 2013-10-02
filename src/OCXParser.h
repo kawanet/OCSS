@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCSSStyleSheet.h"
+
+@class OCSSStyleSheet;
 
 @interface OCXParser : NSObject
 

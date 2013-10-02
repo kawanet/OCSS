@@ -7,7 +7,8 @@
 //
 
 #import "OCSSRule.h"
-#import "OCSSStyleDeclaration.h"
+
+@class OCSSStyleDeclaration;
 
 @interface OCSSPagesRule : OCSSRule
 

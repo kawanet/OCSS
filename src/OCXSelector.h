@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCHTMLelement.h"
+
+@class OCHTMLElement;
 
 @interface OCXSpecificity : NSObject
 @property NSUInteger specificityStyle;

@@ -7,9 +7,10 @@
 //
 
 #import "OCSSRule.h"
-#import "OCXDeclaration.h"
-#import "OCXSelectorList.h"
-#import "OCSSStyleDeclaration.h"
+
+@class OCSSStyleDeclaration;
+@class OCXSelectorList;
+@class OCXDeclaration;
 
 @interface OCSSStyleRule : OCSSRule
 

@@ -7,8 +7,6 @@
 //
 
 #import "OCSSRuleList.h"
-#import "OCSSMediaRule.h"
-#import "OCSSStyleRule.h"
 
 @implementation OCSSRuleList
 

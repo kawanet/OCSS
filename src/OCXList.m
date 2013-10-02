@@ -7,6 +7,7 @@
 //
 
 #import "OCXList.h"
+#import "OCSS.h"
 
 @implementation OCXList {
     NSMutableArray *_list;

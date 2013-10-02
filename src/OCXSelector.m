@@ -7,7 +7,8 @@
 //
 
 #import "OCXSelector.h"
-#import "OCXSelectorPart.h"
+#import "OCSS.h"
+#import "OCX.h"
 
 @implementation OCXSelector{
     NSArray *_parts;

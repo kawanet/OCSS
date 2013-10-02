@@ -7,6 +7,7 @@
 //
 
 #import "OCXDeclaration.h"
+#import "OCSS.h"
 
 @implementation OCXDeclaration
 

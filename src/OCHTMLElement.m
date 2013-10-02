@@ -7,7 +7,7 @@
 //
 
 #import "OCHTMLElement.h"
-#import "OCHTMLDocument.h"
+#import "OCSS.h"
 
 @implementation OCElement {
     NSMutableDictionary *_attributes;

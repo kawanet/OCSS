@@ -7,6 +7,7 @@
 //
 
 #import "OCSSFontFaceRule.h"
+#import "OCSS.h"
 
 @implementation OCSSFontFaceRule
 

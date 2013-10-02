@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCSSRuleList.h"
-#import "OCMediaList.h"
 
 @class OCHTMLDocument;
+@class OCMediaList;
+@class OCSSRuleList;
 
 @interface OCStyleSheet : NSObject
 

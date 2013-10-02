@@ -7,6 +7,7 @@
 //
 
 #import "OCSSPagesRule.h"
+#import "OCSS.h"
 
 @implementation OCSSPagesRule
 

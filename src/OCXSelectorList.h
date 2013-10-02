@@ -7,7 +7,8 @@
 //
 
 #import "OCXList.h"
-#import "OCXSelector.h"
+
+@class OCXSelector;
 
 @interface OCXSelectorList : OCXListCSS
 

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCSSPrimitiveValue.h"
+
+@class OCSSPrimitiveValue;
 
 @interface OCXDeclaration : NSObject
 
