@@ -13,7 +13,7 @@ NSString *fontWeight = style.fontWeight;
 
 ## DEMO APPICATION
 
-<img src="https://github.com/kawanet/OCSS/raw/master/public/screen1.png" border="1">
+<img src="https://github.com/kawanet/OCSS/raw/master/public/screen1.png">&nbsp;<img src="https://github.com/kawanet/OCSS/raw/master/public/screen2.png">
 
 ## AUTHOR
 
