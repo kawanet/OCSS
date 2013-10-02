@@ -24,7 +24,12 @@
 }
 
 - (void) addStyleSheetWithContentsOfURL:(NSURL *)url {
-    NSString *source = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    NSError *error;
+    NSString *source = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    if (!source.length) return;
     
     OCSSStyleSheet *styleSheet = [[OCSSStyleSheet alloc] initWithString:source];
     styleSheet.href = url.absoluteString;
