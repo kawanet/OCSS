@@ -13,7 +13,7 @@
 
 @interface OCSSMediaRule : OCSSRule
 
-@property OCSSRuleList *cssRules;
+@property (nonatomic) OCSSRuleList *cssRules;
 @property (readonly) OCMediaList *media;
 
 @end

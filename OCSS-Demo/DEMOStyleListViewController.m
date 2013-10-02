@@ -12,6 +12,7 @@
 @interface DEMOStyleListViewSection : NSObject
 @property NSString *title;
 @property (readonly) NSMutableArray *rows;
+@property BOOL isMedia;
 @end
 
 @implementation DEMOStyleListViewSection {
@@ -48,7 +49,7 @@ static NSMutableDictionary *_cache;
     NSMutableArray *array = NSMutableArray.new;
     
     for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
-        NSLog(@"%@\n%@", styleSheet.href, styleSheet.cssText);
+        // NSLog(@"%@\n%@", styleSheet.href, styleSheet.cssText);
         for(OCSSRule *rule in styleSheet.cssRules) {
             if ([rule isKindOfClass:[OCSSStyleRule class]]) {
                 if (!sect) {
@@ -62,6 +63,7 @@ static NSMutableDictionary *_cache;
                 OCSSMediaRule *mediaRule = (OCSSMediaRule*) rule;
                 sect = [DEMOStyleListViewSection new];
                 sect.title = [NSString stringWithFormat:@"@media %@", mediaRule.media.mediaText];
+                sect.isMedia = YES;
                 [array addObject:sect];
                 for(OCSSRule *childRule in mediaRule.cssRules) {
                     if ([childRule isKindOfClass:[OCSSStyleRule class]]) {
@@ -101,8 +103,14 @@ static NSMutableDictionary *_cache;
     OCSSStyleRule *rule = sect.rows[indexPath.row];
     cell.textLabel.text = rule.selectorText;
     cell.detailTextLabel.text = rule.style.cssText;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    // NSLog(@"%i %@: %@", sect.isMedia, rule.selectorText, rule.parentRule);
+    if (sect.isMedia) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
     
     return cell;
 }
@@ -111,6 +119,7 @@ static NSMutableDictionary *_cache;
 {
     DEMOStyleListViewSection *sect = _sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
+    if (sect.isMedia) return;
     
     DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
     vc.css = _css;

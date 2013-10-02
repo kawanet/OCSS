@@ -11,6 +11,7 @@
 
 @implementation OCSSMediaRule {
     OCMediaList *_media;
+    OCSSRuleList *_cssRules;
 }
 
 - (NSString *)cssText {
@@ -21,6 +22,16 @@
 - (OCMediaList *)media {
     if (_media) return _media;
     return _media = [OCMediaList new];
+}
+
+- (OCSSRuleList *)cssRules {
+    if (_cssRules) return _cssRules;
+    return _cssRules = [OCSSRuleList new];
+}
+
+- (void) setCssRules:(OCSSRuleList *)rules {
+    rules.parentRule = self;
+    _cssRules = rules;
 }
 
 @end

@@ -54,7 +54,7 @@ static NSRegularExpression *_re_whitespace;
         return nil;
     }
     
-    OCSSMediaRule *media = OCSSMediaRule.new;
+    OCSSMediaRule *media = [OCSSMediaRule new];
     media.media.mediaText = [self trim:astr];
     media.cssRules = rules;
     return media;
@@ -185,7 +185,7 @@ static NSRegularExpression *_re_whitespace;
     // { property: value; ... }
     OCSSStyleDeclaration *declarations = [self declarations];
     
-    OCSSStyleRule *rule = OCSSStyleRule.new;
+    OCSSStyleRule *rule = [OCSSStyleRule new];
     rule.selectors = selectors;
     rule.style = declarations;
     return rule;
@@ -295,7 +295,7 @@ static NSRegularExpression *_re_whitespace;
     [self comments];
     
     BOOL found = NO;
-    OCSSRuleList *rules = OCSSRuleList.new;
+    OCSSRuleList *rules = [OCSSRuleList new];
     
     while (_cursor < _length) {
         if (self.nextChar == '}') break;
