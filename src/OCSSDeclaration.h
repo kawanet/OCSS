@@ -11,7 +11,7 @@
 
 @interface OCSSDeclaration : OCMap
 
-@property NSString *property;
+@property (nonatomic) NSString *property;
 @property OCSSValue *value;
 @property (readonly) NSString *cssText;
 

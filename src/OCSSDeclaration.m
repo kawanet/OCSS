@@ -10,6 +10,14 @@
 
 @implementation OCSSDeclaration
 
+- (NSString *) property {
+    return _property;
+}
+
+- (void) property:(NSString*)property {
+    _property = property ? property.lowercaseString : property;
+}
+
 - (NSString *) cssText {
     return [NSString stringWithFormat:@"%@: %@;", self.property, self.value.value];
 }

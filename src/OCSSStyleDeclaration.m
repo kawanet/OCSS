@@ -14,4 +14,13 @@
     [self.list addObject:declaration];
 }
 
+- (id)objectForKeyedSubscript:(id)key {
+    NSString *name = ((NSString *)key).lowercaseString;
+    OCSSDeclaration *hit;
+    for(OCSSDeclaration *decl in self.list) {
+        if ([name isEqualToString:decl.property]) hit = decl;
+    }
+    return hit.value.value;
+}
+
 @end

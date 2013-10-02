@@ -12,5 +12,6 @@
 @interface OCSSStyleDeclaration : OCListCSS
 
 - (void) addDeclaration:(OCSSDeclaration *)declaration;
+- (id)objectForKeyedSubscript:(id)key;
 
 @end

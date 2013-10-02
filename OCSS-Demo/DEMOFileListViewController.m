@@ -46,6 +46,7 @@
     
     OCSSStyleDeclaration *style = [css getComputedStyleForSelector:@"h5"];
     NSLog(@"cssText: %@", style.cssText);
+    NSLog(@"font-size: %@", style[@"font-size"]);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
