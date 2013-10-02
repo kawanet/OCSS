@@ -57,20 +57,27 @@ enum {
     return _specificity = score;
 }
 
+static NSRegularExpression *_re_parts;
+
 - (NSArray *)parts {
     if (_parts) return _parts;
     NSMutableArray *array = NSMutableArray.new;
     
     // NSLog(@"parts: %@", self.selector);
 
-    NSError *error;
-    NSString *pattern = @"(\\s*\\>\\s*) | (\\s*\\+\\s*) | (\\s+) | ([\\.\\#\\:][^\\.\\#\\:\\>\\+\\*\\[\\s]+) | (?:\\[ ([^\\=\\~\\|\\]]+) (?: ([\\~\\|]?=) (?: ([^\"'\\]]*|\"([^\"]*)\"|'([^']*)') ) )? \\]) | ([^\\.\\#\\:\\>\\+\\*\\[\\s]+)";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAllowCommentsAndWhitespace error:&error];
+    if (!_re_parts) {
+        NSError *error;
+        NSString *pattern = @"(\\s*\\>\\s*) | (\\s*\\+\\s*) | (\\s+) | ([\\.\\#\\:][^\\.\\#\\:\\>\\+\\*\\[\\s]+) | (?:\\[ ([^\\=\\~\\|\\]]+) (?: ([\\~\\|]?=) (?: ([^\"'\\]]*|\"([^\"]*)\"|'([^']*)') ) )? \\]) | ([^\\.\\#\\:\\>\\+\\*\\[\\s]+)";
+        _re_parts = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAllowCommentsAndWhitespace error:&error];
+        if (error) {
+            NSLog(@"[ERROR] %@", error);
+        }
+    }
     NSRange range = NSMakeRange(0, self.selector.length);
     
     __block NSUInteger count = 0;
     __weak NSString *source = self.selector;
-    [regex enumerateMatchesInString:self.selector options:0 range:range usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
+    [_re_parts enumerateMatchesInString:self.selector options:0 range:range usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
         NSString *hitstr = [source substringWithRange:match.range];
         OCXSelectorPart *part = [OCXSelectorPart new];
 
@@ -137,9 +144,6 @@ enum {
         if (++count >= 100) *stop = YES;
     }];
     
-    if (error) {
-        NSLog(@"[ERROR] %@", error);
-    }
     return _parts = [NSArray arrayWithArray:array];
 }
 
