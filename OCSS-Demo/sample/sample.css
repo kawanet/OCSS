@@ -1,42 +1,43 @@
 @charset "utf-8";
 
+div { margin-top: 31px; padding-top: 31px; }
+.foo { margin-top: 32px; padding-right: 32px; }
+#bar { margin-top: 33px; padding-bottom: 33px; }
+div.foo { margin-top: 34px; padding-left: 34px; }
+div#bar { margin-top: 35px; padding-top: 35px; }
+.foo#bar { margin-top: 36px; padding-right: 36px; }
+#bar.foo { margin-top: 37px; padding-bottom: 37px; }
+div.foo#bar { margin-top: 38px; }
+div#bar.foo { margin-top: 39px; }
+
 * { margin-top: 0px; }
 
 E { margin-left: 1px; }
-E[foo] { margin-top: 2px;}
-E[foo="EQ"] { margin-top: 3px; }
-E[foo~="TILD"] { margin-top: 4px;}
-E[foo^="HAT"] { margin-top: 5px; }
-E[foo$="DOLLAR"] { margin-top: 6px; }
-
-E[foo*="STAR"] { margin-top: 7px; }
-E[foo|="PIPE"] { margin-top: 8px; }
-E:pseudo-class { margin-top: 9px; }
-E::pseudo-class { margin-top: 10px; }
-
 E.warning { margin-top: 11px; }
 E#myid { margin-top: 12px; }
 E:not(s) { margin-top: 13px; }
 
-F { margin-top: 14px; margin-right: 14px; }
-E F { margin-top: 15px; margin-left: 15px; }
-E G F { margin-top: 16px; }
-E > F { margin-top: 17px; }
-E + F { margin-top: 18px; }
-E ~ F { margin-top: 19px; }
+F { margin-top: 14px; padding-right: 14px; }
+E F { margin-top: 15px; padding-left: 15px; }
+E > F { margin-top: 16px; }
+E + F { margin-top: 17px; }
+E ~ F { margin-top: 18px; }
 
-div { margin-top: 21px; margin-right: 21px; }
-span { margin-top: 22px; margin-right: 22px; }
-div span { margin-top: 23px; }
-.foo { margin-top: 24px; margin-left: 24px; }
-.bar { margin-top: 25px; margin-left: 25px; }
-.foo .bar { margin-top: 26px; }
-div .bar { margin-top: 27px; margin-bottom: 27px; }
-.foo span { margin-top: 28px; margin-bottom: 28px; }
-div.foo span.bar { margin-top: 29px; }
+E G F { margin-top: 19px; padding-bottom: 19px; }
+E G H F { margin-top: 20px; }
+E H G F { margin-top: 21px; }
 
-#qux { margin-top: 30px; padding-bottom: 30px; }
-div.foo { margin-top: 31px; padding-right: 31px; }
-div#qux { margin-top: 32px; padding-left: 32px; }
-div.foo#qux { margin-top: 33px; }
-div#qux.foo { margin-top: 34px; }
+E G.c F { margin-top: 22px; margin-right: 22px; }
+E H.c F { margin-top: 23px; margin-bottom: 23px; }
+E G.c H.c F { margin-top: 24px; margin-left: 24px; }
+E H.c G.c F { margin-top: 25px; }
+
+E[foo] { margin-top: 22px;}
+E[foo="EQ"] { margin-top: 23px; }
+E[foo~="TILD"] { margin-top: 24px;}
+E[foo^="HAT"] { margin-top: 25px; }
+E[foo$="DOLLAR"] { margin-top: 26px; }
+E[foo*="STAR"] { margin-top: 27px; }
+E[foo|="PIPE"] { margin-top: 28px; }
+E:pseudo-class { margin-top: 29px; }
+E::pseudo-class { margin-top: 30px; }

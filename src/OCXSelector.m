@@ -189,10 +189,13 @@ static NSRegularExpression *_re_parts;
 - (BOOL) isSelectedForElement:(OCHTMLElement*)element {
     NSArray *parts = [self parts];
     BOOL hit = NO;
+    BOOL descendantMode = NO;
+    int descendantIndex;
     NSString *attr;
     NSString *attrHyphen;
     NSRange range;
     NSArray *array;
+    
     for(int i=parts.count-1; i>=0; i--) {
         OCXSelectorPart *part = parts[i];
 
@@ -282,9 +285,10 @@ static NSRegularExpression *_re_parts;
                 
             case OCSSSelectorDescendant:
                 // E F	an F element descendant of an E element
-                // TODO: search for more ancestors
                 element = (OCHTMLElement*)element.parentNode;
                 hit = !!element;
+                descendantMode = YES;
+                descendantIndex = i;
                 break;
             
             case OCSSSelectorChild:
@@ -303,6 +307,13 @@ static NSRegularExpression *_re_parts;
                 hit = NO;
                 break;
         }
+        
+        if (!hit && descendantMode) {
+            element = (OCHTMLElement*)element.parentNode;
+            hit = !!element;
+            i = descendantIndex;
+        }
+        
         if (!hit) break;
         // NSLog(@"hit: [%c] '%@' '%@' '%@' [%i] '%@'", part.type, part.text, part.arg, element.tagName, !!element.parentNode, self.selector);
     }
