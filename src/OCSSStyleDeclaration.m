@@ -23,12 +23,18 @@
 
 - (NSString *) removeProperty:(NSString *)propertyName {
     NSString *value;
+    NSMutableArray *removes = NSMutableArray.new;
     for(OCXProperty *decl in self.list) {
         if ([propertyName isEqualToString:decl.propertyName]) {
             value = decl.propertyValue.cssText;
-            [self.list removeObject:decl];
+            [removes addObject:decl];
         }
     }
+
+    for(OCXProperty *decl in removes) {
+        [self.list removeObject:decl];
+    }
+    
     return value;
 }
 

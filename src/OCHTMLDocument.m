@@ -126,7 +126,10 @@
     
     for(OCStyleHit *hit in sorted) {
         for(OCXProperty *decl in hit.declarations) {
-            [style setProperty:decl.propertyName, decl.propertyValue.cssText];
+            [style removeProperty:decl.propertyName];
+            OCSSStyleDeclaration *parent = decl.parentStyleDeclaration;
+            [style addDeclaration:decl];
+            decl.parentStyleDeclaration = parent; // restore
         }
     }
     
