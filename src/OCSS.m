@@ -43,7 +43,7 @@
     sel.selector = selector;
     
     OCHTMLElement *node;
-    OCDocumentFragment *root = [OCDocumentFragment new];
+    OCHTMLUnknownElement *root = [OCHTMLUnknownElement new];
     OCNode *parent = root;
     NSString *old;
     
@@ -53,8 +53,7 @@
         switch (part.type) {
             case OCSSSelectorUniversal:
                 // *	any element
-                node = [OCHTMLUnknownElement new];
-                [parent appendChild:node];
+                node = nil;
                 break;
                 
             case OCSSSelectorType:
@@ -63,15 +62,18 @@
                 node.tagName = part.text;
                 [parent appendChild:node];
                 break;
-                
+        }
+
+        if (!node) {
+            node = [OCHTMLUnknownElement new];
+            [parent appendChild:node];
+        }
+
+        switch (part.type) {
             case OCSSSelectorAttrExists:
                 // E[foo]	an E element with a "foo" attribute
             case OCSSSelectorPseudoClass:
                 // E:pseudo-classes
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
                 [node setAttribute:part.text withValue:part.text];
                 break;
                 
@@ -87,19 +89,11 @@
                 // E[foo*="bar"]	an E element whose "foo" attribute value contains the substring "bar"
             case OCSSSelectorAttrPipeEq:
                 // E[foo|="en"]	an E element whose "foo" attribute has a hyphen-separated list of values beginning (from the left) with "en"
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
                 [node setAttribute:part.text withValue:part.arg];
                 break;
                 
             case OCSSSelectorClass:
                 // E.warning	an E element whose class is "warning" (the document language specifies how class is determined).
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
                 old = node.className;
                 if (old.length) {
                     node.className = [NSString stringWithFormat:@"%@ %@", old, part.text];
@@ -110,15 +104,18 @@
                 
             case OCSSSelectorID:
                 // E#myid	an E element with ID equal to "myid".
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
                 node.id = part.text;
                 break;
                 
             case OCSSSelectorDescendant:
                 // E F	an F element descendant of an E element
+                parent = node;
+                node = [OCHTMLUnknownElement new];
+                [parent appendChild:node];
+                parent = node;
+                node = nil;
+                break;
+                
             case OCSSSelectorChild:
                 // E > F	an F element child of an E element
                 parent = node;
@@ -126,17 +123,21 @@
                 break;
                 
             case OCSSSelectorAdjacentSibling:
-            case OCSSSelectorGeneralSibling:
-                // E ~ F	an F element preceded by an E element
                 // E + F	an F element immediately preceded by an E element
                 node = nil;
                 break;
+
+            case OCSSSelectorGeneralSibling:
+                // E ~ F	an F element preceded by an E element
+                node = [OCHTMLUnknownElement new];
+                [parent appendChild:node];
+                break;
         }
 
-        NSLog(@"[%c] [%@] %@", part.type, part.text, node.outerHTML);
+        // NSLog(@"[%c] [%@] %@", part.type, part.text, node.outerHTML);
     }
     
-    NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
+    // NSLog(@"createElementWithSelector:\n%@\n%@", selector, root.innerHTML);
     
     return [self.document getComputedStyle:node];
 }

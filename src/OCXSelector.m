@@ -190,7 +190,8 @@ static NSRegularExpression *_re_parts;
     NSArray *parts = [self parts];
     BOOL hit = NO;
     BOOL descendantMode = NO;
-    int descendantIndex;
+    int previousIndex;
+    BOOL siblingMode = NO;
     NSString *attr;
     NSString *attrHyphen;
     NSRange range;
@@ -288,30 +289,46 @@ static NSRegularExpression *_re_parts;
                 element = (OCHTMLElement*)element.parentNode;
                 hit = !!element;
                 descendantMode = YES;
-                descendantIndex = i;
+                siblingMode = NO;
+                previousIndex = i;
                 break;
             
             case OCSSSelectorChild:
                 // E > F	an F element child of an E element
                 element = (OCHTMLElement*)element.parentNode;
                 hit = !!element;
+                descendantMode = NO;
+                siblingMode = NO;
                 break;
                 
-            case OCSSSelectorAdjacentSibling: // TODO:
+            case OCSSSelectorAdjacentSibling:
                 // E + F	an F element immediately preceded by an E element
-                hit = NO;
+                element = (OCHTMLElement*)element.previousSibling;
+                hit = !!element;
+                descendantMode = NO;
+                siblingMode = NO;
                 break;
                 
-            case OCSSSelectorGeneralSibling: // TODO:
+            case OCSSSelectorGeneralSibling:
                 // E ~ F	an F element preceded by an E element
-                hit = NO;
+                element = (OCHTMLElement*)element.previousSibling;
+                hit = !!element;
+                descendantMode = NO;
+                siblingMode = YES;
+                previousIndex = i;
                 break;
         }
         
         if (!hit && descendantMode) {
             element = (OCHTMLElement*)element.parentNode;
             hit = !!element;
-            i = descendantIndex;
+            i = previousIndex;
+        }
+        
+        if (!hit && siblingMode) {
+            element = (OCHTMLElement*)element.previousSibling;
+            hit = !!element;
+            i = previousIndex;
         }
         
         if (!hit) break;

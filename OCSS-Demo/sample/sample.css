@@ -1,43 +1,51 @@
 @charset "utf-8";
 
-div { margin-top: 31px; padding-top: 31px; }
-.foo { margin-top: 32px; padding-right: 32px; }
-#bar { margin-top: 33px; padding-bottom: 33px; }
-div.foo { margin-top: 34px; padding-left: 34px; }
-div#bar { margin-top: 35px; padding-top: 35px; }
-.foo#bar { margin-top: 36px; padding-right: 36px; }
-#bar.foo { margin-top: 37px; padding-bottom: 37px; }
-div.foo#bar { margin-top: 38px; }
-div#bar.foo { margin-top: 39px; }
+* { -ocss: "ocss"; -ocss-s: "ocss"; }
 
-* { margin-top: 0px; }
+E { -ocss: "ocss"; -ocss-e: "ocss"; }
+E.warning { -ocss: "ocss"; -ocss-edw: "ocss"; }
+E#myid { -ocss: "ocss"; -ocss-esm: "ocss"; }
+E:not(s) { -ocss: "ocss"; -ocss-ecn: "ocss"; }
 
-E { margin-left: 1px; }
-E.warning { margin-top: 11px; }
-E#myid { margin-top: 12px; }
-E:not(s) { margin-top: 13px; }
+F { -ocss: "ocss"; -ocss-f: "ocss"; }
+E F { -ocss: "ocss"; -ocss-ef: "ocss"; }
+E > F { -ocss: "ocss"; -ocss-egf: "ocss"; }
+E + F { -ocss: "ocss"; -ocss-epf: "ocss"; }
+E ~ F { -ocss: "ocss"; -ocss-etf: "ocss"; }
 
-F { margin-top: 14px; padding-right: 14px; }
-E F { margin-top: 15px; padding-left: 15px; }
-E > F { margin-top: 16px; }
-E + F { margin-top: 17px; }
-E ~ F { margin-top: 18px; }
+E[foo] { -ocss: "ocss"; -ocss-ebf: "ocss"; }
+E[foo="EQ"] { -ocss: "ocss"; -ocss-ebfe: "ocss"; }
+E[foo~="TILD"] { -ocss: "ocss"; -ocss-ebft: "ocss"; }
+E[foo^="HAT"] { -ocss: "ocss"; -ocss-ebfh: "ocss"; }
+E[foo$="DOLLAR"] { -ocss: "ocss"; -ocss-ebfd: "ocss"; }
+E[foo*="STAR"] { -ocss: "ocss"; -ocss-ebfs: "ocss"; }
+E[foo|="PIPE"] { -ocss: "ocss"; -ocss-ebfp: "ocss"; }
+E:pseudo-class { -ocss: "ocss"; -ocss-ecp: "ocss"; }
+E::pseudo-class { -ocss: "ocss"; -ocss-eccp: "ocss"; }
 
-E G F { margin-top: 19px; padding-bottom: 19px; }
-E G H F { margin-top: 20px; }
-E H G F { margin-top: 21px; }
+E G F { -ocss: "ocss"; -ocss-egf: "ocss"; }
+E G H F { -ocss: "ocss"; -ocss-eghf: "ocss"; }
+E H G F { -ocss: "ocss"; -ocss-ehgf: "ocss"; }
 
-E G.c F { margin-top: 22px; margin-right: 22px; }
-E H.c F { margin-top: 23px; margin-bottom: 23px; }
-E G.c H.c F { margin-top: 24px; margin-left: 24px; }
-E H.c G.c F { margin-top: 25px; }
+E G.c F { -ocss: "ocss"; -ocss-egdcf: "ocss"; }
+E H.c F { -ocss: "ocss"; -ocss-ehdcf: "ocss"; }
+E G.c H.c F { -ocss: "ocss"; -ocss-egdchdcf: "ocss"; }
+E H.c G.c F { -ocss: "ocss"; -ocss-ehdcgdcf: "ocss"; }
 
-E[foo] { margin-top: 22px;}
-E[foo="EQ"] { margin-top: 23px; }
-E[foo~="TILD"] { margin-top: 24px;}
-E[foo^="HAT"] { margin-top: 25px; }
-E[foo$="DOLLAR"] { margin-top: 26px; }
-E[foo*="STAR"] { margin-top: 27px; }
-E[foo|="PIPE"] { margin-top: 28px; }
-E:pseudo-class { margin-top: 29px; }
-E::pseudo-class { margin-top: 30px; }
+E + G + F { -ocss: "ocss"; -ocss-epgpf: "ocss"; }
+E + G + H + F { -ocss: "ocss"; -ocss-epgphpf: "ocss"; }
+E + H + G + F { -ocss: "ocss"; -ocss-ephpgpf: "ocss"; }
+
+E ~ G ~ F { -ocss: "ocss"; -ocss-etgtf: "ocss"; }
+E ~ G ~ H ~ F { -ocss: "ocss"; -ocss-etgthtf: "ocss"; }
+E ~ H ~ G ~ F { -ocss: "ocss"; -ocss-ethtgtf: "ocss"; }
+
+div { -ocss: "ocss"; -ocss-d: "ocss"; }
+.foo { -ocss: "ocss"; -ocss-df: "ocss"; }
+#bar { -ocss: "ocss"; -ocss-sh: "ocss"; }
+div.foo { -ocss: "ocss"; -ocss-ddf: "ocss"; }
+div#bar { -ocss: "ocss"; -ocss-dsb: "ocss"; }
+.foo#bar { -ocss: "ocss"; -ocss-dfsh: "ocss"; }
+#bar.foo { -ocss: "ocss"; -ocss-shdf: "ocss"; }
+div.foo#bar { -ocss: "ocss"; -ocss-ddfsb: "ocss"; }
+div#bar.foo { -ocss: "ocss"; -ocss-dsbdf: "ocss"; }
