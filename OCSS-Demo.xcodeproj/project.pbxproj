@@ -97,7 +97,7 @@
 		1DF5320617F9D43300A3A58B /* OCSSRuleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSRuleList.h; sourceTree = "<group>"; };
 		1DF5320717F9D43300A3A58B /* OCSSRuleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSRuleList.m; sourceTree = "<group>"; };
 		1DF5320817F9D43300A3A58B /* OCXSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelector.h; sourceTree = "<group>"; };
-		1DF5320917F9D43300A3A58B /* OCXSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelector.m; sourceTree = "<group>"; };
+		1DF5320917F9D43300A3A58B /* OCXSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCXSelector.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1DF5320A17F9D43300A3A58B /* OCXSelectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelectorList.h; sourceTree = "<group>"; };
 		1DF5320B17F9D43300A3A58B /* OCXSelectorList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelectorList.m; sourceTree = "<group>"; };
 		1DF5320C17F9D43300A3A58B /* OCSSStyleDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSStyleDeclaration.h; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		1DF5321417F9D43300A3A58B /* OCSSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSValue.h; sourceTree = "<group>"; };
 		1DF5321517F9D43300A3A58B /* OCSSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSValue.m; sourceTree = "<group>"; };
 		1DF5321617F9D43300A3A58B /* OCHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHTMLDocument.h; sourceTree = "<group>"; };
-		1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHTMLDocument.m; sourceTree = "<group>"; };
+		1DF5321717F9D43300A3A58B /* OCHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCHTMLDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1DF5321817F9D43300A3A58B /* OCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLocation.h; sourceTree = "<group>"; };
 		1DF5321917F9D43300A3A58B /* OCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLocation.m; sourceTree = "<group>"; };
 		1DF5323217F9D59B00A3A58B /* OCXList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCXList.h; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		1DF5324217FA72E400A3A58B /* OCDOMTokenList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDOMTokenList.h; sourceTree = "<group>"; };
 		1DF5324417FA90E500A3A58B /* OCSSFontFaceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSSFontFaceRule.h; sourceTree = "<group>"; };
 		1DF5324517FA90E700A3A58B /* OCSSFontFaceRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSSFontFaceRule.m; sourceTree = "<group>"; };
-		1DF5324717FB12B700A3A58B /* OCXSelectorPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCXSelectorPart.h; sourceTree = "<group>"; };
+		1DF5324717FB12B700A3A58B /* OCXSelectorPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCXSelectorPart.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1DF5324817FB12BA00A3A58B /* OCXSelectorPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCXSelectorPart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

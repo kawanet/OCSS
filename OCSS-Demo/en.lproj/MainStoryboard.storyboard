@@ -25,7 +25,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="StyleSheets" id="aNd-aU-500">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="G0K-eO-T6j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G0K-eO-T6j">
                             <connections>
                                 <action selector="onClickAddButton:" destination="47Y-w6-I6a" id="1VS-lf-Th6"/>
                             </connections>

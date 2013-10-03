@@ -9,20 +9,29 @@
 #import <Foundation/Foundation.h>
 
 enum {
-    // http://www.w3.org/TR/CSS21/selector.html
-    OCSSSelectorInvalid             = 'X',
+    // http://www.w3.org/TR/CSS2/selector.html
+    // http://www.w3.org/TR/css3-selectors/#selectors
+
     OCSSSelectorUniversal           = '*', // *
     OCSSSelectorType                = 'E', // E
-    OCSSSelectorDescendant          = ' ', // E F
-    OCSSSelectorChild               = '>', // E > F
+
+    OCSSSelectorAttrExists          = '[', // [foo]
+    OCSSSelectorAttrEq              = '=', // [foo="warning"]
+    OCSSSelectorAttrTildEq          = 't', // [foo~="warning"]
+    OCSSSelectorAttrHatEq           = 'h', // E[foo^="bar"]
+    OCSSSelectorAttrDollarEq        = 'd', // E[foo$="bar"]
+    OCSSSelectorAttrStarEq          = 's', // E[foo*="bar"]
+    OCSSSelectorAttrPipeEq          = 'p', // [lang|="en"]
+    
     OCSSSelectorPseudoClass         = ':', // :pseudo
-    OCSSSelectorAdjacent            = '+', // E + F
-    OCSSSelectorAttributeExists     = '[', // [foo]
-    OCSSSelectorAttributeIsEqual    = '=', // [foo="warning"]
-    OCSSSelectorAttributeIncludes   = '~', // [foo~="warning"]
-    OCSSSelectorAttributeBeginWith  = '|', // [lang|="en"]
+
     OCSSSelectorClass               = '.', // .class
     OCSSSelectorID                  = '#', // #id
+
+    OCSSSelectorDescendant          = ' ', // E F
+    OCSSSelectorChild               = '>', // E > F
+    OCSSSelectorAdjacentSibling     = '+', // E + F
+    OCSSSelectorGeneralSibling      = '~', // E ~ F
 };
 
 @interface OCXSelectorPart : NSObject
