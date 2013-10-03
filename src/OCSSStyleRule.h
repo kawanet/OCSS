@@ -10,7 +10,7 @@
 
 @class OCSSStyleDeclaration;
 @class OCXSelectorList;
-@class OCXDeclaration;
+@class OCXProperty;
 
 @interface OCSSStyleRule : OCSSRule
 
@@ -18,7 +18,7 @@
 @property OCXSelectorList *selectors;
 @property (readonly) NSString *selectorText;
 
-- (OCXDeclaration *) declarationForProperty:(NSString *)property;
+- (OCXProperty *) declarationForProperty:(NSString *)property;
 
 @end
 

@@ -11,10 +11,10 @@
 @class OCSSPrimitiveValue;
 @class OCSSStyleDeclaration;
 
-@interface OCXDeclaration : NSObject
+@interface OCXProperty : NSObject
 
-@property (nonatomic) NSString *property;
-@property OCSSPrimitiveValue *value;
+@property (nonatomic) NSString *propertyName;
+@property (nonatomic, readonly) OCSSPrimitiveValue *propertyValue;
 @property (readonly) NSString *cssText;
 @property (weak) OCSSStyleDeclaration *parentStyleDeclaration;
 

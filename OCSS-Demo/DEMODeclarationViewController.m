@@ -8,7 +8,7 @@
 
 #import "DEMODeclarationViewController.h"
 #import "OCSS.h"
-#import "OCXDeclaration.h"
+#import "OCXProperty.h"
 
 @interface DEMODeclarationViewSection : NSObject
 @property OCSS *css;
@@ -52,6 +52,11 @@
     return sect.selector;
 };
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    DEMODeclarationViewSection *sect = _sections[section];
+    return sect.rows.cssText;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return _sections.count;
@@ -69,7 +74,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     DEMODeclarationViewSection *sect = _sections[indexPath.section];
-    OCXDeclaration *decl = sect.rows[indexPath.row];
+    OCXProperty *decl = sect.rows[indexPath.row];
     OCSSStyleRule *rule = (OCSSStyleRule*)decl.parentStyleDeclaration.parentRule;
     
     cell.textLabel.text = decl.cssText;

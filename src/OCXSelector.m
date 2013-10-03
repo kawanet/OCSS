@@ -190,6 +190,12 @@ static NSRegularExpression *_re_parts;
     NSArray *array;
     for(int i=parts.count-1; i>=0; i--) {
         OCXSelectorPart *part = parts[i];
+
+        if (!element || ![element isKindOfClass:[OCElement class]]) {
+            hit = NO;
+            break;
+        }
+
         switch (part.type) {
                 
             case OCSSSelectorUniversal:
@@ -294,7 +300,7 @@ static NSRegularExpression *_re_parts;
                 break;
         }
         if (!hit) break;
-        // NSLog(@"hit: [%c] '%@' '%@' '%@'", part.type, part.text, part.arg, element.tagName);
+        // NSLog(@"hit: [%c] '%@' '%@' '%@' [%i] '%@'", part.type, part.text, part.arg, element.tagName, !!element.parentNode, self.selector);
     }
     return hit;
 }

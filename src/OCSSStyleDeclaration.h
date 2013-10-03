@@ -9,14 +9,16 @@
 #import "OCXList.h"
 
 @class OCSSRule;
-@class OCXDeclaration;
+@class OCXProperty;
 
 @interface OCSSStyleDeclaration : OCXListCSS
 
 @property (weak) OCSSRule *parentRule;
-- (void) addDeclaration:(OCXDeclaration *)declaration;
+- (NSString *) getPropertyValue:(NSString *)propertyName1;
+- (NSString *) removeProperty:(NSString *)propertyName1;
+- (void) setProperty:(NSString *)propertyName1, ...;
+- (void) addDeclaration:(OCXProperty *)declaration;
 - (id) objectForKeyedSubscript:(id)key;
-
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html

@@ -97,108 +97,10 @@
     [self.styleSheets addStyleSheet:styleSheet];
 }
 
-- (OCHTMLElement *) createElementWithSelector:(NSString*)selector {
-    OCXSelector *sel = [OCXSelector new];
-    sel.selector = selector;
-    
-    OCHTMLElement *node;
-    OCDocumentFragment *root = [OCDocumentFragment new];
-    OCNode *parent = root;
-    NSString *old;
-    
-    for(OCXSelectorPart *part in sel.parts) {
-        // NSLog(@"[%c] '%@' '%@'", part.type, part.text, part.arg);
-        
-        switch (part.type) {
-            case OCSSSelectorUniversal:
-                // *	any element
-                node = [OCHTMLUnknownElement new];
-                [parent appendChild:node];
-                break;
-                
-            case OCSSSelectorType:
-                // E	an element of type E
-                node = [self createElement:part.text];
-                [parent appendChild:node];
-                break;
-                
-            case OCSSSelectorAttrExists:
-                // E[foo]	an E element with a "foo" attribute
-            case OCSSSelectorPseudoClass:
-                // E:pseudo-classes
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
-                [node setAttribute:part.text withValue:part.text];
-                break;
-                
-            case OCSSSelectorAttrEq:
-                // E[foo="bar"]	an E element whose "foo" attribute value is exactly equal to "bar"
-            case OCSSSelectorAttrTildEq:
-                // E[foo~="bar"]	an E element whose "foo" attribute value is a list of whitespace-separated values, one of which is exactly equal to "bar"
-            case OCSSSelectorAttrHatEq:
-                // E[foo^="bar"]	an E element whose "foo" attribute value begins exactly with the string "bar"
-            case OCSSSelectorAttrDollarEq:
-                // E[foo$="bar"]	an E element whose "foo" attribute value ends exactly with the string "bar"
-            case OCSSSelectorAttrStarEq:
-                // E[foo*="bar"]	an E element whose "foo" attribute value contains the substring "bar"
-            case OCSSSelectorAttrPipeEq:
-                // E[foo|="en"]	an E element whose "foo" attribute has a hyphen-separated list of values beginning (from the left) with "en"
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
-                [node setAttribute:part.text withValue:part.arg];
-                break;
-                
-            case OCSSSelectorClass:
-                // E.warning	an E element whose class is "warning" (the document language specifies how class is determined).
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
-                old = node.className;
-                if (old.length) {
-                    node.className = [NSString stringWithFormat:@"%@ %@", old, part.text];
-                } else {
-                    node.className = part.text;
-                }
-                break;
-                
-            case OCSSSelectorID:
-                // E#myid	an E element with ID equal to "myid".
-                if (!node) {
-                    node = [OCHTMLUnknownElement new];
-                    [parent appendChild:node];
-                }
-                node.id = part.text;
-                break;
-                
-            case OCSSSelectorDescendant:
-                // E F	an F element descendant of an E element
-            case OCSSSelectorChild:
-                // E > F	an F element child of an E element
-                parent = node;
-                node = nil;
-                break;
-                
-            case OCSSSelectorAdjacentSibling:
-            case OCSSSelectorGeneralSibling:
-                // E ~ F	an F element preceded by an E element
-                // E + F	an F element immediately preceded by an E element
-                node = nil;
-                break;
-        }
-    }
-    
-    NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
-    
-    return node;
-}
-
 - (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element {
     NSMutableArray *array = NSMutableArray.new;
+    
+    // NSLog(@"getComputedStyle: [%i] %@", !!element.parentNode, element.outerHTML);
     
     NSUInteger counter = 0;
     for(OCSSStyleSheet *styleSheet in self.styleSheets) {
@@ -212,7 +114,7 @@
                 counter ++;
                 hit.declarations = rule.style;
                 [array addObject:hit];
-                // NSLog(@"hit: %@", rule.cssText);
+                // NSLog(@"hit: %@", rule.selectorText);
             }
         }
     }
@@ -223,10 +125,8 @@
     NSArray *sorted = [array sortedArrayUsingSelector:@selector(compareSpecificity:) ];
     
     for(OCStyleHit *hit in sorted) {
-        for(OCXDeclaration *decl in hit.declarations) {
-            OCSSStyleDeclaration *parent = decl.parentStyleDeclaration;
-            [style addDeclaration:decl];
-            decl.parentStyleDeclaration = parent; // restore
+        for(OCXProperty *decl in hit.declarations) {
+            [style setProperty:decl.propertyName, decl.propertyValue.cssText];
         }
     }
     

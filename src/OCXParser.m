@@ -219,7 +219,7 @@ static NSRegularExpression *_re_whitespace;
     return matched;
 }
 
-- (OCXDeclaration *) declaration {
+- (OCXProperty *) declaration {
     NSError *error;
     
     // property
@@ -250,11 +250,9 @@ static NSRegularExpression *_re_whitespace;
     }
     
     // NSLog(@"%@: %@;", pstr, vstr);
-    OCXDeclaration *decl = [OCXDeclaration new];
-    OCSSPrimitiveValue *value = [OCSSPrimitiveValue new];
-    value.cssText = vstr;
-    decl.property = pstr;
-    decl.value = value;
+    OCXProperty *decl = [OCXProperty new];
+    decl.propertyName = pstr;
+    decl.propertyValue.cssText = vstr;
     
     return decl;
 }
@@ -266,7 +264,7 @@ static NSRegularExpression *_re_whitespace;
     }
     
     [self comments];
-    OCXDeclaration *decl;
+    OCXProperty *decl;
     OCSSStyleDeclaration *decls = [OCSSStyleDeclaration new];
     
     BOOL found = NO;

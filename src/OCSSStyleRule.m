@@ -24,10 +24,10 @@
     _style = style;
 }
 
-- (OCXDeclaration *) declarationForProperty:(NSString *)property {
-    OCXDeclaration *match;
-    for(OCXDeclaration *decl in self.style) {
-        if ([decl.property isEqualToString:property]) {
+- (OCXProperty *) declarationForProperty:(NSString *)property {
+    OCXProperty *match;
+    for(OCXProperty *decl in self.style) {
+        if ([decl.propertyName isEqualToString:property]) {
             match = decl;
         }
     }
@@ -37,7 +37,7 @@
 - (NSString *) cssText {
     NSString *selector = self.selectorText;
     NSMutableArray *array = NSMutableArray.new;
-    for(OCXDeclaration *decl in self.style) {
+    for(OCXProperty *decl in self.style) {
         [array addObject:decl.cssText];
     }
     NSString *rules = [array componentsJoinedByString:@" "];

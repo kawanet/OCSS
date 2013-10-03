@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+div { margin-top: 1px; }
+span { margin-top: 2px; }
+div span { margin-top: 3px; }
+.foo { margin-top: 4px; }
+.bar { margin-top: 5px; }
+.foo .bar { margin-top: 6px; }
+div .bar { margin-top: 7px; }
+.foo .span { margin-top: 8px; }
+div.foo bar.span { margin-top: 9px; }

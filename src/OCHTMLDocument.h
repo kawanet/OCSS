@@ -30,6 +30,9 @@
 // http://www.w3.org/TR/DOM-Level-2-Core/idl-definitions.html
 
 /*
+ interface DocumentFragment : Node {
+ };
+
  interface Document : Node {
  readonly attribute DocumentType        doctype;
  readonly attribute DOMImplementation   implementation;
@@ -56,7 +59,6 @@
 @property OCLocation *location;
 @property (readonly) OCHTMLElement *body;
 - (void) addStyleSheet:(OCSSStyleSheet *)styleSheet;
-- (OCHTMLElement *) createElementWithSelector:(NSString*)selector;
 - (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element;
 @end
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Kawanet. All rights reserved.
 //
 
-#import "OCXDeclaration.h"
+#import "OCXProperty.h"
 #import "OCXList.h"
 #import "OCXParser.h"
 #import "OCXSelector.h"

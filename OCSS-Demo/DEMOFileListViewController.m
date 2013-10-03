@@ -24,7 +24,8 @@
     [super viewDidLoad];
     
     if (!_list) {
-        _list = @[@"cssreset.css", @"bootstrap.css"];
+        // _list = @[@"cssreset.css", @"bootstrap.css"];
+        _list = @[@"cssreset.css", @"bootstrap.css", @"sample.css"];
     }
 }
 
