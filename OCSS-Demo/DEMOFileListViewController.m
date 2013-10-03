@@ -54,16 +54,16 @@
     DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMOStyleListViewController"];
     
     vc.url = _list[indexPath.row];
-
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)onClickAddButton:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Enter StyleSheet URL"
-                                                      message:nil
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"OK", nil];
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alertView show];
     // UITextField *textField = [alertView textFieldAtIndex:0];

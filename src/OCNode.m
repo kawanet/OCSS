@@ -44,6 +44,28 @@ const unsigned short      OC_NOTATION_NODE                  = 12;
     return nodes.length ? nodes[nodes.length-1] : nil;
 }
 
+- (OCNode *) previousSibling {
+    OCNode *parent = self.parentNode;
+    NSUInteger index = [parent.childNodes.list indexOfObject:self];
+    if (index > 0) {
+        index --;
+        return parent.childNodes.list[index];
+    } else {
+        return nil; // == 0 or NSNotFound
+    }
+}
+
+- (OCNode *) nextSibling {
+    OCNode *parent = self.parentNode;
+    NSUInteger index = [parent.childNodes.list indexOfObject:self];
+    index ++;
+    if (index < parent.childNodes.length) {
+        return parent.childNodes.list[index];
+    } else {
+        return nil; // >= length or NSNotFound
+    }
+}
+
 - (OCNode *) appendChild:(OCNode*)newChild {
     newChild.parentNode = self;
     newChild.ownerDocument = self.ownerDocument;
