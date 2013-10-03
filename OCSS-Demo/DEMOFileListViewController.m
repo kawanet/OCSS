@@ -24,8 +24,7 @@
     [super viewDidLoad];
     
     if (!_list) {
-        // _list = @[@"cssreset.css", @"bootstrap.css"];
-        _list = @[@"cssreset.css", @"bootstrap.css", @"sample.css"];
+        _list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"css" subdirectory:@"sample"];
     }
 }
 
@@ -44,7 +43,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = _list[indexPath.row];
+    NSURL *url = _list[indexPath.row];
+    cell.textLabel.text = url.isFileURL ? url.lastPathComponent : url.absoluteString;
     
     return cell;
 }
@@ -53,12 +53,7 @@
 {
     DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMOStyleListViewController"];
     
-    NSString *path = _list[indexPath.row];
-    NSURL *url = NSBundle.mainBundle.bundleURL;
-    url = [url URLByAppendingPathComponent:@"sample/"];
-    url = [NSURL URLWithString:path relativeToURL:url];
-    
-    vc.url = url;
+    vc.url = _list[indexPath.row];
 
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -53,8 +53,9 @@
 };
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    DEMODeclarationViewSection *sect = _sections[section];
-    return sect.rows.cssText;
+    return nil;
+    // DEMODeclarationViewSection *sect = _sections[section];
+    // return sect.rows.cssText;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
