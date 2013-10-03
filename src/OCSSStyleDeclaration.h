@@ -10,13 +10,16 @@
 
 @class OCSSRule;
 @class OCXProperty;
+@class OCSSValue;
 
 @interface OCSSStyleDeclaration : OCXListCSS
 
 @property (weak) OCSSRule *parentRule;
-- (NSString *) getPropertyValue:(NSString *)propertyName1;
-- (NSString *) removeProperty:(NSString *)propertyName1;
-- (void) setProperty:(NSString *)propertyName1, ...;
+- (NSString *) getPropertyValue:(NSString *)propertyName;
+- (OCSSValue *) getPropertyCSSValue:(NSString *)propertyName;
+- (NSString *) removeProperty:(NSString *)propertyName;
+- (void) setProperty:(NSString *)propertyName, ...;
+- (void) setProperty:(NSString *)propertyName withValue:(NSString*)value;
 - (void) addDeclaration:(OCXProperty *)declaration;
 - (id) objectForKeyedSubscript:(id)key;
 @end

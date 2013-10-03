@@ -22,13 +22,13 @@
     _propertyName = property ? property.lowercaseString : property;
 }
 
-- (OCSSPrimitiveValue *)propertyValue {
+- (OCSSPrimitiveValue *)value {
     if (_propertyValue) return _propertyValue;
     return _propertyValue = [OCSSPrimitiveValue new];
 }
 
 - (NSString *) cssText {
-    return [NSString stringWithFormat:@"%@: %@;", self.propertyName, self.propertyValue.cssText];
+    return [NSString stringWithFormat:@"%@: %@;", self.propertyName, self.value.cssText];
 }
 
 @end

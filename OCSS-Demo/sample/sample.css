@@ -1,11 +1,40 @@
 @charset "utf-8";
 
-div { margin-top: 1px; }
-span { margin-top: 2px; }
-div span { margin-top: 3px; }
-.foo { margin-top: 4px; }
-.bar { margin-top: 5px; }
-.foo .bar { margin-top: 6px; }
-div .bar { margin-top: 7px; }
-.foo .span { margin-top: 8px; }
-div.foo bar.span { margin-top: 9px; }
+* { margin-top: 0px; }
+
+E { margin-top: 1px; }
+E[foo] { margin-top: 2px;}
+E[foo="EQ"] { margin-top: 3px; }
+E[foo~="TILD"] { margin-top: 4px;}
+E[foo^="HAT"] { margin-top: 5px; }
+E[foo$="DOLLAR"] { margin-top: 6px; }
+
+E[foo*="STAR"] { margin-top: 7px; }
+E[foo|="PIPE"] { margin-top: 8px; }
+E:pseudo-class { margin-top: 9px; }
+E::pseudo-class { margin-top: 10px; }
+
+E.warning { margin-top: 11px; }
+E#myid { margin-top: 12px; }
+E:not(s) { margin-top: 13px; }
+
+E F { margin-top: 14px; }
+E > F { margin-top: 15px; }
+E + F { margin-top: 16px; }
+E ~ F { margin-top: 17px; }
+
+div { margin-top: 21px; margin-right: 21px; }
+span { margin-top: 22px; margin-right: 22px; }
+div span { margin-top: 23px; }
+.foo { margin-top: 24px; margin-left: 24px; }
+.bar { margin-top: 25px; margin-left: 25px; }
+.foo .bar { margin-top: 26px; }
+div .bar { margin-top: 27px; margin-bottom: 27px; }
+.foo span { margin-top: 28px; margin-bottom: 28px; }
+div.foo span.bar { margin-top: 29px; }
+
+#qux { margin-top: 30px; padding-bottom: 30px; }
+div.foo { margin-top: 31px; padding-right: 31px; }
+div#qux { margin-top: 32px; padding-left: 32px; }
+div.foo#qux { margin-top: 33px; }
+div#qux.foo { margin-top: 34px; }

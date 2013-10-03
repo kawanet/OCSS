@@ -231,7 +231,6 @@ static NSRegularExpression *_re_parts;
                         break;
                     }
                 }
-                hit = (range.length > 0);
                 break;
                 
             case OCSSSelectorAttrHatEq:

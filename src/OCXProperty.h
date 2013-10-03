@@ -14,7 +14,7 @@
 @interface OCXProperty : NSObject
 
 @property (nonatomic) NSString *propertyName;
-@property (nonatomic, readonly) OCSSPrimitiveValue *propertyValue;
+@property (nonatomic, readonly) OCSSPrimitiveValue *value;
 @property (readonly) NSString *cssText;
 @property (weak) OCSSStyleDeclaration *parentStyleDeclaration;
 

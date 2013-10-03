@@ -12,21 +12,33 @@
 
 @implementation OCSSStyleDeclaration
 
-- (NSString *) getPropertyValue:(NSString *)propertyName {
+- (OCXProperty *) getProperty:(NSString *)propertyName {
     OCXProperty *hit;
     for(OCXProperty *decl in self.list) {
         // return last definition
-        if ([propertyName isEqualToString:decl.propertyName]) hit = decl;
+        if ([propertyName isEqualToString:decl.propertyName]) {
+            hit = decl;
+        }
     }
-    return hit.propertyValue.cssText;
+    return hit;
+}
+
+- (OCSSValue *) getPropertyCSSValue:(NSString *)propertyName {
+    OCXProperty *hit = [self getProperty:propertyName];
+    return hit.value;
+}
+
+- (NSString *) getPropertyValue:(NSString *)propertyName {
+    OCSSValue *value = [self getPropertyCSSValue:propertyName];
+    return value.cssText;
 }
 
 - (NSString *) removeProperty:(NSString *)propertyName {
-    NSString *value;
+    OCXProperty *hit;
     NSMutableArray *removes = NSMutableArray.new;
     for(OCXProperty *decl in self.list) {
         if ([propertyName isEqualToString:decl.propertyName]) {
-            value = decl.propertyValue.cssText;
+            hit = decl;
             [removes addObject:decl];
         }
     }
@@ -35,7 +47,7 @@
         [self.list removeObject:decl];
     }
     
-    return value;
+    return hit.value.cssText;
 }
 
 - (void) setProperty:(NSString *)propertyName, ... {
@@ -45,9 +57,13 @@
     value = va_arg(arguments, typeof(NSString*));
     va_end(arguments);
     
+    [self setProperty:propertyName withValue:value];
+}
+
+- (void) setProperty:(NSString *)propertyName withValue:(NSString*)value {
     OCXProperty *decl = [OCXProperty new];
     decl.propertyName = propertyName;
-    decl.propertyValue.cssText = value;
+    decl.value.cssText = value;
     
     [self removeProperty:propertyName];
     [self addDeclaration:decl];

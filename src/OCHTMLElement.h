@@ -27,20 +27,20 @@
  interface Element : Node {
  readonly attribute DOMString        tagName;
  DOMString          getAttribute(in DOMString name);
- void               setAttribute(in DOMString name, in  DOMString value) raises (DOMException);
+ void               setAttribute(in DOMString name, in DOMString value) raises (DOMException);
  void               removeAttribute(in DOMString name) raises (DOMException);
  Attr               getAttributeNode(in DOMString name);
  Attr               setAttributeNode(in Attr newAttr) raises (DOMException);
  Attr               removeAttributeNode(in Attr oldAttr) raises (DOMException);
  NodeList           getElementsByTagName(in DOMString name);
- DOMString          getAttributeNS(in DOMString namespaceURI, in  DOMString localName);
- void               setAttributeNS(in DOMString namespaceURI, in  DOMString qualifiedName, in  DOMString value) raises (DOMException);
- void               removeAttributeNS(in DOMString namespaceURI, in  DOMString localName) raises (DOMException);
- Attr               getAttributeNodeNS(in DOMString namespaceURI, in  DOMString localName);
+ DOMString          getAttributeNS(in DOMString namespaceURI, in DOMString localName);
+ void               setAttributeNS(in DOMString namespaceURI, in DOMString qualifiedName, in DOMString value) raises (DOMException);
+ void               removeAttributeNS(in DOMString namespaceURI, in DOMString localName) raises (DOMException);
+ Attr               getAttributeNodeNS(in DOMString namespaceURI, in DOMString localName);
  Attr               setAttributeNodeNS(in Attr newAttr) raises (DOMException);
- NodeList           getElementsByTagNameNS(in DOMString namespaceURI, in  DOMString localName);
+ NodeList           getElementsByTagNameNS(in DOMString namespaceURI, in DOMString localName);
  boolean            hasAttribute(in DOMString name);
- boolean            hasAttributeNS(in DOMString namespaceURI, in  DOMString localName);
+ boolean            hasAttributeNS(in DOMString namespaceURI, in DOMString localName);
  };
  */
 

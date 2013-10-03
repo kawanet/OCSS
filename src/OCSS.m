@@ -134,7 +134,7 @@
         }
     }
     
-    // NSLog(@"createElementWithSelector:\n%@\n%@\n[%i]", selector, ((OCHTMLElement *)root.firstChild).outerHTML, !!node.parentNode);
+    NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
     
     return [self.document getComputedStyle:node];
 }
