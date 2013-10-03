@@ -95,7 +95,8 @@ static NSRegularExpression *_re_parts;
 
         if ([match rangeAtIndex:1].length) {
             // (?:\\s*([\\>\\+\\~])\\s*)
-            unichar char1 = [hitstr characterAtIndex:0];
+            NSRange range1 = [match rangeAtIndex:1];
+            unichar char1 = [source characterAtIndex:range1.location];
             if (char1 == '>') {
                 part.type = OCSSSelectorChild;              // E > F
             } else if (char1 == '+') {

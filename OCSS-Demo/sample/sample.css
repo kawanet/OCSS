@@ -2,7 +2,7 @@
 
 * { margin-top: 0px; }
 
-E { margin-top: 1px; }
+E { margin-left: 1px; }
 E[foo] { margin-top: 2px;}
 E[foo="EQ"] { margin-top: 3px; }
 E[foo~="TILD"] { margin-top: 4px;}
@@ -18,10 +18,12 @@ E.warning { margin-top: 11px; }
 E#myid { margin-top: 12px; }
 E:not(s) { margin-top: 13px; }
 
-E F { margin-top: 14px; }
-E > F { margin-top: 15px; }
-E + F { margin-top: 16px; }
-E ~ F { margin-top: 17px; }
+F { margin-top: 14px; margin-right: 14px; }
+E F { margin-top: 15px; margin-left: 15px; }
+E G F { margin-top: 16px; }
+E > F { margin-top: 17px; }
+E + F { margin-top: 18px; }
+E ~ F { margin-top: 19px; }
 
 div { margin-top: 21px; margin-right: 21px; }
 span { margin-top: 22px; margin-right: 22px; }
