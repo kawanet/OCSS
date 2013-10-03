@@ -150,3 +150,9 @@
 }
 
 @end
+
+@implementation OCHTMLUnknownElement
+- (NSString *) tagName {
+    return @"_";
+}
+@end

@@ -83,12 +83,14 @@ static NSRegularExpression *_re_parts;
             NSLog(@"[ERROR] %@", error);
         }
     }
-    NSRange range = NSMakeRange(0, self.selector.length);
+    
+    NSString *source = [self.selector stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSRange range = NSMakeRange(0, source.length);
     
     __block NSUInteger count = 0;
-    __weak NSString *source = self.selector;
-    [_re_parts enumerateMatchesInString:self.selector options:0 range:range usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
-        NSString *hitstr = [source substringWithRange:match.range];
+    __weak NSString *_source = source;
+    [_re_parts enumerateMatchesInString:source options:0 range:range usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
+        NSString *hitstr = [_source substringWithRange:match.range];
         OCXSelectorPart *part = [OCXSelectorPart new];
 
         if ([match rangeAtIndex:1].length) {
@@ -131,11 +133,11 @@ static NSRegularExpression *_re_parts;
             NSRange range9 = [match rangeAtIndex:9];
             
             // attribute name
-            part.text = [source substringWithRange:range5];
+            part.text = [_source substringWithRange:range5];
             part.text = part.text.lowercaseString;
 
             // comparison type
-            unichar char6 = [source characterAtIndex:range6.location];
+            unichar char6 = [_source characterAtIndex:range6.location];
             if (char6 == '~') {
                 part.type = OCSSSelectorAttrTildEq;     // [foo~="warning"]
             } else if (char6 == '^') {
@@ -153,7 +155,7 @@ static NSRegularExpression *_re_parts;
             // attribute value
             if (!range7.length && range8.length) range7 = range8;
             if (!range7.length && range9.length) range7 = range9;
-            part.arg = [source substringWithRange:range7];
+            part.arg = [_source substringWithRange:range7];
             
         } else if ([match rangeAtIndex:5].length) {
             // (?:\\[ ([^\\=\\~\\|\\]]+) (?: ([\\~\\|]?=) (?: ([^\"'\\]]*|\"([^\"]*)\"|'([^']*)') ) )? \\])
@@ -161,7 +163,7 @@ static NSRegularExpression *_re_parts;
             NSRange range5 = [match rangeAtIndex:5];
 
             // attribute name
-            part.text = [source substringWithRange:range5];
+            part.text = [_source substringWithRange:range5];
             part.text = part.text.lowercaseString;
 
         } else {

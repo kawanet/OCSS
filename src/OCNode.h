@@ -25,6 +25,8 @@
 @interface OCNode : NSObject
 @property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;
+@property (readonly) OCNode *firstChild;
+@property (readonly) OCNode *lastChild;
 @property (weak) OCDocument *ownerDocument;
 - (OCNode *) appendChild:(OCNode*)newChild;
 @end

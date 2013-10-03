@@ -64,3 +64,13 @@
  attribute DOMString       className;
  };
 */
+
+// http://www.w3.org/TR/html5/dom.html#htmlunknownelement
+
+@interface OCHTMLUnknownElement : OCHTMLElement
+
+@end
+
+/*
+ interface HTMLUnknownElement : HTMLElement { };
+*/

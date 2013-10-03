@@ -21,6 +21,16 @@
     return _childNodes = [OCNodeList new];
 }
 
+- (OCNode *) firstChild {
+    OCNodeList *nodes = self.childNodes;
+    return nodes.length ? nodes[0] : nil;
+}
+
+- (OCNode *) lastChild {
+    OCNodeList *nodes = self.childNodes;
+    return nodes.length ? nodes[nodes.length-1] : nil;
+}
+
 - (OCNode *) appendChild:(OCNode*)newChild {
     [self.childNodes.list addObject:newChild];
     return newChild;

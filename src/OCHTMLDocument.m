@@ -98,13 +98,12 @@
 }
 
 - (OCHTMLElement *) createElementWithSelector:(NSString*)selector {
-    
     OCXSelector *sel = [OCXSelector new];
     sel.selector = selector;
     
     OCHTMLElement *node;
-    OCHTMLElement *parent;
-    OCHTMLElement *root;
+    OCDocumentFragment *root = [OCDocumentFragment new];
+    OCNode *parent = root;
     NSString *old;
     
     for(OCXSelectorPart *part in sel.parts) {
@@ -113,7 +112,7 @@
         switch (part.type) {
             case OCSSSelectorUniversal:
                 // *	any element
-                node = [self createElement:@"div"];
+                node = [OCHTMLUnknownElement new];
                 [parent appendChild:node];
                 break;
                 
@@ -128,7 +127,7 @@
             case OCSSSelectorPseudoClass:
                 // E:pseudo-classes
                 if (!node) {
-                    node = [self createElement:@"div"];
+                    node = [OCHTMLUnknownElement new];
                     [parent appendChild:node];
                 }
                 [node setAttribute:part.text withValue:part.text];
@@ -147,7 +146,7 @@
             case OCSSSelectorAttrPipeEq:
                 // E[foo|="en"]	an E element whose "foo" attribute has a hyphen-separated list of values beginning (from the left) with "en"
                 if (!node) {
-                    node = [self createElement:@"div"];
+                    node = [OCHTMLUnknownElement new];
                     [parent appendChild:node];
                 }
                 [node setAttribute:part.text withValue:part.arg];
@@ -156,7 +155,7 @@
             case OCSSSelectorClass:
                 // E.warning	an E element whose class is "warning" (the document language specifies how class is determined).
                 if (!node) {
-                    node = [self createElement:@"div"];
+                    node = [OCHTMLUnknownElement new];
                     [parent appendChild:node];
                 }
                 old = node.className;
@@ -170,7 +169,7 @@
             case OCSSSelectorID:
                 // E#myid	an E element with ID equal to "myid".
                 if (!node) {
-                    node = [self createElement:@"div"];
+                    node = [OCHTMLUnknownElement new];
                     [parent appendChild:node];
                 }
                 node.id = part.text;
@@ -191,13 +190,9 @@
                 node = nil;
                 break;
         }
-        
-        if (!root) {
-            root = node;
-        }
     }
     
-    // NSLog(@"createElementWithSelector: %@", root.outerHTML);
+    NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
     
     return node;
 }
