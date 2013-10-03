@@ -121,8 +121,10 @@
                 break;
             case OCSSSelectorDescendant:          // ' '  E F
             case OCSSSelectorChild:               // '>'  E > F
-            case OCSSSelectorAdjacent:            // '+'  E + F
                 parent = node;
+                node = nil;
+                break;
+            case OCSSSelectorAdjacent:            // '+'  E + F
                 node = nil;
                 break;
             case OCSSSelectorPseudoClass:         // ':'  :pseudo
@@ -168,7 +170,7 @@
         }
     }
     
-    // NSLog(@"getComputedStyleForSelector: %@", root.outerHTML);
+    // NSLog(@"createElementWithSelector: %@", root.outerHTML);
     
     return node;
 }

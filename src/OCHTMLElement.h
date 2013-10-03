@@ -18,6 +18,7 @@
 - (void)setAttributeNode:(OCAttr*)newAttr;
 - (void)setAttribute:(NSString*)name, ...;
 - (void)setAttribute:(NSString*)name withValue:(NSString*)value;
+- (BOOL)hasAttribute:(NSString*)name;
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Core/idl-definitions.html

@@ -55,6 +55,11 @@
     [self setAttributeNode:node];
 }
 
+- (BOOL)hasAttribute:(NSString*)name {
+    OCAttr *attr = [self getAttributeNode:name];
+    return !!attr;
+}
+
 @end
 
 @implementation OCHTMLElement

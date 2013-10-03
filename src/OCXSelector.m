@@ -160,6 +160,7 @@ static NSRegularExpression *_re_parts;
                 hit = [element.tagName.lowercaseString isEqualToString:part.text];
                 break;
             case OCSSSelectorDescendant:          // ' '  E F
+                // TODO: search for more ancestors
                 element = (OCHTMLElement*)element.parentNode;
                 hit = !!element;
                 break;
@@ -174,16 +175,16 @@ static NSRegularExpression *_re_parts;
                 hit = NO; // TODO:
                 break;
             case OCSSSelectorAttributeExists:     // '['  [foo]
-                hit = NO; // TODO:
+                hit = [element hasAttribute:part.text];
                 break;
             case OCSSSelectorAttributeIsEqual:    // '='  [foo="warning"]
-                hit = NO; // TODO:
+                hit = [[element getAttribute:part.text] isEqualToString:part.arg];
                 break;
             case OCSSSelectorAttributeIncludes:   // '~'  [foo~="warning"]
                 hit = NO; // TODO:
                 break;
             case OCSSSelectorAttributeBeginWith:  // '|'  [lang|="en"]
-                hit = NO; // TODO:
+                hit = [[element getAttribute:part.text] hasPrefix:part.arg];
                 break;
             case OCSSSelectorClass:               // '.'  .class
                 hit = [element.classList contains:part.text];
