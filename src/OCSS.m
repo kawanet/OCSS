@@ -132,9 +132,11 @@
                 node = nil;
                 break;
         }
+
+        // NSLog(@"[%c] [%@] %@", part.type, part.text, node.outerHTML);
     }
     
-    NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
+    // NSLog(@"createElementWithSelector:\n%@\n%@", selector, ((OCHTMLElement *)root.firstChild).outerHTML);
     
     return [self.document getComputedStyle:node];
 }

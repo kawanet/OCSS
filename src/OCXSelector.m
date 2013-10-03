@@ -77,7 +77,7 @@ static NSRegularExpression *_re_parts;
         | \(\\s+) \
         | ([\\.\\#][^\\.\\#\\:\\>\\+\\*\\[\\s]+) \
         | (?:\\[ ([^\\=\\~\\|\\]]+) (?: ([\\~\\|]?=) (?: ([^\"'\\]]*|\"([^\"]*)\"|'([^']*)') ) )? \\]) \
-        | ([^\\.\\#\\:\\>\\+\\*\\[\\s]+)";
+        | ([^\\.\\#\\:\\>\\+\\[\\s]+)";
         _re_parts = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAllowCommentsAndWhitespace error:&error];
         if (error) {
             NSLog(@"[ERROR] %@", error);
@@ -167,9 +167,13 @@ static NSRegularExpression *_re_parts;
             part.text = part.text.lowercaseString;
 
         } else {
-            // ([^\\.\\#\\:\\>\\+\\*\\[\\s]+)
-            part.type = OCSSSelectorType;
-            part.text = hitstr.lowercaseString;
+            // ([^\\.\\#\\:\\>\\+\\[\\s]+)
+            if ([hitstr isEqualToString:@"*"]) {
+                part.type = OCSSSelectorUniversal;
+            } else {
+                part.type = OCSSSelectorType;
+                part.text = hitstr.lowercaseString;
+            }
         }
         
         [array addObject:part];
