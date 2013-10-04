@@ -39,7 +39,8 @@
     NSArray *array0 = [self.selector componentsSeparatedByString:@","];
     _sections = NSMutableArray.new;
     
-    for(NSString *selector in array0) {
+    for(NSString *selector0 in array0) {
+        NSString *selector = [selector0 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         DEMODeclarationViewSection *sect = [DEMODeclarationViewSection new];
         sect.css = self.css;
         sect.selector = selector;

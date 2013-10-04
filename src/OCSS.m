@@ -137,7 +137,7 @@
         // NSLog(@"[%c] [%@] %@", part.type, part.text, node.outerHTML);
     }
     
-    // NSLog(@"createElementWithSelector:\n%@\n%@", selector, root.innerHTML);
+    NSLog(@"\n%@\n%@", selector, root.innerHTML);
     
     return [self.document getComputedStyle:node];
 }

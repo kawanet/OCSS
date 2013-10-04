@@ -76,7 +76,7 @@ static NSRegularExpression *_re_parts;
         | (\\:\\:?[^\\.\\#\\:\\>\\+\\*\\[\\s\\(]+(?:\\([^\\)]*\\))?) \
         | \(\\s+) \
         | ([\\.\\#][^\\.\\#\\:\\>\\+\\*\\[\\s]+) \
-        | (?:\\[ ([^\\=\\~\\|\\]]+) (?: ([\\~\\|]?=) (?: ([^\"'\\]]*|\"([^\"]*)\"|'([^']*)') ) )? \\]) \
+        | (?:\\[ ([^\\=\\~\\^\\$\\*\\|\\]]+) (?: ([\\~\\^\\$\\*\\|]?=) (?: ([^\"'\\]]*)|\"([^\"]*)\"|'([^']*)' ) )? \\]) \
         | ([^\\.\\#\\:\\>\\+\\[\\s]+)";
         _re_parts = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionAllowCommentsAndWhitespace error:&error];
         if (error) {
@@ -152,7 +152,7 @@ static NSRegularExpression *_re_parts;
             } else {
                 part.type = OCSSSelectorAttrEq;         // [foo="warning"]
             }
-
+            
             // attribute value
             if (!range7.length && range8.length) range7 = range8;
             if (!range7.length && range9.length) range7 = range9;

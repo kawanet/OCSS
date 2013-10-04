@@ -1,17 +1,22 @@
 @charset "utf-8";
 
-* { -ocss: "ocss"; -ocss-s: "ocss"; }
+/* simple selectors */
 
+* { -ocss: "ocss"; }
 E { -ocss: "ocss"; -ocss-e: "ocss"; }
 E.warning { -ocss: "ocss"; -ocss-edw: "ocss"; }
 E#myid { -ocss: "ocss"; -ocss-esm: "ocss"; }
 E:not(s) { -ocss: "ocss"; -ocss-ecn: "ocss"; }
+
+/* descendant & sibling selectors */
 
 F { -ocss: "ocss"; -ocss-f: "ocss"; }
 E F { -ocss: "ocss"; -ocss-ef: "ocss"; }
 E > F { -ocss: "ocss"; -ocss-egf: "ocss"; }
 E + F { -ocss: "ocss"; -ocss-epf: "ocss"; }
 E ~ F { -ocss: "ocss"; -ocss-etf: "ocss"; }
+
+/* attribute selectors */
 
 E[foo] { -ocss: "ocss"; -ocss-ebf: "ocss"; }
 E[foo="EQ"] { -ocss: "ocss"; -ocss-ebfe: "ocss"; }
@@ -23,6 +28,8 @@ E[foo|="PIPE"] { -ocss: "ocss"; -ocss-ebfp: "ocss"; }
 E:pseudo-class { -ocss: "ocss"; -ocss-ecp: "ocss"; }
 E::pseudo-class { -ocss: "ocss"; -ocss-eccp: "ocss"; }
 
+/* more escendant selectors */
+
 E G F { -ocss: "ocss"; -ocss-egf: "ocss"; }
 E G H F { -ocss: "ocss"; -ocss-eghf: "ocss"; }
 E H G F { -ocss: "ocss"; -ocss-ehgf: "ocss"; }
@@ -32,6 +39,8 @@ E H.c F { -ocss: "ocss"; -ocss-ehdcf: "ocss"; }
 E G.c H.c F { -ocss: "ocss"; -ocss-egdchdcf: "ocss"; }
 E H.c G.c F { -ocss: "ocss"; -ocss-ehdcgdcf: "ocss"; }
 
+/* more sibling selectors */
+
 E + G + F { -ocss: "ocss"; -ocss-epgpf: "ocss"; }
 E + G + H + F { -ocss: "ocss"; -ocss-epgphpf: "ocss"; }
 E + H + G + F { -ocss: "ocss"; -ocss-ephpgpf: "ocss"; }
@@ -39,6 +48,8 @@ E + H + G + F { -ocss: "ocss"; -ocss-ephpgpf: "ocss"; }
 E ~ G ~ F { -ocss: "ocss"; -ocss-etgtf: "ocss"; }
 E ~ G ~ H ~ F { -ocss: "ocss"; -ocss-etgthtf: "ocss"; }
 E ~ H ~ G ~ F { -ocss: "ocss"; -ocss-ethtgtf: "ocss"; }
+
+/* mix of element, class and id */
 
 div { -ocss: "ocss"; -ocss-d: "ocss"; }
 .foo { -ocss: "ocss"; -ocss-df: "ocss"; }
@@ -49,3 +60,19 @@ div#bar { -ocss: "ocss"; -ocss-dsb: "ocss"; }
 #bar.foo { -ocss: "ocss"; -ocss-shdf: "ocss"; }
 div.foo#bar { -ocss: "ocss"; -ocss-ddfsb: "ocss"; }
 div#bar.foo { -ocss: "ocss"; -ocss-dsbdf: "ocss"; }
+
+/* icon selector on bootsrap 2 */
+
+.icon-home {
+   -ocss: "ocss"; background-position: 0 -24px;
+}
+.icon-file {
+   -ocss: "ocss"; background-position: -24px -24px;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  -ocss: "ocss"; 
+  width: 14px;
+  height: 14px;
+  background-image: url("../img/glyphicons-halflings.png");
+}
