@@ -1,6 +1,6 @@
-# OCSS - Objective-CSS for iOS
+# OCSS - CSS Parser for iOS
 
-OCSS is a CSS parser library implementing a part of CSS2, CSS3, DOM and HTML5.
+OCSS (Objective-CSS) is a CSS parser library implementing a part of CSS2, CSS3, DOM and HTML5.
 
 ## SYNOPSIS
 
