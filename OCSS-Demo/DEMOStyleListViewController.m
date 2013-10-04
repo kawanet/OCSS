@@ -37,19 +37,27 @@ static NSMutableDictionary *_cache;
     [super viewDidLoad];
     
     self.navigationItem.title = @"Rules";
+}
+
+- (OCSS *) css {
+    if (_css) return _css;
     
     if (!_cache) _cache = NSMutableDictionary.new;
     _css = _cache[self.url.absoluteString];
-    if (!_css) {
-        _css = [[OCSS alloc] initWithContentsOfURL:self.url];
-        _cache[self.url.absoluteString] = _css;
-    }
+    if (_css) return _css;
+
+    _css = [[OCSS alloc] initWithContentsOfURL:self.url];
+    _cache[self.url.absoluteString] = _css;
+    return _css;
+}
+
+- (NSArray *) sections {
+    if (_sections) return _sections;
     
     DEMOStyleListViewSection *sect;
     NSMutableArray *array = NSMutableArray.new;
     
-    for(OCSSStyleSheet *styleSheet in _css.document.styleSheets) {
-        // NSLog(@"%@\n%@", styleSheet.href, styleSheet.cssText);
+    for(OCSSStyleSheet *styleSheet in self.css.document.styleSheets) {
         for(OCSSRule *rule in styleSheet.cssRules) {
             if ([rule isKindOfClass:[OCSSStyleRule class]]) {
                 if (!sect) {
@@ -75,22 +83,22 @@ static NSMutableDictionary *_cache;
         }
     }
     
-    _sections = array;
+    return _sections = [NSArray arrayWithArray:array];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    DEMOStyleListViewSection *sect = _sections[section];
+    DEMOStyleListViewSection *sect = self.sections[section];
     return sect.title;
 };
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _sections.count;
+    return self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DEMOStyleListViewSection *sect = _sections[section];
+    DEMOStyleListViewSection *sect = self.sections[section];
     return sect.rows.count;
 }
 
@@ -99,11 +107,11 @@ static NSMutableDictionary *_cache;
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    DEMOStyleListViewSection *sect = _sections[indexPath.section];
+    DEMOStyleListViewSection *sect = self.sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
     cell.textLabel.text = rule.selectorText;
     cell.detailTextLabel.text = rule.style.cssText;
-    // NSLog(@"%i %@: %@", sect.isMedia, rule.selectorText, rule.parentRule);
+
     if (sect.isMedia) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -117,12 +125,12 @@ static NSMutableDictionary *_cache;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DEMOStyleListViewSection *sect = _sections[indexPath.section];
+    DEMOStyleListViewSection *sect = self.sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
     if (sect.isMedia) return;
     
     DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
-    vc.css = _css;
+    vc.css = self.css;
     vc.selector = rule.selectorText;
     
     [self.navigationController pushViewController:vc animated:YES];

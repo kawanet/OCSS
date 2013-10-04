@@ -15,27 +15,28 @@
 @end
 
 @implementation DEMOFileListViewController {
-    NSArray *_list;
+    NSArray *_rows;
     NSIndexPath *_currentPath;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if (!_list) {
-        _list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"css" subdirectory:@"sample"];
-    }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSArray *)rows {
+    if (_rows) return _rows;
+    return _rows = [NSBundle.mainBundle URLsForResourcesWithExtension:@"css" subdirectory:@"sample"];
+}
+
+- (NSInteger)numberOfrowsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _list.count;
+    return self.rows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -43,7 +44,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSURL *url = _list[indexPath.row];
+    NSURL *url = self.rows[indexPath.row];
     cell.textLabel.text = url.isFileURL ? url.lastPathComponent : url.absoluteString;
     
     return cell;
@@ -53,7 +54,7 @@
 {
     DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMOStyleListViewController"];
     
-    vc.url = _list[indexPath.row];
+    vc.url = self.rows[indexPath.row];
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -66,17 +67,17 @@
                                               otherButtonTitles:@"OK", nil];
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alertView show];
-    // UITextField *textField = [alertView textFieldAtIndex:0];
-    // textField.text = @"http://";
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
         UITextField *textField = [alertView textFieldAtIndex:0];
         if (textField.text.length > 7) {
-            _currentPath = [NSIndexPath indexPathForRow:_list.count inSection:0];
-            _list = [_list arrayByAddingObject:textField.text];
+            _currentPath = [NSIndexPath indexPathForRow:self.rows.count inSection:0];
+            NSURL *url = [NSURL URLWithString:textField.text];
+            _rows = [self.rows arrayByAddingObject:url]; // adhoc
             [self.tableView reloadData];
+            [self.tableView selectRowAtIndexPath:_currentPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         }
     }
 }

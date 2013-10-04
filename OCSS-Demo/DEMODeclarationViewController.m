@@ -27,7 +27,7 @@
 @end
 
 @implementation DEMODeclarationViewController {
-    NSMutableArray *_sections;
+    NSArray *_sections;
 }
 
 - (void)viewDidLoad
@@ -35,38 +35,42 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"Computed Style";
+}
+
+- (NSArray *) sections {
+    if (_sections) return _sections;
     
     NSArray *array0 = [self.selector componentsSeparatedByString:@","];
-    _sections = NSMutableArray.new;
+    NSMutableArray *array = NSMutableArray.new;
     
     for(NSString *selector0 in array0) {
         NSString *selector = [selector0 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         DEMODeclarationViewSection *sect = [DEMODeclarationViewSection new];
         sect.css = self.css;
         sect.selector = selector;
-        [_sections addObject:sect];
+        [array addObject:sect];
     }
+    
+    return _sections = [NSArray arrayWithArray:array];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    DEMODeclarationViewSection *sect = _sections[section];
+    DEMODeclarationViewSection *sect = self.sections[section];
     return sect.selector;
 };
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return nil;
-    // DEMODeclarationViewSection *sect = _sections[section];
-    // return sect.rows.cssText;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _sections.count;
+    return self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DEMODeclarationViewSection *sect = _sections[section];
+    DEMODeclarationViewSection *sect = self.sections[section];
     return sect.style.length;
 }
 
@@ -75,7 +79,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    DEMODeclarationViewSection *sect = _sections[indexPath.section];
+    DEMODeclarationViewSection *sect = self.sections[indexPath.section];
     OCXProperty *decl = sect.style[indexPath.row];
     OCSSStyleRule *rule = (OCSSStyleRule*)decl.parentStyleDeclaration.parentRule;
     
