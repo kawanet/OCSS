@@ -22,6 +22,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"Style Sheets";
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked:)];
+    self.navigationItem.rightBarButtonItem = button;
 }
 
 - (NSArray *)rows {
@@ -52,14 +57,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSURL *url = self.rows[indexPath.row];
+    [self pushToStyleListViewControllerWithURL:url];
+}
+
+- (void)pushToStyleListViewControllerWithURL:(NSURL *)url {
     DEMOStyleListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMOStyleListViewController"];
-    
-    vc.url = self.rows[indexPath.row];
-    
+    vc.url = url;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)onClickAddButton:(id)sender {
+- (IBAction)addButtonClicked:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Enter StyleSheet URL"
                                                         message:nil
                                                        delegate:self
@@ -77,7 +85,7 @@
             NSURL *url = [NSURL URLWithString:textField.text];
             _rows = [self.rows arrayByAddingObject:url]; // adhoc
             [self.tableView reloadData];
-            [self.tableView selectRowAtIndexPath:_currentPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            // [self.tableView selectRowAtIndexPath:_currentPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         }
     }
 }

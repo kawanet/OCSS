@@ -37,6 +37,9 @@ static NSMutableDictionary *_cache;
     [super viewDidLoad];
     
     self.navigationItem.title = @"Rules";
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonClicked:)];
+    self.navigationItem.rightBarButtonItem = button;
 }
 
 - (OCSS *) css {
@@ -128,12 +131,33 @@ static NSMutableDictionary *_cache;
     DEMOStyleListViewSection *sect = self.sections[indexPath.section];
     OCSSStyleRule *rule = sect.rows[indexPath.row];
     if (sect.isMedia) return;
-    
+    [self pushToDeclarationViewControllerWithSelector:rule.selectorText];
+}
+
+- (void)pushToDeclarationViewControllerWithSelector:(NSString *)selector {
     DEMODeclarationViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DEMODeclarationViewController"];
     vc.css = self.css;
-    vc.selector = rule.selectorText;
-    
+    vc.selector = selector;    
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)searchButtonClicked:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Enter CSS Selector"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
+    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alertView show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        if (textField.text.length) {
+            [self pushToDeclarationViewControllerWithSelector:textField.text];
+        }
+    }
 }
 
 @end

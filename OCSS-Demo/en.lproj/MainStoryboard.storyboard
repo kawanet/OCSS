@@ -24,13 +24,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="StyleSheets" id="aNd-aU-500">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G0K-eO-T6j">
-                            <connections>
-                                <action selector="onClickAddButton:" destination="47Y-w6-I6a" id="1VS-lf-Th6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="StyleSheets" id="aNd-aU-500"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5o-VW-zoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,11 +136,14 @@
         <class className="DEMOFileListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DEMOFileListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onClickAddButton:"/>
+                <relationship kind="action" name="addButtonClicked:"/>
             </relationships>
         </class>
         <class className="DEMOStyleListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DEMOStyleListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="searchButtonClicked:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
