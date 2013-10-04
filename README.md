@@ -19,8 +19,7 @@ NSString *padding = style[@"padding"];
 
 ### This supports:
 
-- HTML5's `getComputedStyle`-like 
-- Most of CSS3 selectors
+- Most of CSS selectors
   - Type selector: `E`
   - ID selectors: `#id`
   - Class selectors: `.class`
@@ -31,12 +30,13 @@ NSString *padding = style[@"padding"];
 
 ### This does NOT support:
 
-- Structural pseudo-classes selectors: `:first-child { }` (partially available)
-- Media queries: `@media screen and (min-width: 321px) and (max-device-width: 920px) { }` (parsed and ignored)
-- Import rule: `@import url(style.css);` (parsed and ignored)
-- Charset rule: `@charset "utf-8";` (parsed and ignored)
-- Inherited property value calculation: `font-size: inherit;`
-- Important priority: `color: red !important;`
+- Some of CSS features
+  - Structural pseudo-classes selectors: `:first-child { }` (partially available)
+  - Media queries: `@media screen and (min-width: 321px) and (max-device-width: 920px) { }` (parsed and ignored)
+  - Import rule: `@import url(style.css);` (parsed and ignored)
+  - Charset rule: `@charset "utf-8";` (parsed and ignored)
+  - Inherited property value calculation: `font-size: inherit;`
+  - Important priority: `color: red !important;`
 
 ## SEE ALSO
 
