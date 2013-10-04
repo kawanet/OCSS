@@ -100,8 +100,6 @@
 - (OCSSStyleDeclaration *) getComputedStyle:(OCHTMLElement *)element {
     NSMutableArray *array = NSMutableArray.new;
     
-    // NSLog(@"getComputedStyle: [%i] %@", !!element.parentNode, element.outerHTML);
-    
     NSUInteger counter = 0;
     for(OCSSStyleSheet *styleSheet in self.styleSheets) {
         for(OCSSStyleRule *rule in styleSheet.cssRules) {
@@ -114,7 +112,6 @@
                 counter ++;
                 hit.declarations = rule.style;
                 [array addObject:hit];
-                // NSLog(@"hit: %@", rule.selectorText);
             }
         }
     }

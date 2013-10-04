@@ -48,8 +48,6 @@
     NSString *old;
     
     for(OCXSelectorPart *part in sel.parts) {
-        // NSLog(@"[%c] '%@' '%@'", part.type, part.text, part.arg);
-        
         switch (part.type) {
             case OCSSSelectorUniversal:
                 // *	any element
@@ -133,11 +131,9 @@
                 [parent appendChild:node];
                 break;
         }
-
-        // NSLog(@"[%c] [%@] %@", part.type, part.text, node.outerHTML);
     }
     
-    NSLog(@"\n%@\n%@", selector, root.innerHTML);
+    // NSLog(@"\n%@\n%@", selector, root.innerHTML);
     
     return [self.document getComputedStyle:node];
 }

@@ -249,7 +249,6 @@ static NSRegularExpression *_re_whitespace;
         // return nil; // ignore
     }
     
-    // NSLog(@"%@: %@;", pstr, vstr);
     OCXProperty *decl = [OCXProperty new];
     decl.propertyName = pstr;
     decl.value.cssText = vstr;

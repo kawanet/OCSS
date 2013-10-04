@@ -66,8 +66,6 @@ static NSRegularExpression *_re_parts;
 - (NSArray *)parts {
     if (_parts) return _parts;
     NSMutableArray *array = NSMutableArray.new;
-    
-    // NSLog(@"parts: %@", self.selector);
 
     if (!_re_parts) {
         NSError *error;
@@ -179,7 +177,6 @@ static NSRegularExpression *_re_parts;
         
         [array addObject:part];
         
-        // NSLog(@"part: [%c] '%@' '%@' '%@'", part.type, part.text, part.arg, hitstr);
         if (++count >= 100) *stop = YES;
     }];
     
@@ -332,7 +329,6 @@ static NSRegularExpression *_re_parts;
         }
         
         if (!hit) break;
-        // NSLog(@"hit: [%c] '%@' '%@' '%@' [%i] '%@'", part.type, part.text, part.arg, element.tagName, !!element.parentNode, self.selector);
     }
     return hit;
 }
