@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OCSS.h"
 
 @interface DEMOStyleListViewController : UITableViewController
 

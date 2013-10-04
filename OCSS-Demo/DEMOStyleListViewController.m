@@ -8,6 +8,7 @@
 
 #import "DEMOStyleListViewController.h"
 #import "DEMODeclarationViewController.h"
+#import "OCSS.h"
 
 @interface DEMOStyleListViewSection : NSObject
 @property NSString *title;
