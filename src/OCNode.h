@@ -23,18 +23,19 @@
  */
 
 @interface OCNode : NSObject
-extern const unsigned short      OC_ELEMENT_NODE;
-extern const unsigned short      OC_ATTRIBUTE_NODE;
-extern const unsigned short      OC_TEXT_NODE;
-extern const unsigned short      OC_CDATA_SECTION_NODE;
-extern const unsigned short      OC_ENTITY_REFERENCE_NODE;
-extern const unsigned short      OC_ENTITY_NODE;
-extern const unsigned short      OC_PROCESSING_INSTRUCTION_NODE;
-extern const unsigned short      OC_COMMENT_NODE;
-extern const unsigned short      OC_DOCUMENT_NODE;
-extern const unsigned short      OC_DOCUMENT_TYPE_NODE;
-extern const unsigned short      OC_DOCUMENT_FRAGMENT_NODE;
-extern const unsigned short      OC_NOTATION_NODE;
+
++ (unsigned short) ELEMENT_NODE;
++ (unsigned short) ATTRIBUTE_NODE;
++ (unsigned short) TEXT_NODE;
++ (unsigned short) CDATA_SECTION_NODE;
++ (unsigned short) ENTITY_REFERENCE_NODE;
++ (unsigned short) ENTITY_NODE;
++ (unsigned short) PROCESSING_INSTRUCTION_NODE;
++ (unsigned short) COMMENT_NODE;
++ (unsigned short) DOCUMENT_NODE;
++ (unsigned short) DOCUMENT_TYPE_NODE;
++ (unsigned short) DOCUMENT_FRAGMENT_NODE;
++ (unsigned short) NOTATION_NODE;
 
 @property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;

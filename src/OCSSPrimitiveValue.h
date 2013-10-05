@@ -10,6 +10,33 @@
 
 @interface OCSSPrimitiveValue : OCSSValue
 
++ (unsigned short) CSS_UNKNOWN;
++ (unsigned short) CSS_NUMBER;
++ (unsigned short) CSS_PERCENTAGE;
++ (unsigned short) CSS_EMS;
++ (unsigned short) CSS_EXS;
++ (unsigned short) CSS_PX;
++ (unsigned short) CSS_CM;
++ (unsigned short) CSS_MM;
++ (unsigned short) CSS_IN;
++ (unsigned short) CSS_PT;
++ (unsigned short) CSS_PC;
++ (unsigned short) CSS_DEG;
++ (unsigned short) CSS_RAD;
++ (unsigned short) CSS_GRAD;
++ (unsigned short) CSS_MS;
++ (unsigned short) CSS_S;
++ (unsigned short) CSS_HZ;
++ (unsigned short) CSS_KHZ;
++ (unsigned short) CSS_DIMENSION;
++ (unsigned short) CSS_STRING;
++ (unsigned short) CSS_URI;
++ (unsigned short) CSS_IDENT;
++ (unsigned short) CSS_ATTR;
++ (unsigned short) CSS_COUNTER;
++ (unsigned short) CSS_RECT;
++ (unsigned short) CSS_RGBCOLOR;
+
 @end
 
 // http://www.w3.org/TR/DOM-Level-2-Style/idl-definitions.html

@@ -12,6 +12,14 @@
 
 @interface OCSSRule : NSObject
 
++ (unsigned short) UNKNOWN_RULE;
++ (unsigned short) STYLE_RULE;
++ (unsigned short) CHARSET_RULE;
++ (unsigned short) IMPORT_RULE;
++ (unsigned short) MEDIA_RULE;
++ (unsigned short) FONT_FACE_RULE;
++ (unsigned short) PAGE_RULE;
+
 @property (readonly) NSString *cssText;
 @property (weak) OCSSStyleSheet *parentStyleSheet;
 @property (weak) OCSSRule *parentRule;
