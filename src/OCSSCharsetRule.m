@@ -10,6 +10,10 @@
 
 @implementation OCSSCharsetRule
 
+- (unsigned short) type {
+    return [OCSSRule CHARSET_RULE];
+}
+
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@charset %@;\n", self.encoding];
     return text;

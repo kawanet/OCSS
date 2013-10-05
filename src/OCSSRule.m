@@ -17,6 +17,8 @@
 + (unsigned short) MEDIA_RULE { return 4; }
 + (unsigned short) FONT_FACE_RULE { return 5; }
 + (unsigned short) PAGE_RULE { return 6; }
++ (unsigned short) MARGIN_RULE { return 9; }
++ (unsigned short) NAMESPACE_RULE { return 10; }
 
 - (NSString *)cssText {
     return nil; // not implemented

@@ -10,6 +10,10 @@
 
 @implementation OCSSImportRule
 
+- (unsigned short) type {
+    return [OCSSRule IMPORT_RULE];
+}
+
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@import %@;\n", self.href];
     return text;

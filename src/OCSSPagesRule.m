@@ -11,6 +11,10 @@
 
 @implementation OCSSPagesRule
 
+- (unsigned short) type {
+    return [OCSSRule PAGE_RULE];
+}
+
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@pages %@ {\n%@ }\n", self.selectorText, self.style.cssText];
     return text;

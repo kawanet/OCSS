@@ -11,6 +11,10 @@
 
 @implementation OCSSFontFaceRule
 
+- (unsigned short) type {
+    return [OCSSRule FONT_FACE_RULE];
+}
+
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@font-face {\n%@}\n", self.style.cssText];
     return text;

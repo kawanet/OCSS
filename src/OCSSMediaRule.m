@@ -14,6 +14,10 @@
     OCSSRuleList *_cssRules;
 }
 
+- (unsigned short) type {
+    return [OCSSRule MEDIA_RULE];
+}
+
 - (NSString *)cssText {
     NSString *text = [NSString stringWithFormat:@"@media %@ {\n%@\n}\n", self.media.mediaText, self.cssRules.cssText];
     return text;

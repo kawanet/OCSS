@@ -14,6 +14,10 @@
     OCSSStyleDeclaration *_style;
 }
 
+- (unsigned short) type {
+    return [OCSSRule STYLE_RULE];
+}
+
 - (OCSSStyleDeclaration *)style {
     if (_style) return _style;
     return _style = [OCSSStyleDeclaration new];
