@@ -11,7 +11,6 @@
 #import "OCDOMTokenList.h"
 #import "OCHTMLDocument.h"
 #import "OCHTMLElement.h"
-#import "OCLocation.h"
 #import "OCMediaList.h"
 #import "OCNode.h"
 #import "OCSSCharsetRule.h"
