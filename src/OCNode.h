@@ -38,12 +38,12 @@ extern const unsigned short      OC_NOTATION_NODE;
 
 @property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;
-@property (readonly) OCNode *firstChild;
-@property (readonly) OCNode *lastChild;
-@property (readonly) OCNode *previousSibling;
-@property (readonly) OCNode *nextSibling;
 @property (weak) OCDocument *ownerDocument;
-- (OCNode *) appendChild:(OCNode*)newChild;
+- (instancetype) firstChild;
+- (instancetype) lastChild;
+- (instancetype) previousSibling;
+- (instancetype) nextSibling;
+- (instancetype) appendChild:(OCNode*)newChild;
 @end
 
 /*

@@ -34,17 +34,17 @@ const unsigned short      OC_NOTATION_NODE                  = 12;
     return _childNodes = [OCNodeList new];
 }
 
-- (OCNode *) firstChild {
+- (instancetype) firstChild {
     OCNodeList *nodes = self.childNodes;
     return nodes.length ? nodes[0] : nil;
 }
 
-- (OCNode *) lastChild {
+- (instancetype) lastChild {
     OCNodeList *nodes = self.childNodes;
     return nodes.length ? nodes[nodes.length-1] : nil;
 }
 
-- (OCNode *) previousSibling {
+- (instancetype) previousSibling {
     OCNode *parent = self.parentNode;
     NSUInteger index = [parent.childNodes.list indexOfObject:self];
     if (index > 0) {
@@ -55,7 +55,7 @@ const unsigned short      OC_NOTATION_NODE                  = 12;
     }
 }
 
-- (OCNode *) nextSibling {
+- (instancetype) nextSibling {
     OCNode *parent = self.parentNode;
     NSUInteger index = [parent.childNodes.list indexOfObject:self];
     index ++;
@@ -66,7 +66,7 @@ const unsigned short      OC_NOTATION_NODE                  = 12;
     }
 }
 
-- (OCNode *) appendChild:(OCNode*)newChild {
+- (instancetype) appendChild:(OCNode*)newChild {
     newChild.parentNode = self;
     newChild.ownerDocument = self.ownerDocument;
     [self.childNodes.list addObject:newChild];

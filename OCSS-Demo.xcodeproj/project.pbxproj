@@ -294,6 +294,11 @@
 				CLASSPREFIX = DEMO;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Kawanet;
+				TargetAttributes = {
+					1DF5318017F9CB2D00A3A58B = {
+						DevelopmentTeam = K4Y4A4J5WN;
+					};
+				};
 			};
 			buildConfigurationList = 1DF5317C17F9CB2D00A3A58B /* Build configuration list for PBXProject "OCSS-Demo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -449,10 +454,13 @@
 		1DF531A517F9CB2D00A3A58B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCSS-Demo/OCSS-Demo-Prefix.pch";
 				INFOPLIST_FILE = "OCSS-Demo/OCSS-Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,10 +468,13 @@
 		1DF531A617F9CB2D00A3A58B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OCSS-Demo/OCSS-Demo-Prefix.pch";
 				INFOPLIST_FILE = "OCSS-Demo/OCSS-Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
