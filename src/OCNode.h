@@ -38,9 +38,9 @@
 + (unsigned short) NOTATION_NODE;
 
 @property (readonly) unsigned short nodeType;
-@property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;
 @property (weak) OCDocument *ownerDocument;
+- (instancetype) parentNode;
 - (instancetype) firstChild;
 - (instancetype) lastChild;
 - (instancetype) previousSibling;

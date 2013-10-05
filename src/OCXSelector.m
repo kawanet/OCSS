@@ -283,7 +283,7 @@ static NSRegularExpression *_re_parts;
                 
             case OCSSSelectorDescendant:
                 // E F	an F element descendant of an E element
-                element = (OCHTMLElement*)element.parentNode;
+                element = element.parentNode;
                 hit = !!element;
                 descendantMode = YES;
                 siblingMode = NO;
@@ -292,7 +292,7 @@ static NSRegularExpression *_re_parts;
             
             case OCSSSelectorChild:
                 // E > F	an F element child of an E element
-                element = (OCHTMLElement*)element.parentNode;
+                element = element.parentNode;
                 hit = !!element;
                 descendantMode = NO;
                 siblingMode = NO;
@@ -300,7 +300,7 @@ static NSRegularExpression *_re_parts;
                 
             case OCSSSelectorAdjacentSibling:
                 // E + F	an F element immediately preceded by an E element
-                element = (OCHTMLElement*)element.previousSibling;
+                element = element.previousSibling;
                 hit = !!element;
                 descendantMode = NO;
                 siblingMode = NO;
@@ -308,7 +308,7 @@ static NSRegularExpression *_re_parts;
                 
             case OCSSSelectorGeneralSibling:
                 // E ~ F	an F element preceded by an E element
-                element = (OCHTMLElement*)element.previousSibling;
+                element = element.previousSibling;
                 hit = !!element;
                 descendantMode = NO;
                 siblingMode = YES;
@@ -317,13 +317,13 @@ static NSRegularExpression *_re_parts;
         }
         
         if (!hit && descendantMode) {
-            element = (OCHTMLElement*)element.parentNode;
+            element = element.parentNode;
             hit = !!element;
             i = previousIndex;
         }
         
         if (!hit && siblingMode) {
-            element = (OCHTMLElement*)element.previousSibling;
+            element = element.previousSibling;
             hit = !!element;
             i = previousIndex;
         }

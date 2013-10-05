@@ -14,6 +14,7 @@
 
 @implementation OCNode {
     OCNodeList *_childNodes;
+    __weak OCNode *_parentNode;
 }
 
 + (unsigned short) ELEMENT_NODE { return 1; }
@@ -28,6 +29,10 @@
 + (unsigned short) DOCUMENT_TYPE_NODE { return 10; }
 + (unsigned short) DOCUMENT_FRAGMENT_NODE { return 11; }
 + (unsigned short) NOTATION_NODE { return 12; }
+
+- (instancetype) parentNode {
+    return _parentNode;
+}
 
 - (OCNodeList *) childNodes {
     if (_childNodes) return _childNodes;
@@ -67,7 +72,7 @@
 }
 
 - (instancetype) appendChild:(OCNode*)newChild {
-    newChild.parentNode = self;
+    _parentNode = self;
     newChild.ownerDocument = self.ownerDocument;
     [self.childNodes.list addObject:newChild];
     return newChild;
