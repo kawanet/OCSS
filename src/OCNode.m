@@ -79,13 +79,25 @@
 @end
 
 @implementation OCText
+- (unsigned short) nodeType {
+    return [OCNode ELEMENT_NODE];
+}
 @end
 
 @implementation OCCDATASection
+- (unsigned short) nodeType {
+    return [OCNode CDATA_SECTION_NODE];
+}
 @end
 
 @implementation OCComment
+- (unsigned short) nodeType {
+    return [OCNode COMMENT_NODE];
+}
 @end
 
 @implementation OCAttr
+- (unsigned short) nodeType {
+    return [OCNode ATTRIBUTE_NODE];
+}
 @end

@@ -37,6 +37,7 @@
 + (unsigned short) DOCUMENT_FRAGMENT_NODE;
 + (unsigned short) NOTATION_NODE;
 
+@property (readonly) unsigned short nodeType;
 @property (weak) OCNode *parentNode;
 @property (readonly) OCNodeList *childNodes;
 @property (weak) OCDocument *ownerDocument;

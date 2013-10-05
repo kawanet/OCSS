@@ -14,6 +14,10 @@
     OCDOMTokenList *_classList;
 }
 
+- (unsigned short) nodeType {
+    return [OCNode ELEMENT_NODE];
+}
+
 - (NSMutableDictionary *) attributes {
     if (_attributes) return _attributes;
     return _attributes = [NSMutableDictionary new];
