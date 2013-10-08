@@ -15,8 +15,8 @@
 @interface OCSSStyleRule : OCSSRule
 
 @property (readonly) OCSSStyleDeclaration *style;
-@property OCXSelectorList *selectors;
-@property (readonly) NSString *selectorText;
+@property (readonly) OCXSelectorList *selectorList;
+@property (nonatomic) NSString *selectorText;
 
 - (OCXProperty *) declarationForProperty:(NSString *)property;
 

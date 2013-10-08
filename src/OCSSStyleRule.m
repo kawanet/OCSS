@@ -12,6 +12,7 @@
 
 @implementation OCSSStyleRule {
     OCSSStyleDeclaration *_style;
+    OCXSelectorList *_selectorList;
 }
 
 - (unsigned short) type {
@@ -23,6 +24,11 @@
     _style = [OCSSStyleDeclaration new];
     _style.parentRule = self;
     return _style;
+}
+
+- (OCXSelectorList *)selectorList {
+    if (_selectorList) return _selectorList;
+    return _selectorList = [OCXSelectorList new];
 }
 
 - (OCXProperty *) declarationForProperty:(NSString *)property {
@@ -47,12 +53,27 @@
 
 - (NSString *) selectorText {
     NSMutableArray *array = NSMutableArray.new;
-    for(OCXSelector *selector in self.selectors) {
+    for(OCXSelector *selector in self.selectorList) {
         if (!selector.selector) continue;
         [array addObject:selector.selector];
     }
     NSString *text = [array componentsJoinedByString:@", "];
     return text;
+}
+
+- (void) setSelectorText:(NSString *)selectors {
+    NSString *str1;
+    for(str1 in [selectors componentsSeparatedByString:@","]) {
+        str1 = [self trim:str1];
+        if (!str1.length) continue;
+        OCXSelector *selector = [OCXSelector new];
+        selector.selector = str1;
+        [self.selectorList addSelector:selector];
+    }
+}
+
+- (NSString *) trim:(NSString*)str {
+    return [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 @end

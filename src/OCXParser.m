@@ -157,35 +157,23 @@ static NSRegularExpression *_re_whitespace;
     return nil;
 }
 
-- (OCXSelectorList*) selector {
+- (NSString *) selector {
     NSError *error;
     if (!_re_selector) _re_selector = [NSRegularExpression regularExpressionWithPattern:@"^([^\\{\\}]+)" options:0 error:&error];
     NSString *matched = [self match:_re_selector];
-
-    OCXSelectorList *selectors = [OCXSelectorList new];
-
-    NSString *str1;
-    for(str1 in [matched componentsSeparatedByString:@","]) {
-        str1 = [self trim:str1];
-        if (!str1.length) continue;
-        OCXSelector *selector = [OCXSelector new];
-        selector.selector = str1;
-        [selectors addSelector:selector];
-    }
-    
-    return selectors;
+    return matched;
 }
 
 - (OCSSStyleRule*) rule {
     // selector
-    OCXSelectorList *selectors = [self selector];
+    NSString *selectors = [self selector];
     if (!selectors) return nil;
     [self comments];
     
     // { property: value; ... }
     
     OCSSStyleRule *rule = [OCSSStyleRule new];
-    rule.selectors = selectors;
+    rule.selectorText = selectors;
     [self declarationsForStyle:rule.style];
     return rule;
 }

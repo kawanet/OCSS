@@ -102,7 +102,7 @@
     for(OCSSStyleSheet *styleSheet in self.styleSheets) {
         for(OCSSStyleRule *rule in styleSheet.cssRules) {
             if (![rule isKindOfClass:[OCSSStyleRule class]]) continue;
-            for(OCXSelector *selector in rule.selectors) {
+            for(OCXSelector *selector in rule.selectorList) {
                 if (![selector isSelectedForElement:element]) continue;
                 OCStyleHit *hit = [OCStyleHit new];
                 hit.selector = selector;
