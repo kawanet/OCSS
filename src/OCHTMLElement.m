@@ -17,6 +17,10 @@
     return [OCNode ELEMENT_NODE];
 }
 
+- (NSString *)tagName {
+    return self.nodeName;
+}
+
 - (NSString *)getAttribute:(NSString*)name {
     OCAttr *attr = [self getAttributeNode:name];
     return attr.value;

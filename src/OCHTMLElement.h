@@ -11,7 +11,7 @@
 @class OCDOMTokenList;
 
 @interface OCElement : OCNode
-@property NSString* tagName;
+- (NSString *)tagName;
 - (NSString *)getAttribute:(NSString*)name;
 - (OCAttr *)getAttributeNode:(NSString*)name;
 - (void)setAttributeNode:(OCAttr*)newAttr;

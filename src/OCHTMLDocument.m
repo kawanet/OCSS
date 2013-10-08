@@ -36,9 +36,8 @@
 @implementation OCDocument
 
 - (OCHTMLElement*)createElement:(NSString*)tagName {
-    OCHTMLElement *element = [[OCHTMLElement alloc] init];
+    OCHTMLElement *element = [[OCHTMLElement alloc] initWithName:tagName];
     element.ownerDocument = self;
-    element.tagName = tagName;
     return element;
 }
 

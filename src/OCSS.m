@@ -56,8 +56,7 @@
                 
             case OCSSSelectorType:
                 // E	an element of type E
-                node = [OCHTMLElement new];
-                node.tagName = part.text;
+                node = [[OCHTMLElement alloc] initWithName:part.text];
                 [parent appendChild:node];
                 break;
         }
