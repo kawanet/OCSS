@@ -15,6 +15,7 @@
 @implementation OCNode {
     OCNodeList *_childNodes;
     __weak OCNode *_parentNode;
+    OCNamedNodeMap *_attributes;
 }
 
 + (unsigned short) ELEMENT_NODE { return 1; }
@@ -69,6 +70,11 @@
     } else {
         return nil; // >= length or NSNotFound
     }
+}
+
+- (OCNamedNodeMap *) attributes {
+    if (_attributes) return _attributes;
+    return _attributes = [OCNamedNodeMap new];
 }
 
 - (instancetype) appendChild:(OCNode*)newChild {

@@ -10,17 +10,11 @@
 #import "OCSS.h"
 
 @implementation OCElement {
-    NSMutableDictionary *_attributes;
     OCDOMTokenList *_classList;
 }
 
 - (unsigned short) nodeType {
     return [OCNode ELEMENT_NODE];
-}
-
-- (NSMutableDictionary *) attributes {
-    if (_attributes) return _attributes;
-    return _attributes = [NSMutableDictionary new];
 }
 
 - (NSString *)getAttribute:(NSString*)name {
@@ -96,7 +90,8 @@
     NSString *lower = self.tagName.lowercaseString;
     NSString *inner = self.innerHTML;
     NSMutableArray *array = [NSMutableArray new];
-    for(OCAttr *attr in self.attributes.allValues) {
+    for(NSString *name in self.attributes) {
+        OCAttr *attr = [self getAttributeNode:name];
         NSString *pair;
         if (attr.value) {
             pair = [NSString stringWithFormat:@"%@=\"%@\"", attr.name, attr.value];

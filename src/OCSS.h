@@ -12,6 +12,7 @@
 #import "OCHTMLDocument.h"
 #import "OCHTMLElement.h"
 #import "OCMediaList.h"
+#import "OCNamedNodeMap.h"
 #import "OCNode.h"
 #import "OCSSCharsetRule.h"
 #import "OCSSFontFaceRule.h"

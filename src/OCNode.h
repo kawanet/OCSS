@@ -9,6 +9,7 @@
 #import "OCXList.h"
 
 @class OCDocument;
+@class OCNamedNodeMap;
 
 @interface OCNodeList : OCXList
 @end
@@ -37,6 +38,7 @@
 + (unsigned short) DOCUMENT_FRAGMENT_NODE;
 + (unsigned short) NOTATION_NODE;
 
+@property NSString *nodeName;
 @property (readonly) unsigned short nodeType;
 @property (readonly) OCNodeList *childNodes;
 @property (weak) OCDocument *ownerDocument;
@@ -45,6 +47,7 @@
 - (instancetype) lastChild;
 - (instancetype) previousSibling;
 - (instancetype) nextSibling;
+- (OCNamedNodeMap *) attributes;
 - (instancetype) appendChild:(OCNode*)newChild;
 @end
 

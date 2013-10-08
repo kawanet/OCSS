@@ -12,7 +12,6 @@
 
 @interface OCElement : OCNode
 @property NSString* tagName;
-@property (readonly) NSMutableDictionary *attributes;
 - (NSString *)getAttribute:(NSString*)name;
 - (OCAttr *)getAttributeNode:(NSString*)name;
 - (void)setAttributeNode:(OCAttr*)newAttr;
