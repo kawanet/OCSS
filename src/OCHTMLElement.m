@@ -46,8 +46,7 @@
     if (self.ownerDocument) {
         node = [self.ownerDocument createAttribute:name];
     } else {
-        node = [OCAttr new];
-        node.name = name;
+        node = [[OCAttr alloc] initWithName:name];
     }
     node.value = value;
     [self setAttributeNode:node];

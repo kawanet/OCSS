@@ -69,9 +69,8 @@
 }
 
 - (OCAttr*)createAttribute:(NSString*)name {
-    OCAttr *node = [[OCAttr alloc] init];
+    OCAttr *node = [[OCAttr alloc] initWithName:name];
     node.ownerDocument = self;
-    node.name = name;
     return node;
 }
 

@@ -38,7 +38,8 @@
 + (unsigned short) DOCUMENT_FRAGMENT_NODE;
 + (unsigned short) NOTATION_NODE;
 
-@property NSString *nodeName;
+@property (readonly) NSString *nodeName;
+@property NSString *nodeValue;
 @property (readonly) unsigned short nodeType;
 @property (readonly) OCNodeList *childNodes;
 @property (weak) OCDocument *ownerDocument;
@@ -49,6 +50,9 @@
 - (instancetype) nextSibling;
 - (OCNamedNodeMap *) attributes;
 - (instancetype) appendChild:(OCNode*)newChild;
+
+- (instancetype) initWithName:(NSString *)name;
+
 @end
 
 /*
@@ -136,8 +140,8 @@
  */
 
 @interface OCAttr : OCNode
-@property NSString *name;
-@property NSString *value;
+@property (nonatomic,readonly) NSString *name;
+@property (nonatomic) NSString *value;
 @end
 
 /*

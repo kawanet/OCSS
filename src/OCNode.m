@@ -84,6 +84,12 @@
     return newChild;
 }
 
+- (instancetype) initWithName:(NSString *)name {
+    self = [self init];
+    _nodeName = name;
+    return self;
+}
+
 @end
 
 @implementation OCCharacterData
@@ -111,4 +117,15 @@
 - (unsigned short) nodeType {
     return [OCNode ATTRIBUTE_NODE];
 }
+
+- (NSString *) name {
+    return self.nodeName;
+}
+- (NSString *) value {
+    return self.nodeValue;
+}
+- (void) setValue:(NSString *)value {
+    self.nodeValue = value;
+}
+
 @end
