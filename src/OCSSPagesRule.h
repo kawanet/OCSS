@@ -1,5 +1,5 @@
 //
-//  CSSPagesRule.h
+//  OCSSPagesRule.h
 //  OCSS
 //
 //  Created by Yusuke Kawasaki on 2013/09/30.

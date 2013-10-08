@@ -1,5 +1,5 @@
 //
-//  AIMedia.h
+//  OCSSMediaRule.h
 //  OCSS
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.

@@ -1,5 +1,5 @@
 //
-//  AIMedia.m
+//  OCSSMediaRule.m
 //  OCSS
 //
 //  Created by Yusuke Kawasaki on 2013/09/29.
@@ -30,7 +30,9 @@
 
 - (OCSSRuleList *)cssRules {
     if (_cssRules) return _cssRules;
-    return _cssRules = [OCSSRuleList new];
+    _cssRules = [OCSSRuleList new];
+    _cssRules.parentRule = self;
+    return _cssRules;
 }
 
 - (void) setCssRules:(OCSSRuleList *)rules {
