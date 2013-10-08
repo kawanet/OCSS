@@ -42,7 +42,7 @@
 @property NSString *nodeValue;
 @property (readonly) unsigned short nodeType;
 @property (readonly) OCNodeList *childNodes;
-@property (weak) OCDocument *ownerDocument;
+@property (nonatomic) OCDocument *ownerDocument; // TODO: readonly
 - (instancetype) parentNode;
 - (instancetype) firstChild;
 - (instancetype) lastChild;

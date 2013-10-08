@@ -20,12 +20,9 @@
 
 - (OCSSStyleDeclaration *)style {
     if (_style) return _style;
-    return _style = [OCSSStyleDeclaration new];
-}
-
-- (void) setStyle:(OCSSStyleDeclaration *)style {
-    style.parentRule = self;
-    _style = style;
+    _style = [OCSSStyleDeclaration new];
+    _style.parentRule = self;
+    return _style;
 }
 
 - (OCXProperty *) declarationForProperty:(NSString *)property {

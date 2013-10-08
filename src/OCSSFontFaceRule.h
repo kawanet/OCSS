@@ -12,7 +12,7 @@
 
 @interface OCSSFontFaceRule : OCSSRule
 
-@property OCSSStyleDeclaration *style;
+@property (readonly) OCSSStyleDeclaration *style;
 
 @end
 

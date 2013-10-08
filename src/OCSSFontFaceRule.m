@@ -9,10 +9,19 @@
 #import "OCSSFontFaceRule.h"
 #import "OCSS.h"
 
-@implementation OCSSFontFaceRule
+@implementation OCSSFontFaceRule {
+    OCSSStyleDeclaration *_style;
+}
 
 - (unsigned short) type {
     return [OCSSRule FONT_FACE_RULE];
+}
+
+- (OCSSStyleDeclaration *)style {
+    if (_style) return _style;
+    _style = [OCSSStyleDeclaration new];
+    _style.parentRule = self;
+    return _style;
 }
 
 - (NSString *)cssText {

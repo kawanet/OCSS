@@ -13,7 +13,7 @@
 @interface OCSSPagesRule : OCSSRule
 
 @property NSString *selectorText;
-@property OCSSStyleDeclaration *style;
+@property (readonly) OCSSStyleDeclaration *style;
 
 @end
 

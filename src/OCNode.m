@@ -16,6 +16,7 @@
     OCNodeList *_childNodes;
     __weak OCNode *_parentNode;
     OCNamedNodeMap *_attributes;
+    __weak OCDocument *_ownerDocument;
 }
 
 + (unsigned short) ELEMENT_NODE { return 1; }
@@ -35,9 +36,23 @@
     return _parentNode;
 }
 
+// private
+- (void) setParentNode:(OCNode*)parentNode {
+    _parentNode = parentNode;
+}
+
 - (OCNodeList *) childNodes {
     if (_childNodes) return _childNodes;
     return _childNodes = [OCNodeList new];
+}
+
+- (OCDocument *) ownerDocument {
+    return _ownerDocument;
+}
+
+// private
+- (void) setOwnerDocument:(OCDocument *)ownerDocument {
+    _ownerDocument = ownerDocument;
 }
 
 - (instancetype) firstChild {
@@ -78,7 +93,7 @@
 }
 
 - (instancetype) appendChild:(OCNode*)newChild {
-    _parentNode = self;
+    newChild.parentNode = self;
     newChild.ownerDocument = self.ownerDocument;
     [self.childNodes.list addObject:newChild];
     return newChild;

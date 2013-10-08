@@ -132,7 +132,14 @@
         }
     }
     
-    // NSLog(@"\n%@\n%@", selector, root.innerHTML);
+    NSLog(@"%@ %@", node.nodeName, node.parentNode);
+    NSLog(@"\n%@\n%@", selector, root.innerHTML);
+    OCSSStyleSheet *sheet = self.document.styleSheets[0];
+    NSLog(@"\n%@", sheet.cssText);
+    OCSSStyleRule *rule = sheet.cssRules[1];
+    NSLog(@"%@ %@\n%@", rule.parentRule, rule.parentStyleSheet, rule.cssText);
+    OCSSStyleDeclaration *style = rule.style;
+    NSLog(@"%@\n%@", style.parentRule, style.cssText);
     
     return [self.document getComputedStyle:node];
 }

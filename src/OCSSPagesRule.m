@@ -9,10 +9,19 @@
 #import "OCSSPagesRule.h"
 #import "OCSS.h"
 
-@implementation OCSSPagesRule
+@implementation OCSSPagesRule {
+    OCSSStyleDeclaration *_style;
+}
 
 - (unsigned short) type {
     return [OCSSRule PAGE_RULE];
+}
+
+- (OCSSStyleDeclaration *)style {
+    if (_style) return _style;
+    _style = [OCSSStyleDeclaration new];
+    _style.parentRule = self;
+    return _style;
 }
 
 - (NSString *)cssText {

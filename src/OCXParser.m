@@ -101,13 +101,13 @@ static NSRegularExpression *_re_whitespace;
     NSString *astr = [self atargument];
     OCSSPagesRule *pages = [OCSSPagesRule new];
     pages.selectorText = astr;
-    pages.style = [self declarations];
+    [self declarationsForStyle:pages.style];
     return pages;
 }
 
 - (OCSSFontFaceRule*) atfontface {
     OCSSFontFaceRule *atrule = [OCSSFontFaceRule new];
-    atrule.style = [self declarations];
+    [self declarationsForStyle:atrule.style];
     return atrule;
 }
 
@@ -183,11 +183,10 @@ static NSRegularExpression *_re_whitespace;
     [self comments];
     
     // { property: value; ... }
-    OCSSStyleDeclaration *declarations = [self declarations];
     
     OCSSStyleRule *rule = [OCSSStyleRule new];
     rule.selectors = selectors;
-    rule.style = declarations;
+    [self declarationsForStyle:rule.style];
     return rule;
 }
 
@@ -256,31 +255,28 @@ static NSRegularExpression *_re_whitespace;
     return decl;
 }
 
-- (OCSSStyleDeclaration *) declarations {
+- (void) declarationsForStyle:(OCSSStyleDeclaration *)style {
     if (![self open]) {
         // NSLog(@"missing '{'");
-        return nil;
+        return;
     }
     
     [self comments];
     OCXProperty *decl;
-    OCSSStyleDeclaration *decls = [OCSSStyleDeclaration new];
     
     BOOL found = NO;
     while((decl = [self declaration])) {
         found = YES;
-        [decls addDeclaration:decl];
+        [style addDeclaration:decl];
         [self comments];
     }
-    if (!found) return nil;
+    if (!found) return;
     
     [self comments];
     if (![self close]) {
         // NSLog(@"missing '}'");
     }
     [self comments];
-    
-    return decls;
 }
 
 - (unichar) nextChar {
